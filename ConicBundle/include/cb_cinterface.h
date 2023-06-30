@@ -108,13 +108,14 @@
 
 */
 
-#include "MatrixCBSolver.hxx"
-
 
 /*@{*/
 
 #ifdef __cplusplus
 class CB_CSolver;
+
+#include "MatrixCBSolver.hxx"
+
 /** @brief pointer to a ConicBundle problem
  */
 typedef CB_CSolver* cb_problemp;
@@ -122,6 +123,16 @@ typedef CB_CSolver* cb_problemp;
 /** @brief pointer to a ConicBundle problem
  */
 typedef struct CB_CSolver* cb_problemp;
+#endif
+
+#ifdef _WINDOWS
+#ifdef CONICBUNDLE_EXPORTS
+#define dll __declspec(dllexport)
+#else
+#define dll __declspec(dllimport)
+#endif
+#else
+#define dll
 #endif
 
 #ifdef __cplusplus
@@ -367,7 +378,7 @@ extern "C" {
           - !=0,   pointer to the problem object
    */
 
-  cb_problemp  cb_construct_problem(int no_bundle);
+  dll cb_problemp  cb_construct_problem(int no_bundle);
 
 
   /* *****************************************************************
@@ -385,7 +396,7 @@ extern "C" {
           - >0,  failure
    */
 
-  int cb_destruct_problem(cb_problemp* p);
+  dll int cb_destruct_problem(cb_problemp* p);
 
 
   /* *****************************************************************
@@ -399,7 +410,7 @@ extern "C" {
 
     */
 
-  void cb_clear(cb_problemp p);
+  dll void cb_clear(cb_problemp p);
 
 
   /* *****************************************************************
@@ -413,7 +424,7 @@ extern "C" {
 
    */
 
-  void cb_set_defaults(cb_problemp p);
+  dll void cb_set_defaults(cb_problemp p);
 
 
   /* *****************************************************************
@@ -457,12 +468,12 @@ extern "C" {
 
     */
 
-  int cb_init_problem(/* input: */
+  dll int cb_init_problem(/* input: */
     cb_problemp p,
     int m, /* dimension of argument/number Lag mult */
     double* lowerb, /* pointer to array, may be NULL */
     double* upperb, /* point to array, may be NULL */
-    double offset
+    double offset = 0.
   );
 
   /* *****************************************************************
@@ -512,14 +523,14 @@ extern "C" {
 
    */
 
-  int cb_add_function(cb_problemp p,
+  dll int cb_add_function(cb_problemp p,
     void* function_key,
     cb_functionp f,
     cb_subgextp se,
     int primaldim,
-    double fun_factor,
-    int fun_task,
-    ConicBundle::AffineFunctionTransformation* aft);
+    double fun_factor = 1.,
+    int fun_task = 0,
+    ConicBundle::AffineFunctionTransformation* aft = 0);
 
 
   /* *****************************************************************
@@ -547,7 +558,7 @@ extern "C" {
 
    */
 
-  int cb_set_lower_bound(cb_problemp p, int i, double lower_bound);
+  dll int cb_set_lower_bound(cb_problemp p, int i, double lower_bound);
 
 
   /* *****************************************************************
@@ -576,7 +587,7 @@ extern "C" {
    */
 
 
-  int cb_set_upper_bound(cb_problemp p, int i, double upper_bound);
+  dll int cb_set_upper_bound(cb_problemp p, int i, double upper_bound);
 
 
   /* *****************************************************************
@@ -624,7 +635,7 @@ extern "C" {
 
    */
 
-  int cb_append_variables(cb_problemp p,
+  dll int cb_append_variables(cb_problemp p,
     int n_append, double* lower_bound, double* upper_bound);
 
 
@@ -674,7 +685,7 @@ extern "C" {
 
     */
 
-  int cb_delete_variables(cb_problemp p,
+  dll int cb_delete_variables(cb_problemp p,
     int n_del, int* delete_indices, int* map_to_old);
 
   /* return value:
@@ -722,7 +733,7 @@ extern "C" {
 
     */
 
-  int cb_reassign_variables(cb_problemp p,
+  dll int cb_reassign_variables(cb_problemp p,
     int n_assign, int* assign_new_from_old);
 
 
@@ -788,7 +799,7 @@ extern "C" {
    */
 
 
-  int cb_solve(cb_problemp p, int maxsteps, int stop_at_descent_steps);
+  dll int cb_solve(cb_problemp p, int maxsteps, int stop_at_descent_steps);
 
 
   /* *****************************************************************
@@ -828,7 +839,7 @@ extern "C" {
 
    */
 
-  int cb_termination_code(cb_problemp p);
+  dll int cb_termination_code(cb_problemp p);
 
   /* *****************************************************************
    *                     print_termination_code
@@ -845,7 +856,7 @@ extern "C" {
 
    */
 
-  int cb_print_termination_code(cb_problemp p);
+  dll int cb_print_termination_code(cb_problemp p);
 
   /* *****************************************************************
    *                     get_objval
@@ -865,7 +876,7 @@ extern "C" {
 
    */
 
-  double cb_get_objval(cb_problemp p);
+  dll double cb_get_objval(cb_problemp p);
 
   /* *****************************************************************
    *                     get_center
@@ -891,7 +902,7 @@ extern "C" {
 
    */
 
-  int cb_get_center(cb_problemp p, double* center);
+  dll int cb_get_center(cb_problemp p, double* center);
 
 
   /* *****************************************************************
@@ -908,7 +919,7 @@ extern "C" {
    */
 
 
-  double cb_get_sgnorm(cb_problemp p);
+  dll double cb_get_sgnorm(cb_problemp p);
 
   /* *****************************************************************
    *                     get_subgradient
@@ -928,7 +939,7 @@ extern "C" {
 
    */
 
-  int cb_get_subgradient(cb_problemp p, double* subgradient);
+  dll int cb_get_subgradient(cb_problemp p, double* subgradient);
 
 
   /* *****************************************************************
@@ -944,7 +955,7 @@ extern "C" {
        in get_objval().
    */
 
-  double cb_get_candidate_value(cb_problemp p);
+  dll double cb_get_candidate_value(cb_problemp p);
 
   /* *****************************************************************
    *                     get_candidate
@@ -967,7 +978,7 @@ extern "C" {
           - != 0 otherwise
    */
 
-  int cb_get_candidate(cb_problemp p, double* candidate);
+  dll int cb_get_candidate(cb_problemp p, double* candidate);
 
 
   /* *****************************************************************
@@ -991,7 +1002,7 @@ extern "C" {
 
    */
 
-  int cb_set_term_relprec(cb_problemp p, double term_relprec);
+  dll int cb_set_term_relprec(cb_problemp p, double term_relprec);
 
 
   /* *****************************************************************
@@ -1015,7 +1026,7 @@ extern "C" {
    */
 
 
-  int cb_set_new_center_point(cb_problemp p, double* center);
+  dll int cb_set_new_center_point(cb_problemp p, double* center);
 
 
   /* *****************************************************************
@@ -1036,7 +1047,7 @@ extern "C" {
       @return return value of latest call to the function having this @a function_key
    */
 
-  int cb_get_function_status(cb_problemp p, void* function_key);
+  dll int cb_get_function_status(cb_problemp p, void* function_key);
 
 
   /* *****************************************************************
@@ -1059,7 +1070,7 @@ extern "C" {
 
    */
 
-  int cb_get_approximate_slacks(cb_problemp p, double* slacks);
+  dll int cb_get_approximate_slacks(cb_problemp p, double* slacks);
 
 
   /* *****************************************************************
@@ -1096,7 +1107,7 @@ extern "C" {
 
    */
 
-  int cb_get_approximate_primal(cb_problemp p, void* function_key, double* primal);
+  dll int cb_get_approximate_primal(cb_problemp p, void* function_key, double* primal);
 
 
   /* *****************************************************************
@@ -1127,7 +1138,7 @@ extern "C" {
          - != 0 otherwise
 
    */
-  int cb_get_center_primal(cb_problemp p, void* function_key, double* primal);
+  dll int cb_get_center_primal(cb_problemp p, void* function_key, double* primal);
 
 
   /* *****************************************************************
@@ -1160,7 +1171,7 @@ extern "C" {
            - != 0 otherwise
        */
 
-  int cb_get_candidate_primal(cb_problemp p, void* function_key, double* primal);
+  dll int cb_get_candidate_primal(cb_problemp p, void* function_key, double* primal);
 
 
 
@@ -1196,7 +1207,7 @@ extern "C" {
 
    */
 
-  int cb_set_max_modelsize(cb_problemp p, void* function_key,
+  dll int cb_set_max_modelsize(cb_problemp p, void* function_key,
     int modelsize);
 
 
@@ -1226,7 +1237,7 @@ extern "C" {
 
    */
 
-  int cb_set_max_bundlesize(cb_problemp p, void* function_key,
+  dll int cb_set_max_bundlesize(cb_problemp p, void* function_key,
     int bundlesize);
 
 
@@ -1259,7 +1270,7 @@ extern "C" {
    */
 
 
-  int cb_set_max_new_subgradients(cb_problemp p, void* function_key,
+  dll int cb_set_max_new_subgradients(cb_problemp p, void* function_key,
     int max_new_subg);
 
 
@@ -1292,7 +1303,7 @@ extern "C" {
    */
 
 
-  int cb_get_bundle_parameters(cb_problemp p, void* function_key,
+  dll int cb_get_bundle_parameters(cb_problemp p, void* function_key,
     int* max_modelsize, int* max_bundelsize);
 
 
@@ -1322,7 +1333,7 @@ extern "C" {
 
   */
 
-  int cb_reinit_function_model(cb_problemp p, void* function_key);
+  dll int cb_reinit_function_model(cb_problemp p, void* function_key);
 
 
   /* *****************************************************************
@@ -1339,7 +1350,7 @@ extern "C" {
 
    */
 
-  double cb_get_last_weight(cb_problemp p);
+  dll double cb_get_last_weight(cb_problemp p);
 
   /* *****************************************************************
    *                     set_next_weight
@@ -1370,7 +1381,7 @@ extern "C" {
    */
 
 
-  int cb_set_next_weight(cb_problemp p, double weight);
+  dll int cb_set_next_weight(cb_problemp p, double weight);
 
 
   /* *****************************************************************
@@ -1395,7 +1406,7 @@ extern "C" {
 
    */
 
-  int cb_set_min_weight(cb_problemp p, double min_weight);
+  dll int cb_set_min_weight(cb_problemp p, double min_weight);
 
 
   /* *****************************************************************
@@ -1421,7 +1432,7 @@ extern "C" {
    */
 
 
-  int cb_set_max_weight(cb_problemp p, double max_weight);
+  dll int cb_set_max_weight(cb_problemp p, double max_weight);
 
 
   /* *****************************************************************
@@ -1446,7 +1457,7 @@ extern "C" {
          - != 0 otherwise
        */
 
-  int cb_set_variable_metric(cb_problemp p, int do_variable_metric);
+  dll int cb_set_variable_metric(cb_problemp p, int do_variable_metric);
 
 
 
@@ -1458,7 +1469,7 @@ extern "C" {
               or -1 if no dimension is set.
    */
 
-  int cb_get_dim(cb_problemp p);
+  dll int cb_get_dim(cb_problemp p);
 
 
   /* *****************************************************************
@@ -1468,7 +1479,7 @@ extern "C" {
    /** @brief Returns the current number of functions in the problem.
    */
 
-  int cb_get_n_functions(cb_problemp p);
+  dll int cb_get_n_functions(cb_problemp p);
 
 
   /* *****************************************************************
@@ -1479,7 +1490,7 @@ extern "C" {
               value are set to this value and are regarded as minus infinity
    */
 
-  double cb_get_minus_infinity(void);
+  dll double cb_get_minus_infinity(void);
 
   /* *****************************************************************
    *                    get_plus_infinity
@@ -1489,7 +1500,7 @@ extern "C" {
               value are set to this value and are regarded as plus infinity
    */
 
-  double cb_get_plus_infinity(void);
+  dll double cb_get_plus_infinity(void);
 
 
   /* *****************************************************************
@@ -1506,7 +1517,7 @@ extern "C" {
 
    */
 
-  void cb_clear_fail_counts(cb_problemp p);
+  dll void cb_clear_fail_counts(cb_problemp p);
 
   /* *****************************************************************
    *                    set_eval_limit
@@ -1525,7 +1536,7 @@ extern "C" {
          @param[in] eval_limit (int)
 
        */
-  void cb_set_eval_limit(cb_problemp p, int eval_limit);
+  dll void cb_set_eval_limit(cb_problemp p, int eval_limit);
 
   /* *****************************************************************
    *                    set_inner_update_limit
@@ -1544,7 +1555,7 @@ extern "C" {
      @param[in] update_limit (int)
 
    */
-  void cb_set_inner_update_limit(cb_problemp p, int update_limit);
+  dll void cb_set_inner_update_limit(cb_problemp p, int update_limit);
 
 
 
@@ -1578,7 +1589,7 @@ extern "C" {
 
     */
 
-  void cb_set_active_bounds_fixing(cb_problemp p, int allow_fixing);
+  dll void cb_set_active_bounds_fixing(cb_problemp p, int allow_fixing);
 
   /* *****************************************************************
    *                   cb_get_fixed_active_bounds
@@ -1604,7 +1615,7 @@ extern "C" {
 
    */
 
-  int cb_get_fixed_active_bounds(cb_problemp p, int* indicator);
+  dll int cb_get_fixed_active_bounds(cb_problemp p, int* indicator);
 
   /* *****************************************************************
    *                     set_print_level
@@ -1671,7 +1682,7 @@ extern "C" {
    */
 
 
-  void cb_set_print_level(cb_problemp p, int pril);
+  dll void cb_set_print_level(cb_problemp p, int pril);
 
 
 
