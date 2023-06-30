@@ -541,7 +541,7 @@ namespace ConicBundle {
 
     if ((aftmdf == 0) || ((aftmdf->only_scalars_change()) && (!(aftmdf->ignore_groundset_modification())))) {
 
-      //-----------  default actions based on information in gsmdf 
+      //-----------  default actions based on information in gsmdf
       if (gsmdf.appended_vardim() > 0) {
         if (linear_cost) {
           linear_cost->concat_below(Matrix(gsmdf.appended_vardim(), 1, 0.));
@@ -626,7 +626,7 @@ namespace ConicBundle {
 
     if ((aftmdf == 0) || ((aftmdf->only_scalars_change()) && (!(aftmdf->ignore_groundset_modification())))) {
 
-      //-----------  default actions based on information in gsmdf 
+      //-----------  default actions based on information in gsmdf
       bool identity_lost = false;
 
       if (gsmdf.appended_vardim() > 0) {
@@ -739,7 +739,7 @@ namespace ConicBundle {
     //check wether reordering of the variables may change the nonzeros
     if ((!minorant_trafo_differs) && (aftmdf->map_to_old_variables())) {
       //nothing is appended, because this was checked before already
-      if (arg_trafo == 0) { //treat as identity 
+      if (arg_trafo == 0) { //treat as identity
         minorant_trafo_differs = true;
       } else {
         //it differs if a nonzero column is mapped somewhere else or deleted
@@ -775,7 +775,7 @@ namespace ConicBundle {
     //check wether reordering of the rows may change the nonzeros
     if ((!minorant_trafo_differs) && (aftmdf->map_to_old_rows())) {
       //nothing is appended, because this was checked before already
-      if (arg_trafo == 0) { //treat as identity 
+      if (arg_trafo == 0) { //treat as identity
         minorant_trafo_differs = true;
       } else {
         //it differs if a nonzero column is mapped somewhere else or deleted
@@ -839,7 +839,7 @@ namespace ConicBundle {
     }
     out << "]';";
     out << "\n arg_offset=[";
-    if (linear_cost) {
+    if (arg_offset) {
       for (Integer i = 0; i < arg_offset->dim(); i++) {
         out.width(18);
         out << " " << (*arg_offset)(i);

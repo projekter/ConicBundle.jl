@@ -43,6 +43,7 @@
 #include "FunctionObjectModification.hxx"
 #include "AffineFunctionTransformation.hxx"
 #include "SumBundleParametersObject.hxx"
+#include "BundleSolver.hxx"
 
 //------------------------------------------------------------
 
@@ -580,7 +581,7 @@ or, more generally a matrix, then an approximate primal solution can be generate
 
     /// default constructor allows to set output level options from start (see also set_out())
     MatrixCBSolver(std::ostream* out = 0, int print_level = 0);
-    /// constructor for setting output options depending on existing CBout objects 
+    /// constructor for setting output options depending on existing CBout objects
     MatrixCBSolver(const CBout* cb, int incr = 0);
     ///
     ~MatrixCBSolver();
@@ -1029,7 +1030,7 @@ or, more generally a matrix, then an approximate primal solution can be generate
 
     */
     std::ostream&
-      print_termination_code(std::ostream& out);
+      print_termination_code(std::ostream& out) const;
 
     /** @brief Returns the objective value resulting from last descent
         step (initially undefined). If no problem modification routines
@@ -1897,8 +1898,10 @@ Column 1      2     3   4   5    6       7       8          9
     /// print a one line summary of important evaluation data
     std::ostream& print_line_summary(std::ostream& out) const;
 
-    /// print a cryptic summary of computation times of important components 
+    /// print a cryptic summary of computation times of important components
     std::ostream& print_statistics(std::ostream& out) const;
+
+    const BundleSolver* get_solver(void) const;
 
     //@}
 

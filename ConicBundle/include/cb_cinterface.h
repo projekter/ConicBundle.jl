@@ -108,6 +108,8 @@
 
 */
 
+#include "MatrixCBSolver.hxx"
+
 
 /*@{*/
 
@@ -459,7 +461,8 @@ extern "C" {
     cb_problemp p,
     int m, /* dimension of argument/number Lag mult */
     double* lowerb, /* pointer to array, may be NULL */
-    double* upperb /* point to array, may be NULL */
+    double* upperb, /* point to array, may be NULL */
+    double offset
   );
 
   /* *****************************************************************
@@ -513,7 +516,10 @@ extern "C" {
     void* function_key,
     cb_functionp f,
     cb_subgextp se,
-    int primaldim);
+    int primaldim,
+    double fun_factor,
+    int fun_task,
+    ConicBundle::AffineFunctionTransformation* aft);
 
 
   /* *****************************************************************

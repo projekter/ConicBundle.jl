@@ -58,7 +58,7 @@ namespace ConicBundle {
     CH_Matrix_Classes::Real cutoffval; ///< an averaged bound on Ritzvalues for being included in the model
     CH_Matrix_Classes::Real gapsz; ///< a weighted average of the gaps between maximum Ritz_value and the Ritz_value of the largest active index
     CH_Matrix_Classes::Real Ritz_skipval; ///< a weighted average for Ritz_values to be discarded
-    CH_Matrix_Classes::Integer n_nullsteps; ///< counts the number of null steps since last descent step 
+    CH_Matrix_Classes::Integer n_nullsteps; ///< counts the number of null steps since last descent step
 
   public:
     /// default constructor with the possibility to set the output
@@ -155,7 +155,7 @@ namespace ConicBundle {
           primal solution to the model
 
       @param[in] growthrate (Real)
-          factor <X,Z>/<X^-,Z^->, where X^- and Z⁻- are the last but one
+          factor <X,Z>/<X^-,Z^->, where X^- and Z^- are the last but one
           iterates of the interior point method
 
       @param[in] primalgrowth (Matrix)

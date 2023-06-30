@@ -69,9 +69,9 @@ namespace ConicBundle {
     /// the correction value for correcting termination precision
     CH_Matrix_Classes::Real corr_val;
 
-    /// the fixed indices for which the QP_costs were computed 
+    /// the fixed indices for which the QP_costs were computed
     CH_Matrix_Classes::Indexmatrix old_fixed_ind;
-    /// for compute_QP_costs() this holds the non_fixed part of the subgradients 
+    /// for compute_QP_costs() this holds the non_fixed part of the subgradients
     CH_Matrix_Classes::Matrix _A;
     /// for compute_QP_costs() this holds the constant subgradient
     CH_Matrix_Classes::Matrix _b;
@@ -81,15 +81,15 @@ namespace ConicBundle {
     CH_Matrix_Classes::Real _delta;
     /// for compute_QP_costs() this holds the non_fixed part of center_y
     CH_Matrix_Classes::Matrix _y;
-    /// for compute_QP_costs() this holds L^{-1}*_A 
+    /// for compute_QP_costs() this holds L^{-1}*_A
     CH_Matrix_Classes::Matrix LinvA;
     /// for compute_QP_costs() this holds L^T*_y
     CH_Matrix_Classes::Matrix Lty;
-    /// the old quadratic cost matrix 
+    /// the old quadratic cost matrix
     CH_Matrix_Classes::Symmatrix oldQ;
-    /// the old linear cost term; 
+    /// the old linear cost term;
     CH_Matrix_Classes::Matrix oldd;
-    /// the old costant cost term; 
+    /// the old costant cost term;
     CH_Matrix_Classes::Real oldoffset;
 
 
@@ -175,7 +175,7 @@ namespace ConicBundle {
     }
 
     /// returns H(i,j) (without including weightu)
-    const CH_Matrix_Classes::Real& operator()(CH_Matrix_Classes::Integer i, CH_Matrix_Classes::Integer j) {
+    const CH_Matrix_Classes::Real operator()(CH_Matrix_Classes::Integer i, CH_Matrix_Classes::Integer j) const {
       return H(i, j);
     }
 
@@ -203,7 +203,7 @@ namespace ConicBundle {
     /// returns \f$H^{-1}x\f$
     virtual CH_Matrix_Classes::Matrix& apply_Hinv(CH_Matrix_Classes::Matrix& x) const;
 
-    /// returns a suitable approximation for preconditioning, see BundleProxObject::get_precond 
+    /// returns a suitable approximation for preconditioning, see BundleProxObject::get_precond
     virtual void get_precond(CH_Matrix_Classes::Matrix& inD, const CH_Matrix_Classes::Matrix*& Vp) const {
       inD = diag(H); inD += weightu; Vp = 0;
     }
@@ -233,7 +233,7 @@ namespace ConicBundle {
       CH_Matrix_Classes::Indexmatrix* yfixed);
 
 
-    /// when BundleSolver is called to modify the groundset it also calls this 
+    /// when BundleSolver is called to modify the groundset it also calls this
     virtual int apply_modification(const GroundsetModification& gsmdf);
 
     /** @brief in order to allow for fixed variables, this generates a clone restricted to the given indices

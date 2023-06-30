@@ -24,7 +24,6 @@
 
 
 #include "CB_CSolver.hxx"
-#include "MatrixCBSolver.hxx"
 
 
 using namespace CH_Matrix_Classes;
@@ -76,7 +75,7 @@ extern "C" {
     p->solver->set_defaults();
   }
 
-  int cb_init_problem(cb_problemp prob, int m, double* lowerb, double* upperb) {
+  int cb_init_problem(cb_problemp prob, int m, double* lowerb, double* upperb, double offset) {
     assert(prob);
     cb_clear(prob);
     Matrix lb;
@@ -91,17 +90,18 @@ extern "C" {
       ubp = &ub;
       ub.init(m, 1, upperb);
     }
-    return prob->solver->init_problem(m, lbp, ubp);
+    return prob->solver->init_problem(m, lbp, ubp, 0, 0, offset);
   }
 
   int cb_add_function(cb_problemp p, void* function_key, cb_functionp f,
-    cb_subgextp se, int primaldim) {
+    cb_subgextp se, int primaldim, double fun_factor, int fun_task,
+    AffineFunctionTransformation* aft) {
     assert(p);
     if (p->funmap.find(function_key) != p->funmap.end()) return 1;
     CFunction* cf = new CFunction(function_key, f, se, primaldim);
     if (cf == 0) return 1;
     p->funmap[function_key] = cf;
-    return p->solver->add_function(*cf, 1., ObjectiveFunction, 0, true);
+    return p->solver->add_function(*cf, fun_factor, (FunctionTask)fun_task, aft, true);
   }
 
   int cb_set_lower_bound(cb_problemp p, int i, double lb) {

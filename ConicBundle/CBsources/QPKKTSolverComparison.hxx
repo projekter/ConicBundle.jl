@@ -54,11 +54,11 @@ namespace ConicBundle {
     CH_Tools::Microseconds predtime;  ///< time spent in solving the predictor
     CH_Tools::Microseconds corrtime;  ///< time spent in solving the corrector
     CH_Matrix_Classes::Integer prepnmult; ///< matrix multiplications in setting up the system
-    CH_Matrix_Classes::Integer prednmult; ///< matrix multiplications in solving the predictor 
+    CH_Matrix_Classes::Integer prednmult; ///< matrix multiplications in solving the predictor
     CH_Matrix_Classes::Integer corrnmult; ///< matrix multiplications in solving the correcotr
     CH_Matrix_Classes::Real cond;   ///< estimate of the condition number
     CH_Matrix_Classes::Integer rank;  ///< the rank used in the preconditioner
-    CH_Matrix_Classes::Real Hviol;   ///< norm of the residual for the H block  
+    CH_Matrix_Classes::Real Hviol;   ///< norm of the residual for the H block
     CH_Matrix_Classes::Real Aviol;   ///< norm of the residual for the A block
     CH_Matrix_Classes::Real Bviol;   ///< norm of the residual for the B block
     CH_Matrix_Classes::Real Cviol;   ///< norm of the residual for the C block
@@ -103,7 +103,7 @@ namespace ConicBundle {
   class QPKKT_KKTStats {
   public:
     CH_Matrix_Classes::Real prec;       ///< this is the (minimal) precision requirement in the calls
-    CH_Matrix_Classes::Real mu;         ///< this is the (minimal) mu>0 value used in the calls 
+    CH_Matrix_Classes::Real mu;         ///< this is the (minimal) mu>0 value used in the calls
     std::vector<QPKKT_SolverStats> sdata; ///< one entry per solver
 
     /// constructor
@@ -116,7 +116,7 @@ namespace ConicBundle {
     }
 
     /// appends the statsitics data of this KKT system as the last column of the repsective matrices
-    int append_col(CH_Matrix_Classes::Matrix& muvals, ///< the barrier parameter, 
+    int append_col(CH_Matrix_Classes::Matrix& muvals, ///< the barrier parameter,
       CH_Matrix_Classes::Matrix& prepsecs, ///< preparation time (one row for each solver)
       CH_Matrix_Classes::Matrix& predsecs, ///< predictor time (one row for each solver)
       CH_Matrix_Classes::Matrix& corrsecs, ///< corrector time (one row for each solver)
@@ -141,9 +141,9 @@ namespace ConicBundle {
       corrsecs.enlarge_right(1, 0.);
       predcalls.enlarge_right(1, CH_Matrix_Classes::Integer(0));
       corrcalls.enlarge_right(1, CH_Matrix_Classes::Integer(0));
-      cond.enlarge_right(1, CH_Matrix_Classes::Integer(0));
+      cond.enlarge_right(1, CH_Matrix_Classes::Real(0));
       pccols.enlarge_right(1, CH_Matrix_Classes::Integer(0));
-      sysviol.enlarge_right(1, CH_Matrix_Classes::Integer(0));
+      sysviol.enlarge_right(1, CH_Matrix_Classes::Real(0));
       for (CH_Matrix_Classes::Integer i = 0; i < CH_Matrix_Classes::Integer(sdata.size()); i++) {
         prepsecs(i, ind) += sdata[unsigned(i)].preptime;
         predsecs(i, ind) += sdata[unsigned(i)].predtime;
@@ -268,7 +268,7 @@ namespace ConicBundle {
       return 0;
     }
 
-    ///collects the cummulative values for each quadratic (bundle) subproblem. For each problem a new column is appended; in dims the rows give the dimensions stored in QPKKT_ProbStats; iterations gives the number of KKT systems in each subproblem; lastmu gives the value of the barrier parameter used in the last KKT system of the subproblem; for the other parameters the rows correspond to the cummulative values for each solvers 
+    ///collects the cummulative values for each quadratic (bundle) subproblem. For each problem a new column is appended; in dims the rows give the dimensions stored in QPKKT_ProbStats; iterations gives the number of KKT systems in each subproblem; lastmu gives the value of the barrier parameter used in the last KKT system of the subproblem; for the other parameters the rows correspond to the cummulative values for each solvers
     int get_prob_stats(CH_Matrix_Classes::Indexmatrix& dims, ///< per column/subproblem: order of H, lowrank of H, # rows of A, # equalities in A, # rows of B, # rows of C
       CH_Matrix_Classes::Indexmatrix& iterations, ///< number of KKTsystem of each subproblem
       CH_Matrix_Classes::Matrix& lastmu, ///< value of the barrier parameter in the last KKT system of the subproblem
@@ -384,7 +384,7 @@ namespace ConicBundle {
     virtual int add_solver(QPKKTSolverObject* solver, const char* name);
 
     /// returns 1 if this class is not applicable in the current data situation, otherwise it stores the data pointers and these need to stay valid throught the use of the other routines but are not deleted here
-    virtual int QPinit_KKTdata(QPSolverProxObject* Hp, ///< may not be be NULL 
+    virtual int QPinit_KKTdata(QPSolverProxObject* Hp, ///< may not be be NULL
       QPModelBlockObject* model, ///< may be NULL
       const CH_Matrix_Classes::Sparsemat* A, ///< may be NULL
       const CH_Matrix_Classes::Indexmatrix* eq_indices ///< if not NULL these rows of A correspond to equations
@@ -440,7 +440,7 @@ namespace ConicBundle {
       CH_Matrix_Classes::Matrix& sysviol ///< norm of the (corrector) residual of the entire KKT system
     );
 
-    /// return one data column per subproblem (more efficient to append than lines) with the sum of the time/calls/etc. 
+    /// return one data column per subproblem (more efficient to append than lines) with the sum of the time/calls/etc.
     int get_prob_stats(CH_Matrix_Classes::Indexmatrix& dims,///< per column/subproblem: order of H, lowrank of H, # rows of A, # equalities in A, # rows of B, # rows of C
       CH_Matrix_Classes::Indexmatrix& iterations, ///< number of KKTsystem of each subproblem
       CH_Matrix_Classes::Matrix& lastmu, ///< value of the barrier parameter in the last KKT system of the subproblem

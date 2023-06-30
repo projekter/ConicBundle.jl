@@ -72,7 +72,7 @@ namespace ConicBundle {
 
     //===== variables =====
     //CH_Matrix_Classes::Integer dim; ///< the incoming dimension, once it is detected, -1 if not yet clear (some need it, but it is mainly for consistency checks and should be initialized in eval_function, lb_function, recompute_center, and updated in apply_modification)
-    //FunctionTask function_task;   
+    //FunctionTask function_task;
     //CH_Matrix_Classes::Real function_factor;  ///< >0, interpreted according to function_task
 
     //CH_Matrix_Classes::Integer modification_id; ///< increased on any modification applied to the function
@@ -97,37 +97,37 @@ namespace ConicBundle {
     //CH_Matrix_Classes::Integer aggregate_id;
     //MinorantPointer local_aggregate; ///< the local (possibly empty) aggregate linear minorant of the model handled by this and its descendants (including @a function_factor and @a function_task)
     //MinorantPointer aggregate; ///< the aggregate linear minorant of the model (including @a function_factor and @a function_task)
-    CH_Matrix_Classes::Matrix primaleigs;  ///< eigs of eigval-decomposition of last eval_augmodel (if not empty, sum of this and aggrcoeffs is feasible for function_task) 
+    CH_Matrix_Classes::Matrix primaleigs;  ///< eigs of eigval-decomposition of last eval_augmodel (if not empty, sum of this and aggrcoeffs is feasible for function_task)
     CH_Matrix_Classes::Matrix primalvecs;  ///< vecs of eigval-decomposition of last eval_augmodel (always the same span as bundlevecs)
     MinorantPointer primal_aggregate; ///< for getting inside the semidifinite cone
     CH_Matrix_Classes::Real primal_aggregate_coeff; ///< coefficient determined in last eval_augmodel, maybe with some aggregated parts of primalvecs if not all were kept
     CH_Matrix_Classes::Real primal_Ritzval; ///< the (common) Ritz_value of the active subspace in primaleigs (= cutting model value)
 
-    CH_Matrix_Classes::Real growthrate; ///< factor <X,Z>/<X^-,Z^->, where X^- and Z⁻- are the last but one iterates of the interior point method   
+    CH_Matrix_Classes::Real growthrate; ///< factor <X,Z>/<X^-,Z^->, where X^- and Z^- are the last but one iterates of the interior point method
     CH_Matrix_Classes::Matrix primalgrowth; ///< factor by which primaleigs changed in the last interior point iteration
-    CH_Matrix_Classes::Matrix dualgrowth; ///< factor by which the dual Ritz values to primalvecs changed during the last interior point iteration 
+    CH_Matrix_Classes::Matrix dualgrowth; ///< factor by which the dual Ritz values to primalvecs changed during the last interior point iteration
 
-    //the bundle is initialized if bundlevecs.coldim()>0 (then it must have rowdim>0!) 
-    CH_Matrix_Classes::Matrix bundlevecs;   ///< the columns span the subspace of the semidefinte face (the bundle is initialized if bundlevecs.coldim()>0, then it must have rowdim>0!) 
+    //the bundle is initialized if bundlevecs.coldim()>0 (then it must have rowdim>0!)
+    CH_Matrix_Classes::Matrix bundlevecs;   ///< the columns span the subspace of the semidefinte face (the bundle is initialized if bundlevecs.coldim()>0, then it must have rowdim>0!)
     MinorantPointer bundle_aggregate; ///< for getting inside the semidifinite cone
 
 
-    CH_Matrix_Classes::Matrix topvecs; ///< orthonormal columns giving the largest Ritz_values; the range of this includes the range of bundlevecs 
+    CH_Matrix_Classes::Matrix topvecs; ///< orthonormal columns giving the largest Ritz_values; the range of this includes the range of bundlevecs
     CH_Matrix_Classes::Matrix Ritz_values; ///< of the vectors in topvecs and skippedvecs
     CH_Matrix_Classes::Integer activedim; ///< identified size of the active subspace
     CH_Matrix_Classes::Integer keepsize; ///< extended space dimension kept in bundlevecs
-    CH_Matrix_Classes::Integer skippedsize; ///< number of columns in topvecs exceeding activedim 
+    CH_Matrix_Classes::Integer skippedsize; ///< number of columns in topvecs exceeding activedim
 
     //SumBundle sumbundle;
 
     //CH_Matrix_Classes::Integer prex_id; // counter for keeping track of PriamlExtender calls
 
     //--- data needed for generic scaling
-    //CH_Matrix_Classes::Integer max_old_minorants; 
-    //MinorantBundle old_minorants; 
+    //CH_Matrix_Classes::Integer max_old_minorants;
+    //MinorantBundle old_minorants;
     //CH_Matrix_Classes::Matrix old_lowrank;
     //CH_Matrix_Classes::Matrix old_diagonal;
-    //CH_Matrix_Classes::Symmatrix old_sym; 
+    //CH_Matrix_Classes::Symmatrix old_sym;
     //CH_Matrix_Classes::Integer minorant_nexti;
 
     //--- data needed for collecting specific scaling relevant information
@@ -140,7 +140,7 @@ namespace ConicBundle {
     /// calls clear()
     ~PSCData();
 
-    /// reset to initial state (also used by the default constructor) 
+    /// reset to initial state (also used by the default constructor)
     void clear(CH_Matrix_Classes::Integer start_modification_id = 0);
 
     /// calls clear()
@@ -184,10 +184,10 @@ namespace ConicBundle {
     }
 
 
-    /// if @a bd is of type PSCData, initialize to this data  
+    /// if @a bd is of type PSCData, initialize to this data
     int init(const BundleData* bd);
 
-    ///return a pointer to a clone of this 
+    ///return a pointer to a clone of this
     BundleData* clone() const;
 
     ///if the candidate information is available and consitent for point_id, copy it from cand to center and return 0, otherwise return 1
@@ -216,10 +216,10 @@ namespace ConicBundle {
     ///delete all kinds of aggregates but keep explicit parts of the cutting model
     void clear_aggregates();
 
-    ///see the last argument of FunctionOracle::evaluate() 
+    ///see the last argument of FunctionOracle::evaluate()
     int call_primal_extender(PrimalExtender&, bool include_candidates = true);
 
-    ///rearrange/extend the minorants according to the given groundset modifications 
+    ///rearrange/extend the minorants according to the given groundset modifications
     int apply_modification(const GroundsetModification&, MinorantExtender* mex);
 
     ///return the PrimalData corresponding to the aggregate

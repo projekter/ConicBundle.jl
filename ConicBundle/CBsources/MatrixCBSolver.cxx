@@ -89,7 +89,7 @@ namespace ConicBundle {
     int evaluate(const  Matrix& y, double relprec, double& objective_value,
       std::vector<Minorant*>& minorants,
       PrimalExtender*& primal_extender) {
-      //---- evaluate			
+      //---- evaluate
       return oracle.evaluate(y.get_store(), relprec, objective_value,
         minorants, primal_extender);
 
@@ -121,11 +121,11 @@ namespace ConicBundle {
 
 
   //------------------------------------------------------------
-  // Problem structure and modification class 
+  // Problem structure and modification class
   //------------------------------------------------------------
 
   //------------------------------------------------------------
-  // Data class 
+  // Data class
   //------------------------------------------------------------
   /** in order to keep the interface 'clean' the interface's data is separated into an extra class */
   class MatrixCBSolverData : public CBout {
@@ -306,7 +306,7 @@ namespace ConicBundle {
   };
 
   //------------------------------------------------------------
-  // CBmethod implementation - mostly just wrapped to CBmethodData 
+  // CBmethod implementation - mostly just wrapped to CBmethodData
   //------------------------------------------------------------
 
   //--------------------
@@ -375,7 +375,7 @@ namespace ConicBundle {
     assert(data_);
 
     if (data_->cb_out(10)) {
-      data_->get_out() << "\n  entering  MatrixCBSolver::append_variables" << std::endl;
+      data_->get_out() << "\n  entering  MatrixCBSolver::add_function" << std::endl;
     }
 
     if (data_->fun_model.find(&function) != data_->fun_model.end()) {
@@ -707,7 +707,7 @@ namespace ConicBundle {
   }
 
   //----------------------------------------
-  // delete variables 
+  // delete variables
   int MatrixCBSolver::delete_variables(const Indexmatrix& del_indices,
     Indexmatrix& map_to_old,
     const FunObjModMap* funmodmap) {
@@ -756,7 +756,7 @@ namespace ConicBundle {
 
 
   //----------------------------------------
-  // reassign variables 
+  // reassign variables
   int MatrixCBSolver::reassign_variables(const Indexmatrix& avec,
     const FunObjModMap* funmodmap) {
     assert(data_);
@@ -881,7 +881,7 @@ namespace ConicBundle {
   }
 
   //--------------------
-  std::ostream& MatrixCBSolver::print_termination_code(std::ostream& out) {
+  std::ostream& MatrixCBSolver::print_termination_code(std::ostream& out) const {
     assert(data_);
     data_->solver.get_terminator()->print_status(out);
     return out;
@@ -1478,6 +1478,11 @@ namespace ConicBundle {
     if (data_->root)
       data_->root->get_model()->sbm_transform()->print_statistics(out);
     return out;
+  }
+
+  const BundleSolver* MatrixCBSolver::get_solver(void) const {
+    assert(data_);
+    return &data_->solver;
   }
 
 

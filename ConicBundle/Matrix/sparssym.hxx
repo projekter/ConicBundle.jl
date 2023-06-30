@@ -122,8 +122,8 @@ namespace CH_Matrix_Classes {
 
     //column by column representation of lower triangle
     Indexmatrix colinfo;  ///< k by 4 matrix, for nonzero columns: index (<0 for diagonal), # nonzeros, first index in colindex/colval, index in support submatrix
-    Indexmatrix colindex; ///< gives the rowindex of the element at position i, (sorted increasingly per column) 
-    Matrix colval;   ///< gives the value of the element at position i     
+    Indexmatrix colindex; ///< gives the rowindex of the element at position i, (sorted increasingly per column)
+    Matrix colval;   ///< gives the value of the element at position i
     Indexmatrix suppind;  ///< index of an element with respect to the principal submatrix spanned by the entire support
     Indexmatrix suppcol;  ///< the index of the support column in the original matrix
 
@@ -151,7 +151,7 @@ namespace CH_Matrix_Classes {
     inline Sparsesym();
     /// copy constructor, *this=d*A
     inline Sparsesym(const Sparsesym& A, Real d = 1.);
-    /// initialize to zero-matrix of size nr*nr     
+    /// initialize to zero-matrix of size nr*nr
     inline Sparsesym(Integer nr);
     /// initialize to size nr*nr and nz nonzeros so that this(ini[i],inj[i])=val[i] for i=0,..,nz-1; specify only one of (i,j) and (j,i), multiple elements are summed up.
     inline Sparsesym(Integer nr, Integer nz,
@@ -169,15 +169,15 @@ namespace CH_Matrix_Classes {
     int get_init() const {
       return is_init;
     }
-#else 
-    /// after external initialization, call matrix.set_init(true) (not needed if CONICBUNDLE_DEBUG is undefined) 
+#else
+    /// after external initialization, call matrix.set_init(true) (not needed if CONICBUNDLE_DEBUG is undefined)
     void set_init(bool /* i */) {
     }
     /// returns true if the matrix has been declared initialized (not needed if CONICBUNDLE_DEBUG is undefined)
     bool get_init() const {
       return true;
     }
-#endif 
+#endif
 
     /// initialize to *this=A*d
     inline Sparsesym& init(const Sparsesym&, Real d = 1.);
@@ -189,7 +189,7 @@ namespace CH_Matrix_Classes {
     inline Sparsesym& init(const Symmatrix&, Real d = 1.);
     /// initialize to *this=d*(A+transpose(A))/2.
     inline Sparsesym& init(const Sparsemat&, Real d = 1.);
-    /// initialize to zero-matrix of size nr*nr     
+    /// initialize to zero-matrix of size nr*nr
     inline Sparsesym& init(Integer nr);
     /// initialize to size nr*nr and nz nonzeros so that this(ini[i],inj[i])=val[i] for i=0,..,nz-1; specify only one of (i,j) and (j,i), multiple elements are summed up.
     Sparsesym& init(Integer nr, Integer nz,
@@ -198,7 +198,7 @@ namespace CH_Matrix_Classes {
     Sparsesym& init(Integer nr, Integer nz,
       const Indexmatrix& ini, const Indexmatrix& inj, const Matrix& va);
 
-    //initialize to the same support as A but with constant value d; the same support will be generated even for d=0. 
+    //initialize to the same support as A but with constant value d; the same support will be generated even for d=0.
     Sparsesym& init_support(const Sparsesym& A, Real d = 0.);
 
     /// set tolerance for recognizing zero values to t
@@ -307,7 +307,7 @@ namespace CH_Matrix_Classes {
     /// stores the nz nonzero values of the lower triangle of *this in I,J,val so that this(I(i),J(i))=val(i) for i=0,...,nz-1 and dim(I)=dim(J)=dim(val)=nz (ordered as in row representation)
     void get_edge_rep(Indexmatrix& I, Indexmatrix& J, Matrix& val) const;
 
-    /// returns 1 if A is of the same dimension and the support of A is contained in the support of *this, 0 otherwise 
+    /// returns 1 if A is of the same dimension and the support of A is contained in the support of *this, 0 otherwise
     int contains_support(const Sparsesym& A) const;
 
     /// returns 0 if (i,j) is not in the support, 1 otherwise
@@ -406,7 +406,7 @@ namespace CH_Matrix_Classes {
     ///sets *this=(A+transpose(A))/2. removing zeros; returns *this
     inline Sparsesym& operator=(const Indexmatrix& A);
 
-    ///transposes itself (at almost no cost)  
+    ///transposes itself (at almost no cost)
     Sparsesym& transpose() {
       return *this;
     }
@@ -465,9 +465,9 @@ namespace CH_Matrix_Classes {
     /// sets and returns *this=A where abs(values)<tol are removed from the support
     inline Sparsesym& operator=(const Symmatrix& A);
     ///
-    inline Symmatrix operator+(const Symmatrix& A) const;
+    //inline Symmatrix operator+(const Symmatrix& A) const;
     ///
-    inline Symmatrix operator-(const Symmatrix& A) const;
+    //inline Symmatrix operator-(const Symmatrix& A) const;
 
     /// sets and returns *this=(A+transpose(A))/2.
     inline Sparsesym& operator=(const Sparsemat& A);
@@ -488,9 +488,9 @@ namespace CH_Matrix_Classes {
     friend inline Symmatrix operator-(const Sparsesym& A, const Symmatrix& B);
     ///
     friend inline Symmatrix operator-(const Symmatrix& A, const Sparsesym& B);
-    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
     friend Real ip(const Symmatrix& A, const Sparsesym& B); //=trace(B^t*A)
-    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
     friend inline Real ip(const Sparsesym& A, const Symmatrix& B);
 
     ///returns C=beta*C+alpha*A*B, where B may be transposed; if beta==0. then C is initialized to the correct size
@@ -529,13 +529,13 @@ namespace CH_Matrix_Classes {
 
      /// returns the sum of the diagonal elements A(i,i) over all i
     friend Real trace(const Sparsesym& A);               //=sum(diag(A))
-    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
     friend Real ip(const Sparsesym& A, const Sparsesym& B); //=trace(B^t*A)
-    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
     friend Real ip(const Matrix& A, const Sparsesym& B); //=trace(B^t*A)
-    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+    ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
     friend inline Real ip(const Sparsesym& A, const Matrix& B);
-    ///returns the Frobenius norm of A, i.e., the square root of the sum of A(i,j)*A(i,j) over all i,j 
+    ///returns the Frobenius norm of A, i.e., the square root of the sum of A(i,j)*A(i,j) over all i,j
     friend Real norm2(const Sparsesym& A); //=sqrt(ip(A,A))
 
     ///returns a row vector holding the sum over all rows, i.e., (1 1 ... 1)*A
@@ -559,7 +559,7 @@ namespace CH_Matrix_Classes {
      /// returns 1 if both matrices are identical, 0 otherwise
     friend int equal(const Sparsesym& A, const Sparsesym& B, Real eqtol);
 
-    //@}    
+    //@}
 
 
     //--------------------------------
@@ -584,9 +584,9 @@ namespace CH_Matrix_Classes {
      */
      //@{
 
-     ///output format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n 
+     ///output format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n
     friend std::ostream& operator<<(std::ostream& o, const Sparsesym& v);
-    ///input format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n 
+    ///input format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n
     friend std::istream& operator>>(std::istream& i, Sparsesym& v);
 
     //@}
@@ -619,7 +619,7 @@ namespace CH_Matrix_Classes {
     Real alpha = 1., Real beta = 0., int trans = 0);
 
 
-  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
   Real ip(const Symmatrix& A, const Sparsesym& B); //=trace(B^t*A)
 
   /// returns a Sparsesym with elements abs((*this)(i,j)) for all i,j
@@ -628,13 +628,13 @@ namespace CH_Matrix_Classes {
   /// returns the sum of the diagonal elements A(i,i) over all i
   Real trace(const Sparsesym& A);               //=sum(diag(A))
 
-  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
   Real ip(const Sparsesym& A, const Sparsesym& B); //=trace(B^t*A)
 
-  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
   Real ip(const Matrix& A, const Sparsesym& B); //=trace(B^t*A)
 
-  ///returns the Frobenius norm of A, i.e., the square root of the sum of A(i,j)*A(i,j) over all i,j 
+  ///returns the Frobenius norm of A, i.e., the square root of the sum of A(i,j)*A(i,j) over all i,j
   Real norm2(const Sparsesym& A); //=sqrt(ip(A,A))
 
   ///returns a row vector holding the sum over all rows, i.e., (1 1 ... 1)*A
@@ -643,10 +643,10 @@ namespace CH_Matrix_Classes {
   ///returns the sum over all elements of A, i.e., (1 1 ... 1)*A*(1 1 ... 1)^T
   Real sum(const Sparsesym& A);         //=(1 1 ... 1)*A*(1 1 ... 1)^t
 
-  ///output format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n 
+  ///output format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n
   std::ostream& operator<<(std::ostream& o, const Sparsesym& v);
 
-  ///input format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n 
+  ///input format (lower triangle): nr nz \\n i1 j1 val1\\n i2 j2 val2\\n ... inz jnz valnz\\n
   std::istream& operator>>(std::istream& i, Sparsesym& v);
 
   // **************************************************************************
@@ -804,7 +804,7 @@ namespace CH_Matrix_Classes {
     Matrix C(B, -1.); return C.xpeya(A);
   }
 
-  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
   inline Real ip(const Sparsesym& A, const Matrix& B) {
     return ip(B, A);
   }
@@ -867,12 +867,12 @@ namespace CH_Matrix_Classes {
   inline Sparsesym& Sparsesym::operator=(const Symmatrix& A) {
     return xeya(A);
   }
-  inline Symmatrix Sparsesym::operator+(const Symmatrix& A) const {
+  /*inline Symmatrix Sparsesym::operator+(const Symmatrix& A) const {
     Symmatrix B(A); B += *this; return B;
   }
   inline Symmatrix Sparsesym::operator-(const Symmatrix& A) const {
     Symmatrix B(A); B -= *this; return B;
-  }
+  }*/
 
   /// returns a Symmatrix that equals A+B
   inline Symmatrix operator+(const Sparsesym& A, const Symmatrix& B) {
@@ -894,7 +894,7 @@ namespace CH_Matrix_Classes {
     Symmatrix C(A); return C.xpeya(B, -1);
   }
 
-  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j 
+  ///returns the usual inner product of A and B, i.e., the sum of A(i,j)*B(i,j) over all i,j
   inline Real ip(const Sparsesym& A, const Symmatrix& B) {
     return ip(B, A);
   }
@@ -962,7 +962,7 @@ namespace CH_Matrix_Classes {
   int equal(const Sparsesym& A, const Sparsesym& B, Real eqtol = 1e-10);
 
 
-  //@}    
+  //@}
 
 }
 

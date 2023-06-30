@@ -146,7 +146,7 @@ namespace ConicBundle {
   }
 
   //----------------------------------------
-  // delete variables 
+  // delete variables
   int CBSolver::delete_variables(const IVector& del_indices,
     IVector& map_to_old) {
     assert(solver);
@@ -158,7 +158,7 @@ namespace ConicBundle {
 
 
   //----------------------------------------
-  // reassign variables 
+  // reassign variables
   int CBSolver::reassign_variables(const IVector& aind) {
     assert(solver);
     return solver->reassign_variables(Indexmatrix(aind));
@@ -190,7 +190,7 @@ namespace ConicBundle {
   }
 
   //--------------------
-  std::ostream& CBSolver::print_termination_code(std::ostream& out) {
+  std::ostream& CBSolver::print_termination_code(std::ostream& out) const {
     assert(solver);
     return solver->print_termination_code(out);
   }
