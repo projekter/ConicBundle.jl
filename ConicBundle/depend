@@ -1,0 +1,1536 @@
+$(OBJDIR)/aasen.o $(OBJDIR)/aasen.d : Matrix/aasen.cxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/AffineFunctionTransformation.o $(OBJDIR)/AffineFunctionTransformation.d : \
+ CBsources/AffineFunctionTransformation.cxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx
+$(OBJDIR)/AFTData.o $(OBJDIR)/AFTData.d : CBsources/AFTData.cxx Matrix/mymath.hxx CBsources/AFTData.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/AFTModel.o $(OBJDIR)/AFTModel.d : CBsources/AFTModel.cxx Matrix/mymath.hxx \
+ CBsources/AFTModel.hxx CBsources/SumBlockModel.hxx Tools/clock.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/AFTData.hxx
+$(OBJDIR)/AFTModification.o $(OBJDIR)/AFTModification.d : CBsources/AFTModification.cxx include/CBSolver.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx
+$(OBJDIR)/Bigmatrix.o $(OBJDIR)/Bigmatrix.d : CBsources/Bigmatrix.cxx Matrix/mymath.hxx \
+ CBsources/Bigmatrix.hxx Matrix/lanczos.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/symmat.hxx Matrix/sparssym.hxx \
+ CBsources/CBout.hxx
+$(OBJDIR)/BoxData.o $(OBJDIR)/BoxData.d : CBsources/BoxData.cxx Matrix/mymath.hxx CBsources/BoxData.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/MatrixCBSolver.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/BoxOracle.hxx
+$(OBJDIR)/BoxIPBundleBlock.o $(OBJDIR)/BoxIPBundleBlock.d : CBsources/BoxIPBundleBlock.cxx \
+ CBsources/BoxIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/QPModelDataObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/BoxModel.o $(OBJDIR)/BoxModel.d : CBsources/BoxModel.cxx Matrix/mymath.hxx \
+ CBsources/BoxModel.hxx CBsources/ConeModel.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/BoxModelParametersObject.hxx CBsources/BoxData.hxx \
+ CBsources/BoxOracle.hxx CBsources/BoxModelParameters.hxx \
+ CBsources/BundleIdProx.hxx
+$(OBJDIR)/BoxModelParameters.o $(OBJDIR)/BoxModelParameters.d : CBsources/BoxModelParameters.cxx \
+ CBsources/BoxModelParameters.hxx CBsources/BoxModelParametersObject.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/BoxData.hxx CBsources/BoxOracle.hxx
+$(OBJDIR)/BoxOracle.o $(OBJDIR)/BoxOracle.d : CBsources/BoxOracle.cxx CBsources/BoxOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/BundleData.o $(OBJDIR)/BundleData.d : CBsources/BundleData.cxx Matrix/mymath.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/BundleDenseTrustRegionProx.o $(OBJDIR)/BundleDenseTrustRegionProx.d : CBsources/BundleDenseTrustRegionProx.cxx \
+ CBsources/BundleDenseTrustRegionProx.hxx CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx \
+ Matrix/mymath.hxx Matrix/sparssym.hxx CBsources/Groundset.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx
+$(OBJDIR)/BundleDiagonalTrustRegionProx.o $(OBJDIR)/BundleDiagonalTrustRegionProx.d : \
+ CBsources/BundleDiagonalTrustRegionProx.cxx \
+ CBsources/BundleDiagonalTrustRegionProx.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx \
+ Matrix/mymath.hxx Matrix/sparssym.hxx CBsources/Groundset.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx
+$(OBJDIR)/BundleDLRTrustRegionProx.o $(OBJDIR)/BundleDLRTrustRegionProx.d : CBsources/BundleDLRTrustRegionProx.cxx \
+ CBsources/BundleDLRTrustRegionProx.hxx CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx
+$(OBJDIR)/BundleHKWeight.o $(OBJDIR)/BundleHKWeight.d : CBsources/BundleHKWeight.cxx \
+ CBsources/BundleHKWeight.hxx CBsources/BundleWeight.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Tools/clock.hxx include/CBSolver.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx Matrix/mymath.hxx
+$(OBJDIR)/BundleIdProx.o $(OBJDIR)/BundleIdProx.d : CBsources/BundleIdProx.cxx CBsources/BundleIdProx.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/BundleLowRankTrustRegionProx.o $(OBJDIR)/BundleLowRankTrustRegionProx.d : \
+ CBsources/BundleLowRankTrustRegionProx.cxx \
+ CBsources/BundleLowRankTrustRegionProx.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx
+$(OBJDIR)/BundleModel.o $(OBJDIR)/BundleModel.d : CBsources/BundleModel.cxx CBsources/BundleModel.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/BundleProxObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/FunctionObjectModification.hxx
+$(OBJDIR)/BundleProxObject.o $(OBJDIR)/BundleProxObject.d : CBsources/BundleProxObject.cxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx
+$(OBJDIR)/BundleRQBWeight.o $(OBJDIR)/BundleRQBWeight.d : CBsources/BundleRQBWeight.cxx \
+ CBsources/BundleRQBWeight.hxx CBsources/BundleWeight.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Tools/clock.hxx include/CBSolver.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx Matrix/mymath.hxx
+$(OBJDIR)/BundleSolver.o $(OBJDIR)/BundleSolver.d : CBsources/BundleSolver.cxx Matrix/mymath.hxx \
+ CBsources/BundleSolver.hxx Tools/clock.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleTerminator.hxx CBsources/UnconstrainedGroundset.hxx \
+ CBsources/LPGroundsetModification.hxx CBsources/LPGroundset.hxx \
+ CBsources/QPSolver.hxx CBsources/QPSolverBasicStructures.hxx \
+ CBsources/QPModelBlock.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPSolverParameters.hxx \
+ CBsources/QPKKTSolverObject.hxx CBsources/SOCIPProxBlock.hxx \
+ CBsources/SOCIPBlock.hxx CBsources/InteriorPointBlock.hxx \
+ CBsources/UQPSolver.hxx CBsources/UQPModelBlock.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/BundleHKWeight.hxx \
+ CBsources/BundleIdProx.hxx CBsources/BundleDiagonalTrustRegionProx.hxx \
+ CBsources/BundleLowRankTrustRegionProx.hxx \
+ CBsources/BundleDLRTrustRegionProx.hxx \
+ CBsources/BundleDenseTrustRegionProx.hxx \
+ CBsources/VariableMetricSVDSelection.hxx
+$(OBJDIR)/BundleTerminator.o $(OBJDIR)/BundleTerminator.d : CBsources/BundleTerminator.cxx \
+ CBsources/BundleTerminator.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Tools/clock.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx
+$(OBJDIR)/BundleWeight.o $(OBJDIR)/BundleWeight.d : CBsources/BundleWeight.cxx CBsources/BundleWeight.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Tools/clock.hxx include/CBSolver.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx
+$(OBJDIR)/CB_CSolver.o $(OBJDIR)/CB_CSolver.d : CBsources/CB_CSolver.cxx CBsources/CB_CSolver.hxx \
+ include/cb_cinterface.h CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/CFunction.hxx
+$(OBJDIR)/CBout.o $(OBJDIR)/CBout.d : CBsources/CBout.cxx CBsources/CBout.hxx
+$(OBJDIR)/CBSolver.o $(OBJDIR)/CBSolver.d : CBsources/CBSolver.cxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/CFunction.o $(OBJDIR)/CFunction.d : CBsources/CFunction.cxx CBsources/CFunction.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx include/cb_cinterface.h
+$(OBJDIR)/chol.o $(OBJDIR)/chol.d : Matrix/chol.cxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/Coeffmat.o $(OBJDIR)/Coeffmat.d : CBsources/Coeffmat.cxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/CMsymdense.hxx CBsources/CMsymsparse.hxx \
+ CBsources/CMgramdense.hxx CBsources/CMgramsparse.hxx \
+ CBsources/CMlowrankdd.hxx CBsources/CMlowranksd.hxx \
+ CBsources/CMlowrankss.hxx CBsources/CMsingleton.hxx \
+ CBsources/CMgramsparse_withoutdiag.hxx
+$(OBJDIR)/ConeModel.o $(OBJDIR)/ConeModel.d : CBsources/ConeModel.cxx Matrix/mymath.hxx \
+ CBsources/ConeModel.hxx CBsources/SumBlockModel.hxx Tools/clock.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/BundleIdProx.hxx
+$(OBJDIR)/eigval.o $(OBJDIR)/eigval.d : Matrix/eigval.cxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/Groundset.o $(OBJDIR)/Groundset.d : CBsources/Groundset.cxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx
+$(OBJDIR)/GroundsetModification.o $(OBJDIR)/GroundsetModification.d : CBsources/GroundsetModification.cxx \
+ CBsources/GroundsetModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ include/CBSolver.hxx Matrix/sparsmat.hxx
+$(OBJDIR)/indexmat.o $(OBJDIR)/indexmat.d : Matrix/indexmat.cxx Tools/heapsort.hxx Matrix/mymath.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/matrix.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx
+$(OBJDIR)/InteriorPointBlock.o $(OBJDIR)/InteriorPointBlock.d : CBsources/InteriorPointBlock.cxx \
+ CBsources/NNCIPBlock.hxx CBsources/InteriorPointBlock.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/CBout.hxx
+$(OBJDIR)/InteriorPointBundleBlock.o $(OBJDIR)/InteriorPointBundleBlock.d : CBsources/InteriorPointBundleBlock.cxx \
+ CBsources/InteriorPointBundleBlock.hxx CBsources/InteriorPointBlock.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/CBout.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/sparsmat.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/IterativeSystemObject.o $(OBJDIR)/IterativeSystemObject.d : Matrix/IterativeSystemObject.cxx \
+ Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/LanczMaxEig.o $(OBJDIR)/LanczMaxEig.d : CBsources/LanczMaxEig.cxx Matrix/mymath.hxx \
+ CBsources/LanczMaxEig.hxx Matrix/lanczos.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Tools/clock.hxx
+$(OBJDIR)/lanczpol.o $(OBJDIR)/lanczpol.d : Matrix/lanczpol.cxx Matrix/mymath.hxx Matrix/lanczpol.hxx \
+ Matrix/lanczos.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Tools/clock.hxx
+$(OBJDIR)/ldl.o $(OBJDIR)/ldl.d : Matrix/ldl.cxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/LPGroundset.o $(OBJDIR)/LPGroundset.d : CBsources/LPGroundset.cxx Matrix/mymath.hxx \
+ CBsources/LPGroundset.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/QPSolver.hxx CBsources/QPSolverBasicStructures.hxx \
+ Tools/clock.hxx CBsources/QPModelBlock.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx \
+ CBsources/QPSolverParameters.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/SOCIPProxBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx CBsources/LPGroundsetModification.hxx \
+ CBsources/UQPSolver.hxx CBsources/UQPModelBlock.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/BundleIdProx.hxx \
+ CBsources/MatrixCBSolver.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/LPGroundsetModification.o $(OBJDIR)/LPGroundsetModification.d : CBsources/LPGroundsetModification.cxx \
+ CBsources/LPGroundsetModification.hxx \
+ CBsources/GroundsetModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ include/CBSolver.hxx Matrix/sparsmat.hxx
+$(OBJDIR)/MatrixCBSolver.o $(OBJDIR)/MatrixCBSolver.d : CBsources/MatrixCBSolver.cxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx \
+ CBsources/ModificationTreeData.hxx CBsources/BundleSolver.hxx \
+ CBsources/BundleTerminator.hxx CBsources/LPGroundset.hxx \
+ CBsources/QPSolver.hxx CBsources/QPSolverBasicStructures.hxx \
+ CBsources/QPModelBlock.hxx CBsources/QPModelBlockObject.hxx \
+ CBsources/QPSolverParameters.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/SOCIPProxBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx CBsources/LPGroundsetModification.hxx \
+ CBsources/SumModel.hxx CBsources/SumBlockModel.hxx \
+ CBsources/SumBundleHandler.hxx CBsources/AFTModel.hxx \
+ CBsources/AFTData.hxx CBsources/NNCModel.hxx CBsources/ConeModel.hxx \
+ CBsources/NNCData.hxx CBsources/NNCModelParametersObject.hxx \
+ CBsources/PSCModel.hxx CBsources/PSCData.hxx CBsources/PSCOracle.hxx \
+ CBsources/PSCModelParametersObject.hxx CBsources/PSCAffineFunction.hxx \
+ CBsources/PSCPrimal.hxx CBsources/SparseCoeffmatMatrix.hxx \
+ CBsources/Coeffmat.hxx Matrix/memarray.hxx Matrix/sparssym.hxx \
+ CBsources/Bigmatrix.hxx Matrix/lanczos.hxx \
+ CBsources/PSCAffineModification.hxx CBsources/PSCIPBundleBlock.hxx \
+ CBsources/InteriorPointBundleBlock.hxx CBsources/PSCIPBlock.hxx \
+ CBsources/SOCModel.hxx CBsources/SOCData.hxx \
+ CBsources/SOCModelParametersObject.hxx CBsources/SOCOracle.hxx \
+ CBsources/BoxModel.hxx CBsources/BoxModelParametersObject.hxx \
+ CBsources/BoxData.hxx CBsources/BoxOracle.hxx CBsources/BundleIdProx.hxx \
+ CBsources/BundleDiagonalTrustRegionProx.hxx \
+ CBsources/SumBundleParameters.hxx CBsources/SumModelParameters.hxx \
+ CBsources/SumModelParametersObject.hxx
+$(OBJDIR)/matrix.o $(OBJDIR)/matrix.d : Matrix/matrix.cxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Tools/heapsort.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/memarray.o $(OBJDIR)/memarray.d : Matrix/memarray.cxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx
+$(OBJDIR)/Minorant.o $(OBJDIR)/Minorant.d : CBsources/Minorant.cxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/MinorantPointer.o $(OBJDIR)/MinorantPointer.d : CBsources/MinorantPointer.cxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx
+$(OBJDIR)/MinorantUseData.o $(OBJDIR)/MinorantUseData.d : CBsources/MinorantUseData.cxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx
+$(OBJDIR)/minres.o $(OBJDIR)/minres.d : Matrix/minres.cxx Matrix/mymath.hxx Matrix/minres.hxx \
+ Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx
+$(OBJDIR)/ModificationBase.o $(OBJDIR)/ModificationBase.d : CBsources/ModificationBase.cxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/Modification.o $(OBJDIR)/Modification.d : CBsources/Modification.cxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ include/CBSolver.hxx Matrix/sparsmat.hxx
+$(OBJDIR)/ModificationTreeData.o $(OBJDIR)/ModificationTreeData.d : CBsources/ModificationTreeData.cxx \
+ CBsources/ModificationTreeData.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx \
+ CBsources/FunctionObjectModification.hxx CBsources/SumBlockModel.hxx \
+ Tools/clock.hxx CBsources/MatrixCBSolver.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/AFTModel.hxx CBsources/AFTData.hxx
+$(OBJDIR)/NNCBoxSupportFunction.o $(OBJDIR)/NNCBoxSupportFunction.d : CBsources/NNCBoxSupportFunction.cxx \
+ CBsources/NNCBoxSupportFunction.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx \
+ CBsources/NNCBoxSupportModification.hxx
+$(OBJDIR)/NNCBoxSupportModification.o $(OBJDIR)/NNCBoxSupportModification.d : CBsources/NNCBoxSupportModification.cxx \
+ CBsources/NNCBoxSupportModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ include/CBSolver.hxx Matrix/sparsmat.hxx
+$(OBJDIR)/NNCData.o $(OBJDIR)/NNCData.d : CBsources/NNCData.cxx Matrix/mymath.hxx CBsources/NNCData.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/NNCIPBlock.o $(OBJDIR)/NNCIPBlock.d : CBsources/NNCIPBlock.cxx CBsources/NNCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx
+$(OBJDIR)/NNCIPBundleBlock.o $(OBJDIR)/NNCIPBundleBlock.d : CBsources/NNCIPBundleBlock.cxx \
+ CBsources/NNCIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/QPModelDataObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/NNCIPBlock.hxx
+$(OBJDIR)/NNCModel.o $(OBJDIR)/NNCModel.d : CBsources/NNCModel.cxx Matrix/mymath.hxx \
+ CBsources/NNCModel.hxx CBsources/MatrixCBSolver.hxx include/CBSolver.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/ConeModel.hxx \
+ CBsources/SumBlockModel.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/NNCData.hxx CBsources/NNCModelParametersObject.hxx \
+ CBsources/NNCModelParameters.hxx CBsources/BundleIdProx.hxx
+$(OBJDIR)/NNCModelParameters.o $(OBJDIR)/NNCModelParameters.d : CBsources/NNCModelParameters.cxx \
+ CBsources/NNCModelParameters.hxx CBsources/NNCModelParametersObject.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBlockModel.hxx \
+ CBsources/SumBundleHandler.hxx
+$(OBJDIR)/nnls.o $(OBJDIR)/nnls.d : Matrix/nnls.cxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Tools/heapsort.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/pcg.o $(OBJDIR)/pcg.d : Matrix/pcg.cxx Matrix/mymath.hxx Matrix/pcg.hxx \
+ Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx
+$(OBJDIR)/PSCAffineFunction.o $(OBJDIR)/PSCAffineFunction.d : CBsources/PSCAffineFunction.cxx \
+ CBsources/PSCAffineFunction.hxx CBsources/PSCOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/PSCPrimal.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/sparssym.hxx CBsources/Bigmatrix.hxx \
+ Matrix/lanczos.hxx CBsources/PSCAffineModification.hxx \
+ CBsources/CMsymsparse.hxx CBsources/CMsymdense.hxx Matrix/lanczpol.hxx \
+ CBsources/LanczMaxEig.hxx
+$(OBJDIR)/PSCAffineModification.o $(OBJDIR)/PSCAffineModification.d : CBsources/PSCAffineModification.cxx \
+ CBsources/PSCAffineFunction.hxx CBsources/PSCOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/PSCPrimal.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/sparssym.hxx CBsources/Bigmatrix.hxx \
+ Matrix/lanczos.hxx CBsources/PSCAffineModification.hxx
+$(OBJDIR)/PSCData.o $(OBJDIR)/PSCData.d : CBsources/PSCData.cxx Matrix/mymath.hxx CBsources/PSCData.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/PSCOracle.hxx CBsources/MatrixCBSolver.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/PSCIPBlock.o $(OBJDIR)/PSCIPBlock.d : CBsources/PSCIPBlock.cxx CBsources/PSCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx
+$(OBJDIR)/PSCIPBundleBlock.o $(OBJDIR)/PSCIPBundleBlock.d : CBsources/PSCIPBundleBlock.cxx \
+ CBsources/PSCIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/QPModelDataObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/PSCIPBlock.hxx CBsources/SparseCoeffmatMatrix.hxx \
+ CBsources/Coeffmat.hxx Matrix/memarray.hxx Matrix/sparssym.hxx
+$(OBJDIR)/PSCModel.o $(OBJDIR)/PSCModel.d : CBsources/PSCModel.cxx Matrix/mymath.hxx \
+ CBsources/PSCModel.hxx CBsources/ConeModel.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/PSCData.hxx CBsources/PSCOracle.hxx \
+ CBsources/PSCModelParametersObject.hxx CBsources/PSCAffineFunction.hxx \
+ CBsources/PSCPrimal.hxx CBsources/SparseCoeffmatMatrix.hxx \
+ CBsources/Coeffmat.hxx Matrix/memarray.hxx Matrix/sparssym.hxx \
+ CBsources/Bigmatrix.hxx Matrix/lanczos.hxx \
+ CBsources/PSCAffineModification.hxx CBsources/PSCIPBundleBlock.hxx \
+ CBsources/InteriorPointBundleBlock.hxx CBsources/InteriorPointBlock.hxx \
+ CBsources/PSCIPBlock.hxx CBsources/PSCModelParameters.hxx \
+ CBsources/PSCVariableMetricSelection.hxx CBsources/BundleIdProx.hxx
+$(OBJDIR)/PSCModelParameters.o $(OBJDIR)/PSCModelParameters.d : CBsources/PSCModelParameters.cxx \
+ CBsources/PSCModelParameters.hxx CBsources/PSCModelParametersObject.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/PSCOracle.hxx
+$(OBJDIR)/PSCOracle.o $(OBJDIR)/PSCOracle.d : CBsources/PSCOracle.cxx CBsources/PSCOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx Matrix/matop.hxx
+$(OBJDIR)/PSCPrimal.o $(OBJDIR)/PSCPrimal.d : CBsources/PSCPrimal.cxx CBsources/PSCPrimal.hxx \
+ CBsources/CBout.hxx CBsources/PSCOracle.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/sparssym.hxx
+$(OBJDIR)/PSCVariableMetricSelection.o $(OBJDIR)/PSCVariableMetricSelection.d : CBsources/PSCVariableMetricSelection.cxx \
+ CBsources/PSCVariableMetricSelection.hxx CBsources/PSCOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/PSCData.hxx
+$(OBJDIR)/psqmr.o $(OBJDIR)/psqmr.d : Matrix/psqmr.cxx Matrix/mymath.hxx Matrix/psqmr.hxx \
+ Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx
+$(OBJDIR)/QPConeModelBlock.o $(OBJDIR)/QPConeModelBlock.d : CBsources/QPConeModelBlock.cxx \
+ CBsources/QPConeModelBlock.hxx CBsources/QPModelBlock.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx \
+ CBsources/NNCIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx CBsources/NNCIPBlock.hxx \
+ CBsources/SOCIPBundleBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/PSCIPBundleBlock.hxx CBsources/PSCIPBlock.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/sparssym.hxx CBsources/BoxIPBundleBlock.hxx
+$(OBJDIR)/QPDirectKKTSolver.o $(OBJDIR)/QPDirectKKTSolver.d : CBsources/QPDirectKKTSolver.cxx \
+ CBsources/QPDirectKKTSolver.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx
+$(OBJDIR)/QPIterativeKKTHAeqSolver.o $(OBJDIR)/QPIterativeKKTHAeqSolver.d : CBsources/QPIterativeKKTHAeqSolver.cxx \
+ Matrix/pcg.hxx Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/QPIterativeKKTHAeqSolver.hxx \
+ CBsources/QPIterativeKKTSolver.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPKKTPrecondObject.hxx Tools/clock.hxx \
+ Matrix/IterativeSystemObject.hxx CBsources/QPKKTSubspaceHPrecond.hxx
+$(OBJDIR)/QPIterativeKKTHASolver.o $(OBJDIR)/QPIterativeKKTHASolver.d : CBsources/QPIterativeKKTHASolver.cxx \
+ Matrix/pcg.hxx Matrix/IterativeSystemObject.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/QPIterativeKKTHASolver.hxx CBsources/QPIterativeKKTSolver.hxx \
+ CBsources/QPKKTSolverObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx \
+ CBsources/QPKKTPrecondObject.hxx Tools/clock.hxx \
+ Matrix/IterativeSystemObject.hxx
+$(OBJDIR)/QPIterativeKKTSolver.o $(OBJDIR)/QPIterativeKKTSolver.d : CBsources/QPIterativeKKTSolver.cxx \
+ CBsources/QPIterativeKKTSolver.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPKKTPrecondObject.hxx Tools/clock.hxx \
+ Matrix/IterativeSystemObject.hxx Matrix/lanczpol.hxx Matrix/lanczos.hxx
+$(OBJDIR)/QPKKTPrecondObject.o $(OBJDIR)/QPKKTPrecondObject.d : CBsources/QPKKTPrecondObject.cxx \
+ Matrix/lanczpol.hxx Matrix/lanczos.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Tools/clock.hxx CBsources/QPKKTPrecondObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx
+$(OBJDIR)/QPKKTSolverComparison.o $(OBJDIR)/QPKKTSolverComparison.d : CBsources/QPKKTSolverComparison.cxx \
+ CBsources/QPKKTSolverComparison.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx Tools/clock.hxx
+$(OBJDIR)/QPKKTSolverObject.o $(OBJDIR)/QPKKTSolverObject.d : CBsources/QPKKTSolverObject.cxx \
+ CBsources/QPKKTSolverObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx
+$(OBJDIR)/QPKKTSubspaceHPrecond.o $(OBJDIR)/QPKKTSubspaceHPrecond.d : CBsources/QPKKTSubspaceHPrecond.cxx \
+ CBsources/QPKKTSubspaceHPrecond.hxx CBsources/QPKKTPrecondObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx Tools/clock.hxx
+$(OBJDIR)/QPModelBlock.o $(OBJDIR)/QPModelBlock.d : CBsources/QPModelBlock.cxx CBsources/QPModelBlock.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx \
+ CBsources/QPSumModelBlock.hxx CBsources/QPConeModelBlock.hxx \
+ CBsources/NNCIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx CBsources/NNCIPBlock.hxx \
+ CBsources/SOCIPBundleBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/PSCIPBundleBlock.hxx CBsources/PSCIPBlock.hxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/sparssym.hxx CBsources/BoxIPBundleBlock.hxx
+$(OBJDIR)/QPModelBlockObject.o $(OBJDIR)/QPModelBlockObject.d : CBsources/QPModelBlockObject.cxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/QPModelDataObject.o $(OBJDIR)/QPModelDataObject.d : CBsources/QPModelDataObject.cxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/QPSolverBasicStructures.o $(OBJDIR)/QPSolverBasicStructures.d : CBsources/QPSolverBasicStructures.cxx \
+ CBsources/QPSolverBasicStructures.hxx Tools/clock.hxx \
+ CBsources/QPModelBlock.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPSolverParameters.hxx \
+ CBsources/QPKKTSolverObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/SOCIPProxBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx
+$(OBJDIR)/QPSolver.o $(OBJDIR)/QPSolver.d : CBsources/QPSolver.cxx CBsources/QPSolver.hxx \
+ CBsources/QPSolverBasicStructures.hxx Tools/clock.hxx \
+ CBsources/QPModelBlock.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPSolverParameters.hxx \
+ CBsources/QPKKTSolverObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/SOCIPProxBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/LPGroundsetModification.hxx CBsources/BundleIdProx.hxx \
+ CBsources/QPDirectKKTSolver.hxx
+$(OBJDIR)/QPSolverObject.o $(OBJDIR)/QPSolverObject.d : CBsources/QPSolverObject.cxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx
+$(OBJDIR)/QPSolverParameters.o $(OBJDIR)/QPSolverParameters.d : CBsources/QPSolverParameters.cxx \
+ CBsources/QPSolverParameters.hxx CBsources/QPKKTSolverObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPModelBlockObject.hxx \
+ Matrix/symmat.hxx CBsources/QPDirectKKTSolver.hxx
+$(OBJDIR)/QPSumModelBlock.o $(OBJDIR)/QPSumModelBlock.d : CBsources/QPSumModelBlock.cxx \
+ CBsources/QPSumModelBlock.hxx CBsources/QPModelBlock.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/QPModelBlockObject.hxx Matrix/symmat.hxx
+$(OBJDIR)/qr.o $(OBJDIR)/qr.d : Matrix/qr.cxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Tools/heapsort.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/SOCData.o $(OBJDIR)/SOCData.d : CBsources/SOCData.cxx Matrix/mymath.hxx CBsources/SOCData.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/SOCOracle.hxx CBsources/MatrixCBSolver.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/SOCIPBlock.o $(OBJDIR)/SOCIPBlock.d : CBsources/SOCIPBlock.cxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx
+$(OBJDIR)/SOCIPBundleBlock.o $(OBJDIR)/SOCIPBundleBlock.d : CBsources/SOCIPBundleBlock.cxx \
+ CBsources/SOCIPBundleBlock.hxx CBsources/InteriorPointBundleBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/QPModelDataObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/SOCIPBlock.hxx
+$(OBJDIR)/SOCIPProxBlock.o $(OBJDIR)/SOCIPProxBlock.d : CBsources/SOCIPProxBlock.cxx \
+ CBsources/SOCIPProxBlock.hxx CBsources/SOCIPBlock.hxx \
+ CBsources/InteriorPointBlock.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/SOCModel.o $(OBJDIR)/SOCModel.d : CBsources/SOCModel.cxx Matrix/mymath.hxx \
+ CBsources/SOCModel.hxx CBsources/ConeModel.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/SOCData.hxx CBsources/SOCModelParametersObject.hxx \
+ CBsources/SOCOracle.hxx CBsources/BundleIdProx.hxx \
+ CBsources/SOCModelParameters.hxx
+$(OBJDIR)/SOCModelParameters.o $(OBJDIR)/SOCModelParameters.d : CBsources/SOCModelParameters.cxx \
+ CBsources/SOCModelParameters.hxx CBsources/SOCModelParametersObject.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/SOCOracle.hxx
+$(OBJDIR)/SOCSupportFunction.o $(OBJDIR)/SOCSupportFunction.d : CBsources/SOCSupportFunction.cxx \
+ CBsources/SOCSupportFunction.hxx CBsources/SOCSupportModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ CBsources/CBout.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/matrix.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx include/CBSolver.hxx \
+ Matrix/sparsmat.hxx CBsources/SOCOracle.hxx CBsources/MatrixCBSolver.hxx \
+ Matrix/matrix.hxx CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/SOCSupportModification.o $(OBJDIR)/SOCSupportModification.d : CBsources/SOCSupportModification.cxx \
+ CBsources/SOCSupportModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx CBsources/CBout.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/matrix.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ include/CBSolver.hxx Matrix/sparsmat.hxx
+$(OBJDIR)/SparseCoeffmatMatrix.o $(OBJDIR)/SparseCoeffmatMatrix.d : CBsources/SparseCoeffmatMatrix.cxx \
+ CBsources/SparseCoeffmatMatrix.hxx CBsources/Coeffmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparssym.hxx CBsources/CBout.hxx \
+ CBsources/PSCPrimal.hxx CBsources/PSCOracle.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx CBsources/UQPModelBlockObject.hxx \
+ Tools/clock.hxx CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/BundleData.hxx \
+ CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
+ CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx
+$(OBJDIR)/sparsmat.o $(OBJDIR)/sparsmat.d : Matrix/sparsmat.cxx Matrix/sparsmat.hxx Matrix/symmat.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/sparssym.hxx
+$(OBJDIR)/sparssym.o $(OBJDIR)/sparssym.d : Matrix/sparssym.cxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Tools/heapsort.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/SumBlockModel.o $(OBJDIR)/SumBlockModel.d : CBsources/SumBlockModel.cxx Matrix/mymath.hxx \
+ CBsources/SumBlockModel.hxx Tools/clock.hxx CBsources/MatrixCBSolver.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/AFTModel.hxx CBsources/AFTData.hxx \
+ CBsources/SumBundleParameters.hxx \
+ CBsources/BundleDiagonalTrustRegionProx.hxx
+$(OBJDIR)/SumBundle.o $(OBJDIR)/SumBundle.d : CBsources/SumBundle.cxx Matrix/mymath.hxx \
+ CBsources/SumBundle.hxx CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/SumBundleHandler.o $(OBJDIR)/SumBundleHandler.d : CBsources/SumBundleHandler.cxx \
+ CBsources/SumBundleHandler.hxx CBsources/SumBundle.hxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/BundleModel.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/BundleProxObject.hxx \
+ CBsources/QPSolverObject.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParameters.hxx CBsources/BundleIdProx.hxx
+$(OBJDIR)/SumBundleParameters.o $(OBJDIR)/SumBundleParameters.d : CBsources/SumBundleParameters.cxx \
+ CBsources/SumBundleParameters.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/BundleModel.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/BundleProxObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundle.hxx
+$(OBJDIR)/SumBundleParametersObject.o $(OBJDIR)/SumBundleParametersObject.d : CBsources/SumBundleParametersObject.cxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/BundleModel.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
+ Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \
+ Matrix/mymath.hxx Matrix/symmat.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/BundleProxObject.hxx CBsources/QPSolverObject.hxx \
+ CBsources/VariableMetric.hxx CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundle.hxx
+$(OBJDIR)/SumModel.o $(OBJDIR)/SumModel.d : CBsources/SumModel.cxx Matrix/mymath.hxx \
+ CBsources/SumModelParameters.hxx CBsources/SumModelParametersObject.hxx \
+ CBsources/SumModel.hxx CBsources/SumBlockModel.hxx Tools/clock.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/AFTModel.hxx CBsources/AFTData.hxx CBsources/BundleIdProx.hxx
+$(OBJDIR)/SumModelParameters.o $(OBJDIR)/SumModelParameters.d : CBsources/SumModelParameters.cxx \
+ CBsources/SumModelParameters.hxx CBsources/SumModelParametersObject.hxx \
+ CBsources/SumModel.hxx CBsources/SumBlockModel.hxx Tools/clock.hxx \
+ CBsources/MatrixCBSolver.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ CBsources/UQPSolver.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx CBsources/CBout.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx CBsources/Groundset.hxx \
+ CBsources/BundleProxObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/BundleData.hxx CBsources/SumBundle.hxx \
+ CBsources/BundleWeight.hxx CBsources/BundleModel.hxx \
+ CBsources/FunctionObjectModification.hxx \
+ CBsources/SumBundleParametersObject.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/AFTModel.hxx CBsources/AFTData.hxx
+$(OBJDIR)/symmat.o $(OBJDIR)/symmat.d : Matrix/symmat.cxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/trisolve.o $(OBJDIR)/trisolve.d : Matrix/trisolve.cxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Tools/heapsort.hxx \
+ Matrix/mymath.hxx
+$(OBJDIR)/UnconstrainedGroundset.o $(OBJDIR)/UnconstrainedGroundset.d : CBsources/UnconstrainedGroundset.cxx \
+ Matrix/mymath.hxx CBsources/UnconstrainedGroundset.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/CBout.hxx \
+ include/CBSolver.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/QPSolverObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/VariableMetric.hxx \
+ CBsources/LPGroundsetModification.hxx CBsources/BundleIdProx.hxx \
+ CBsources/UQPSolver.hxx CBsources/UQPModelBlock.hxx Matrix/symmat.hxx \
+ CBsources/UQPModelBlockObject.hxx Tools/clock.hxx
+$(OBJDIR)/UQPConeModelBlock.o $(OBJDIR)/UQPConeModelBlock.d : CBsources/UQPConeModelBlock.cxx Matrix/mymath.hxx \
+ CBsources/UQPConeModelBlock.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/UQPModelBlockObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/UQPModelBlock.o $(OBJDIR)/UQPModelBlock.d : CBsources/UQPModelBlock.cxx \
+ CBsources/UQPSumModelBlock.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/UQPModelBlockObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx \
+ CBsources/UQPConeModelBlock.hxx
+$(OBJDIR)/UQPModelBlockObject.o $(OBJDIR)/UQPModelBlockObject.d : CBsources/UQPModelBlockObject.cxx \
+ CBsources/UQPModelBlockObject.hxx Matrix/symmat.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx
+$(OBJDIR)/UQPSolver.o $(OBJDIR)/UQPSolver.d : CBsources/UQPSolver.cxx CBsources/UQPSolver.hxx \
+ CBsources/QPSolverObject.hxx CBsources/QPModelDataObject.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/CBout.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx CBsources/AffineFunctionTransformation.hxx \
+ CBsources/AFTModification.hxx CBsources/Modification.hxx \
+ CBsources/ModificationBase.hxx Matrix/indexmat.hxx \
+ CBsources/GroundsetModification.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx CBsources/UQPModelBlockObject.hxx Tools/clock.hxx \
+ CBsources/Groundset.hxx CBsources/BundleProxObject.hxx \
+ CBsources/VariableMetric.hxx
+$(OBJDIR)/UQPSumModelBlock.o $(OBJDIR)/UQPSumModelBlock.d : CBsources/UQPSumModelBlock.cxx \
+ CBsources/UQPSumModelBlock.hxx CBsources/UQPModelBlock.hxx \
+ Matrix/symmat.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/sparsmat.hxx \
+ Matrix/sparssym.hxx CBsources/UQPModelBlockObject.hxx \
+ CBsources/QPModelDataObject.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx CBsources/CBout.hxx \
+ Matrix/matrix.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/VariableMetric.o $(OBJDIR)/VariableMetric.d : CBsources/VariableMetric.cxx \
+ CBsources/VariableMetric.hxx CBsources/CBout.hxx \
+ CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx Matrix/matrix.hxx Matrix/indexmat.hxx \
+ Matrix/memarray.hxx Matrix/matop.hxx Tools/gb_rand.hxx \
+ include/CBconfig.hxx Matrix/mymath.hxx Matrix/symmat.hxx \
+ Matrix/sparsmat.hxx Matrix/sparssym.hxx Matrix/sparsmat.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/AFTModification.hxx \
+ CBsources/Modification.hxx CBsources/ModificationBase.hxx \
+ Matrix/indexmat.hxx CBsources/GroundsetModification.hxx
+$(OBJDIR)/VariableMetricSVDSelection.o $(OBJDIR)/VariableMetricSVDSelection.d : CBsources/VariableMetricSVDSelection.cxx \
+ CBsources/VariableMetricSVDSelection.hxx CBsources/VariableMetric.hxx \
+ CBsources/CBout.hxx CBsources/MinorantPointer.hxx \
+ CBsources/MinorantUseData.hxx include/CBSolver.hxx Matrix/matrix.hxx \
+ Matrix/indexmat.hxx Matrix/memarray.hxx Matrix/matop.hxx \
+ Tools/gb_rand.hxx include/CBconfig.hxx Matrix/mymath.hxx \
+ Matrix/symmat.hxx Matrix/sparsmat.hxx Matrix/sparssym.hxx \
+ Matrix/sparsmat.hxx

@@ -1,0 +1,362 @@
+\form#0:\[ min_{y\in\mathbf{R}^m}\quad f_1(y) + ... + f_k(y) \]
+\form#1:$ f_j:\mathbf{R}^n\to\mathbf{R}$
+\form#2:$j=1,...,k$
+\form#3:$ l_i\le y_i \le u_i $
+\form#4:$f_j$
+\form#5:$f$
+\form#6:$\delta +b^Ty+\rho f(c+Ay)$
+\form#7:$G=(N,E)$
+\form#8:$N=\{1,\dots,n\}$
+\form#9:$E\subseteq{N\choose 2}=\{\{i,j\}\colon i,j\in N\}$
+\form#10:$S\subseteq N$
+\form#11:$|\{\{i,j\}\in E\colon i\in S,j\in N\setminus S\}|$
+\form#12:$S$
+\form#13:$N\setminus S$
+\form#14:$x\in\{-1,1\}^n$
+\form#15:$\frac{1-x_ix_j}2$
+\form#16:$i$
+\form#17:$j$
+\form#18:$A\in\{0,1\}^{n\times n}$
+\form#19:$a_{ij}=1\Leftrightarrow \{i,j\}\in E$
+\form#20:\[ \mbox{(MC)}\quad \max_{x\in\{-1,1\}^n} \sum_{i<j}a_{ij}\frac{1-x_ix_j}2.\]
+\form#21:$ L=\mathrm{Diag}(A\mathbf{1})-A$
+\form#22:\[ \mbox{(MC)}\quad\Leftrightarrow\quad \max_{x\in\{-1,1\}^n} \frac14x^\top L x\]
+\form#23:$\frac14$
+\form#24:$\frac12$
+\form#25:$i<j$
+\form#26:$i>j$
+\form#27:$A,B\in\mathbf{R}^{m\times n}$
+\form#28:$m,n$
+\form#29:$\langle A,B\rangle:=\mathrm{trace}(B^\top A)=\sum_i[A^\top B]_{ii}=\sum_{i,j} A_{ij}B_{ij}$
+\form#30:\[ x^\top Lx=\langle Lx,x\rangle =\langle L,xx^\top\rangle. \]
+\form#31:$xx^\top$
+\form#32:$x_i^2=(\pm1)^2=1$
+\form#33:$X\succeq 0$
+\form#34:$\mathrm{diag}(X)=\mathbf{1}$
+\form#35:\[ \mbox{(SMC)} \quad \begin{array}{ll} \max & \langle\frac14 L,X\rangle\\ \mbox{s.t.} & \mathrm{diag}(X)=\mathbf{1} \\ & X\succeq 0 \end{array} \]
+\form#36:$f_\gamma(F(y))=\max_{\{X\succeq 0\colon \langle I,X\rangle =\gamma\}}\langle F(y),X\rangle$
+\form#37:$\gamma>0$
+\form#38:$F\colon \mathbf{R}^m\to \mathbf{S}^n$
+\form#39:$F(y)=C+\sum_{i}y_iA_i$
+\form#40:$X$
+\form#41:$\langle I,X\rangle =n$
+\form#42:\[ \mbox{(SMC)}\quad\Leftrightarrow\quad \min_{y\in\mathbf{R}^n} \max_{\{X\succeq 0\colon \langle I,X\rangle =n\}}[\langle\frac14 L-\sum_{i=1}^n y_iE_{ii},X\rangle +\mathbf{1}^\top y],\]
+\form#43:$y_i$
+\form#44:$\langle E_{ii},X\rangle=1$
+\form#45:$E_{ii}=e_ie_i^\top$
+\form#46:$|E|$
+\form#47:$ \{i_h,j_h\}$
+\form#48:$w_h$
+\form#49:$h=1,\dots,|E|$
+\form#50:$\frac14 L(G)$
+\form#51:$\frac14L$
+\form#52:$\mathbf{1}^\top A\mathbf{1}/(4n)$
+\form#53:\[F(y)=C+\sum_{i=1}^m y_iA_i\quad \to \quad mc(y)=\frac14 L-\sum_{i=1}^n y_iE_{ii}\]
+\form#54:$m$
+\form#55:$-E_{ii}$
+\form#56:$X=P\Lambda P^\top+\alpha\bar X$
+\form#57:$ P^\top P=I_k$
+\form#58:$\Lambda$
+\form#59:$\bar X\in\{X\succeq 0\colon \langle I,X\rangle\}$
+\form#60:$\alpha+\langle I,\Lambda\rangle=n$
+\form#61:$\bar X$
+\form#62:$P\Lambda P^\top$
+\form#63:$P\Lambda^{\frac12}$
+\form#64:$y$
+\form#65:$\mathbf{1}$
+\form#66:$\gamma=n=$
+\form#67:$f_\gamma(mc(y))=\max_{\{X\succeq 0\colon \langle I,X\rangle=\gamma\}} \langle mc(y),X\rangle$
+\form#68:$ x^\top L x$
+\form#69:$X\in\{X\succeq 0\colon \mathrm{diag}(X)=\mathbf{1}\}$
+\form#70:$X=V^\top V$
+\form#71:$V=[v_1,\dots,v_n]$
+\form#72:$\|v_i\|=1$
+\form#73:$X_{ij}=\langle v_i,v_j\rangle=\cos \varphi_{ij}$
+\form#74:$\varphi_{ij}$
+\form#75:$h$
+\form#76:\[ x_i=\left\{\begin{array}{rl} 1 & \mbox{if }\langle h,v_i \rangle > 0,\\ -1 & \mbox{if }\langle h,v_i \rangle \le 0.\\ \end{array}\right. \]
+\form#77:$x^\top Lx$
+\form#78:$ 0.878\cdot\langle L,X\rangle$
+\form#79:$P^\top P=I_k$
+\form#80:$\Lambda\succeq 0$
+\form#81:$\alpha\ge 0$
+\form#82:$\langle I,\Lambda\rangle +\alpha=n$
+\form#83:$\bar X\in\{X\succeq 0\colon\langle I,X\rangle=1\}$
+\form#84:$P$
+\form#85:$\Lambda=\mathrm{Diag}(\lambda_1\ge \cdots \ge \lambda_k\ge 0)$
+\form#86:$\alpha$
+\form#87:$V^\top=P\Lambda^{\frac12}$
+\form#88:$\in\{-1,1\}^n$
+\form#89:$\langle h,v_i \rangle$
+\form#90:$\{X\succeq 0\colon \mathrm{Diag}(X)=\mathbf{1}\}$
+\form#91:$\mathrm{conv}\{xx^\top\colon x\in\{-1,1\}^n\}$
+\form#92:\[ \begin{array}{cccccccl} &X_{ij}&+& X_{ik}&+&X_{jk}&\ge & -1,\\ &X_{ij}&-& X_{ik}&-&X_{jk}&\ge & -1,\\ - &X_{ij}&+& X_{ik}&-&X_{jk}&\ge & -1,\\ - &X_{ij}&-& X_{ik}&+&X_{jk}&\ge & -1. \end{array} \]
+\form#93:$\mathcal{T}$
+\form#94:$\langle A_t,X\rangle\le 1$
+\form#95:\[ \mbox{(SMC)} \quad \begin{array}{ll} \max & \langle\frac14 L,X\rangle\\ \mbox{s.t.} & \mathrm{diag}(X)=\mathbf{1}, \\ & \langle A_t,X\rangle \le 1, \quad t\in\mathcal{T},\\ & X\succeq 0 \end{array} \quad\Leftrightarrow\quad \min_{y\in\mathbf{R}^{n+|\mathcal{T}|},y_{\mathcal{T}}\ge 0} \max_{\{X\succeq 0\colon \langle I,X\rangle =n\}}[\langle\frac14 L-\sum_{i=1}^n y_iE_{ii}-\sum_{t\in \mathcal{T}} y_tA_{t},X\rangle +\mathbf{1}^\top y] \]
+\form#96:$y_t\ge 0$
+\form#97:$t\in\mathcal{T}$
+\form#98:$A_t$
+\form#99:$L$
+\form#100:$\alpha\bar X$
+\form#101:$\mathcal{P}_L$
+\form#102:$P\Lambda^{\frac12}(P\Lambda^{\frac12})^\top+\mathcal{P}_L(\alpha\bar X)$
+\form#103:$\mathcal{P}_L(\alpha\bar X)$
+\form#104:$P\Lambda^{\frac12}(P\Lambda^{\frac12})^\top$
+\form#105:$t=(i,\pm j,\pm k)$
+\form#106:$-\langle A_t,X\rangle$
+\form#107:$\langle A_t,\cdot\rangle\le 1$
+\form#108:$t$
+\form#109:$\langle A_t,\bar X\rangle$
+\form#110:$\{X\succeq 0\colon \langle I,X\rangle=n\}$
+\form#111:$min_{y\in\mathbf{R}^m} f_0(y) + f_1(y) + ... + f_k(y)$
+\form#112:$\gamma \max\{f,0\}$
+\form#113:$\gamma\in(0,\infty)$
+\form#114:$\gamma f$
+\form#115:$\gamma\to\infty$
+\form#116:$s$
+\form#117:\[ f(z)\ge f(y)+\langle s,z-y\rangle\quad\forall z\in\mathbf{R}^m, \]
+\form#118:$f(y)$
+\form#119:$\mathcal{X}\subset\mathbf{R}^m$
+\form#120:\[ f(y) = \max_{x\in\mathcal{X}} x^\top y\]
+\form#121:$x$
+\form#122:$\gamma$
+\form#123:$\gamma f(y)$
+\form#124:$\gamma\max\{0,f(y)\}$
+\form#125:$ \gamma\cdot(\delta+b^Ty+\rho\cdot f(c+Ay))$
+\form#126:$f(y)=\max_{x\in\mathcal{X}}[h(x)+(b-Bx)^Ty]$
+\form#127:$\mathcal{X}\subset\mathbf{R}^n$
+\form#128:$\bar f(\bar c)=\max_{x\in\mathcal{X}}[h(x)+\bar c^Tx]$
+\form#129:$ b^Ty+ \bar f(-B^Ty)$
+\form#130:$A=-B^T$
+\form#131:$\bar x$
+\form#132:$\bar c=-B^Ty$
+\form#133:$\bar f$
+\form#134:$h(\bar x)$
+\form#135:$\mathcal{X}$
+\form#136:$rhslb\le Ay \le rhsub$
+\form#137:$A$
+\form#138:$Hx$
+\form#139:$H^{-1}x$
+\form#140:$ A_k\cdots A_1\cdot H^{-1}\cdot A_1^\top\cdots A_k^\top\cdot x$
+\form#141:$Diag(D)+VV^T$
+\form#142:$min_{x\in\{l\le x\le u:rhsl<=Ax<=rhsu\}}frac12x^TQx+c^Tx+\gamma$
+\form#143:$rhsl<=Ax<=rhsu$
+\form#144:$Ax+s=0$
+\form#145:$rhsl<=-s<=rhsu$
+\form#146:$L(x,s,y,z_l,z_u,z_{rl},z_{ru})=\frac12x^TQx+c^Tx+\gamma+(Ax+s)^Ty+(l-x)^Tz_l+(x-u)^Tz_u+(s+rhsl)^Tz_{rl}+(-s-rhsu)^Tz_{ru}$
+\form#147:$H$
+\form#148:$B$
+\form#149:$C$
+\form#150:$D_x$
+\form#151:$D_A$
+\form#152:$D_B$
+\form#153:$D_C$
+\form#154:$ r_H$
+\form#155:$r_A$
+\form#156:$r_B$
+\form#157:$r_C$
+\form#158:\[ \left[\begin{array}{cccc} H + D_x & A^\top & B^\top & 0 \\ A & -D_A & 0 & 0 \\ B & 0 & -D_B & C \\ 0 & 0 & C & D_C \end{array} \right] \left(\begin{array}{c}x\\y\\ \xi \\ \zeta\end{array}\right) = \left(\begin{array}{c}r_H\\r_A\\ r_B \\r_C\end{array}\right) \]
+\form#159:$H+D_x$
+\form#160:$Q\succ0$
+\form#161:$c$
+\form#162:$\delta$
+\form#163:\[ \begin{array}{ll} \max & -\frac12\langle Qx,x\rangle +\langle c,x \rangle +\langle d,s\rangle +\delta \\ & A_ix_i + B_is_i = b_i \\ & x_i\in K_{i,1}, s_i\in K_{i,2} \\ & x=(x_i), s=(s_i) \end{array} \qquad \begin{array}{lcll} \min & \frac12\langle Qx,x\rangle &+\langle b,y\rangle&+\delta\\ & Qx &+ A^Ty &- z = c \\ & & B^Ty &- t = d \\ & & &z_i\in K_{i,1}^*, t_i\in K_{i,2}^* \end{array} \]
+\form#164:$ A_i$
+\form#165:$b_i$
+\form#166:$s_i$
+\form#167:$d$
+\form#168:$B_i$
+\form#169:$x_i$
+\form#170:$\|y-\hat{y}\|_H^2$
+\form#171:$H=I$
+\form#172:$\|B\|^2_H$
+\form#173:$\|B\|^2_{H^{-1}}$
+\form#174:$alpha*Hx$
+\form#175:$Y$
+\form#176:$i_Y$
+\form#177:$\hat y$
+\form#178:$ (\gamma,g) $
+\form#179:$\gamma+g^\top y\le i_Y(y)$
+\form#180:$u$
+\form#181:$W\subseteq\{(\sigma,s)\colon \sigma+s^\top y\le f(y)\ \forall y\in Y\}$
+\form#182:$W=\{(\delta+c^\top x,b+Ax):x\in X\}$
+\form#183:$x\in X$
+\form#184:\[ \max_{x\in X}\min_{y\in\mathbf{R}^n} [(b+Ax+g)^\top y + \gamma+\delta+c^\top x +\frac{u}2\|y-\hat y\|_H^2],\]
+\form#185:\[ \max_{x\in X} -\frac12 x^\top Qx+d^\top x+\rho\]
+\form#186:$Q, d, \rho$
+\form#187:$[\delta,b]$
+\form#188:$b$
+\form#189:$[c^T;A]$
+\form#190:$Q=\frac1u A^\top H^{-1}A$
+\form#191:$\eta$
+\form#192:$(\gamma,\eta)$
+\form#193:$g$
+\form#194:$ H=VV^\top+D+u I$
+\form#195:$H^{-1}=\frac1u(I-V(\Lambda/(\Lambda+u))V^\top)$
+\form#196:$ H=V\Lambda V^\top+u I$
+\form#197:$H=rI+V\Lambda V^T$
+\form#198:$r>0$
+\form#199:$I$
+\form#200:$V$
+\form#201:$ (\sigma,s) $
+\form#202:$\sigma+s^\top y\le f(y)$
+\form#203:$(y,(\gamma,g))$
+\form#204:\[ \max_{(\gamma,g)\in\partial i_Y}\min_{y\in\mathbf{R}^n} [(s+g)^\top y + \gamma+\sigma +\frac{u}2\|y-\hat y\|_H^2],\]
+\form#205:$\gamma+\sigma+(g+s)^\top y$
+\form#206:$u\|y-\hat x\|_H^2$
+\form#207:$(\gamma,g)$
+\form#208:$\varepsilon=$
+\form#209:$\bar f=$
+\form#210:$\underline{f}=$
+\form#211:$y\in Y$
+\form#212:$\bar s$
+\form#213:$\underline{g}$
+\form#214:$\underline g-\underline f\ge 0$
+\form#215:$\bar f-\bar s\ge 0$
+\form#216:$\bar s-\underline{g}\le\varepsilon(|\bar s|+1.)$
+\form#217:$y_i=\hat y_i$
+\form#218:\[Y=\{y\in\mathbf{R}^m\colon l\le y\le u, r_l\le Ay \le r_u\} \]
+\form#219:$l\le u$
+\form#220:$m\times n$
+\form#221:$r_l\le r_u$
+\form#222:$n$
+\form#223:$min_{y\in\mathbf{R}^m} f(y)$
+\form#224:\[ \max_{(\sigma,s)\in W}\min_{y\in\mathbf{R}^n} [(s+g)^\top y + \gamma+\sigma +\frac{u}2\|y-\hat y\|_H^2],\]
+\form#225:$(\sigma,s)$
+\form#226:$b-Ax$
+\form#227:$Ax=b$
+\form#228:$a_i^\top x=b_i$
+\form#229:$b_i-a_i^\top x$
+\form#230:\[ \min\{c^\top x: a \le Ax\le b, l\le x \le u\} \]
+\form#231:$\bar n,\bar m\in\mathbf{N}_0$
+\form#232:$c,l,u\in\mathbf{R}^{\bar n}$
+\form#233:$a,b\in\mathbf{R}^{\bar m}$
+\form#234:$A\in\mathbf{R}^{\bar m\times\bar n}$
+\form#235:$\bar x\in\mathbf{R}^{\bar n}$
+\form#236:$l,u$
+\form#237:$a,b,l,u$
+\form#238:$c,l,u,\bar x$
+\form#239:$a,b$
+\form#240:$c,\bar x$
+\form#241:$a,l$
+\form#242:$b,u$
+\form#243:$\|(*this)\|^2_{D}$
+\form#244:$\|(*this)\|^2_{D^{-1}}$
+\form#245:$f\colon\mathbf{R}^n\to\mathbf{R},\quad z\mapsto f(z)$
+\form#246:\[ g:\mathbf{R}^m\to\mathbf{R},\quad y\mapsto g(y)=\sigma f(c+Ay)+b^\top y+\delta \]
+\form#247:$\sigma\ge 0$
+\form#248:$c+Ay$
+\form#249:$c\in\mathbf{R}^n$
+\form#250:$c=0$
+\form#251:$A\in\mathbf{R}^{n\times m}$
+\form#252:$A=I_n$
+\form#253:$b\in\mathbf{R}^m$
+\form#254:$b=0$
+\form#255:$b^\top y$
+\form#256:$\delta\in\mathbf{R}$
+\form#257:\[f:\mathbf{R}^n\to\mathbf{R},\quad f(\tilde c)=\max\{\tilde c^\top x\colon x\in[l,u]\},\]
+\form#258:$l,u\in\mathbf{R}^n$
+\form#259:$F\colon \mathbf{R}^m\to\mathbf{R}^n, F(y)=c+Ay$
+\form#260:\[ f_{\gamma,F}(y)=\gamma f(F(y))=\gamma\max\{(c+Ay)^\top x\colon x\in[l,u]\},\]
+\form#261:$b\mathbf{R}^m$
+\form#262:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x\in[\gamma l,\gamma u] \]
+\form#263:\[ f^+_{\gamma,F}(y)=\gamma\max\{0,f(F(y))\},\]
+\form#264:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x\in[\delta l,\delta u]\mbox{ with }0\le \delta\le \gamma \]
+\form#265:\[ f^+_{\infty,F}(y)=\gamma\max\{0,f(F(y))\}\mbox{ with }\gamma\to \infty.\]
+\form#266:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x\in[\delta l,\delta u]\mbox{ with }0\le \delta\le \gamma \mbox{ and }\gamma\to \infty \]
+\form#267:$\tilde c$
+\form#268:\[ \gamma \max_{x\in\{\left(\begin{array}{c}1\\\bar x\end{array}\right)\colon \|\bar x\|\le 1}(c+\sum A_iy_i)^\top x \]
+\form#269:$x_0=1$
+\form#270:$A\in\mathbf{E}^{n\times n}$
+\form#271:$\mathbf{R}^m\to\mathbf{R}$
+\form#272:\[ f_\gamma(y)=\gamma \max\{{1 \choose \bar x}^\top(c+Ay)\colon 1\ge\|\bar x\|\}\]
+\form#273:\[ f^+_\gamma(y)=\gamma \max\{0,{1 \choose \bar x}^\top(c+Ay)\colon 1\ge\|\bar x\|\}\]
+\form#274:\[ f^+_\infty(y)=\gamma \max\{0,{1 \choose \bar x}^\top(c+Ay)\colon 1\ge\|\bar x\|\} \mbox{ with }\gamma\to \infty. \]
+\form#275:$\max\{{1 \choose \bar x}^\top(c+Ay)\colon 1\ge\|\bar x\|\}\le 0$
+\form#276:\[ \mbox{maximize }c^\top x\rangle \mbox{ subject to } A^\top x\begin{array}{c}\le\\=\\\ge\end{array}b, x_0\begin{array}{c}\le\\=\end{array}\gamma, ~~ x_0\ge \|\bar x\| \mbox{ with }x={x_0\choose\bar x}\]
+\form#277:$x_0$
+\form#278:$x_0=\gamma$
+\form#279:$A^\top x$
+\form#280:$f_\gamma$
+\form#281:$x_0 =\gamma$
+\form#282:$ c+Ay$
+\form#283:$x_0\le\gamma$
+\form#284:$f_\gamma^+$
+\form#285:$\gamma \to \infty$
+\form#286:$x_0\ge 0$
+\form#287:$f_\infty^+$
+\form#288:$A_{\bullet,i}^\top x \begin{array}{c}\le\\=\\\ge\end{array} b_i$
+\form#289:$\bar x=0$
+\form#290:$(x_0,\bar x)$
+\form#291:$=\bar x/\|\bar x\|$
+\form#292:$P=\left[\begin{array}{cc}1 & 0 \\ 0 & \bar P \end{array}\right]$
+\form#293:$=c^\top P$
+\form#294:$A^\top P$
+\form#295:$\max\{{1 \choose \bar x}^\top(c+Ay)\colon 1\ge\|\bar x\|\}$
+\form#296:${1 \choose \bar x}$
+\form#297:${1\choose \bar x}$
+\form#298:\[f:\mathbf{R}^n\to\mathbf{R},\quad f(\tilde c)=\max\{\tilde c^\top{1 \choose \bar x}\colon 1\ge\|\bar x\|\}\]
+\form#299:\[ f_{\gamma,F}(y)=\gamma f(F(y))=\gamma\max\{(c+Ay)^\top {1 \choose \bar x}\colon 1\ge\|\bar x\|\},\]
+\form#300:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x={x_0 \choose \bar x}\mbox{ with }\|\bar x\|\le x_0=\gamma \]
+\form#301:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x={x_0 \choose \bar x}\mbox{ with }\|\bar x\|\le x_0\le\gamma \]
+\form#302:\[ f^+_{\infty,F}(y)=\gamma\max\{0,f(F(y))\}\mbox{ with }\gamma\to \infty,\]
+\form#303:\[ \mbox{maximize } c^\top x \mbox{ subject to } A^\top x \begin{array}{c}\le\\=\\\ge\end{array} b, x={x_0 \choose \bar x}\mbox{ with }\|\bar x\|\le x_0\le\gamma\mbox{ and }\gamma\to \infty \]
+\form#304:\[ \gamma \lambda_{\max}(C+\sum A_iy_i) \]
+\form#305:\[ \lambda_{\max}(C)=\max\{\langle C,X\rangle\colon \langle I,X\rangle=1,X\succeq 0\}\]
+\form#306:$A_i$
+\form#307:$i=1,\dots,m$
+\form#308:\[ f_\gamma(y)=\gamma \lambda_{\max}(C+\sum y_iA_i), \]
+\form#309:\[ f^+_\gamma(y)=\gamma \max\{0,\lambda_{\max}(C+\sum y_iA_i)\}. \]
+\form#310:\[ f^+_\infty(y)=\gamma \max\{0,\lambda_{\max}(C+\sum y_iA_i)\} \mbox{ with }\gamma\to \infty. \]
+\form#311:$\lambda_{\max}(C+\sum y_iA_i)\le 0$
+\form#312:\[ \mbox{maximize }\langle C,X\rangle \mbox{ subject to } \langle -A_i,X\rangle \begin{array}{c}\le\\=\\\ge\end{array} b_i, ~~ \langle I,X\rangle \begin{array}{c}\le\\=\end{array}\gamma, ~~ X\succeq 0 \]
+\form#313:$\langle I,X\rangle$
+\form#314:$X\succeq 0, \langle I,X\rangle=\gamma$
+\form#315:$\langle -A_i,X\rangle$
+\form#316:$\langle I,X\rangle =\gamma$
+\form#317:$ C+\sum y_iA_i$
+\form#318:$X\succeq 0, \langle I,X\rangle\le\gamma$
+\form#319:$\langle -A_i,X\rangle \begin{array}{c}\le\\=\\\ge\end{array} b_i$
+\form#320:$\mathbf{S}^n$
+\form#321:\[ \mbox{opA}\colon \mathbf{S}^n\to\mathbf{R}^m, X\mapsto \left[\begin{array}{@{}c@{}} \langle A_1,X\rangle\\[-1ex] \vdots\\[-.5ex] \langle A_m,X\rangle\end{array}\right] \]
+\form#322:$\mbox{opA}$
+\form#323:\[ \mbox{opAt}\colon \mathbf{R}^m\to\mathbf{S}^n, y\mapsto \sum_{i=1}^m y_iA_i \]
+\form#324:$C+\sum_{i=1}^my_iA_i$
+\form#325:$P^T*A*P$
+\form#326:$P^T(C+\sum y_iA_i)P$
+\form#327:$G=P^T*(A_i)*Q$
+\form#328:$Q$
+\form#329:$v$
+\form#330:$v^T(C-\sum y_iA_i)v$
+\form#331:$\gamma\lambda_{\max} F(y)$
+\form#332:$F(y)=C+\sum_{i=1}^my_iA_i$
+\form#333:\[ \mbox{maximize }\langle C,X\rangle \mbox{ subject to } \langle -A_i,X\rangle \begin{array}{c}\le\\=\\\ge\end{array} b_i,~~ \langle I,X\rangle \begin{array}{c}\le\\=\end{array}\gamma,~~ X\succeq 0 \]
+\form#334:$F(y)$
+\form#335:$BB^T$
+\form#336:$BB^T-\mbox{Diag}(BB^T)$
+\form#337:$AB+BA^T$
+\form#338:$A,B$
+\form#339:$j=1,\dots,k$
+\form#340:$X_j$
+\form#341:$C_j$
+\form#342:$A_{ji}$
+\form#343:\[ X=\left[\begin{array}{@{}c@{}c@{}c@{}} X_1 & & 0 \\[-1ex] & \ddots & \\[-.5ex] 0 & &X_k\end{array}\right],\quad C=\left[\begin{array}{@{}c@{}c@{}c@{}} C_1 & & 0 \\[-1ex] & \ddots & \\[-.5ex] 0 & &C_k\end{array}\right],\quad A_i=\left[\begin{array}{@{}c@{}c@{}c@{}} A_{1i} & & 0 \\[-1ex] & \ddots & \\[-.5ex] 0 & &A_{ki}\end{array}\right]~ (i=1,\dots,m), \]
+\form#344:\[ \mbox{maximize }\sum_{j=1}^k\langle C_j,X_j\rangle \mbox{ subject to } \sum_{j=1}^k\langle -A_{ji},X_j\rangle \begin{array}{c}\le\\=\\\ge\end{array} b_i~ (i=1,\dots,m),~~ \sum_{j=1}^k\langle I,X_j\rangle \begin{array}{c}\le\\=\end{array}\gamma,~~ X_j\succeq 0~ (j=1,\dots,k)\]
+\form#345:$(j,i)$
+\form#346:$X\approx PP^T+S$
+\form#347:$F_j(y)=C_j+\sum y_iA_{ji}$
+\form#348:$PP^T+S$
+\form#349:$PP^T$
+\form#350:\[ \left[\begin{array}{ccc}C_1& & 0\\&\ddots&\\0& &C_k\end{array}\right]+\sum_{j=1}^m y_j\left[\begin{array}{ccc}A_{1,j}& & 0\\&\ddots&\\0& &A_{k,j}\end{array}\right] \]
+\form#351:$k\times m$
+\form#352:$i=1,\dots,k$
+\form#353:$\sum_{j=1}^my_iA_i$
+\form#354:$j=1,\dots,m$
+\form#355:$\pm AA^T$
+\form#356:$\pm (AA^T-\mbox{Diag}(AA^T))$
+\form#357:$AB^T+BA^T$
+\form#358:$F(y)=C+\sum y_iA_i$
+\form#359:$sum_{i=0}^{leny} x[i[indy[j]] * y[i] (* d[i[indy[j]])$
+\form#360:$ sum_{(i,j)\in J}xval[i] * yval[j] (* d[xind[i]])$
+\form#361:$J=\{(i,j)\colon xind[i]=yind[j],i=1,\dots,lenx,j=1,\dots,leny\}$
