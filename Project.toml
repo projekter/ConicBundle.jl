@@ -1,0 +1,11 @@
+name = "ConicBundle"
+uuid = "bd672f18-e544-480e-9008-37c9c38661cd"
+authors = ["Benjamin Desef <projekter-git@yahoo.de>"]
+version = "1.0.0-a2"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+MutableArithmetics = "d8a4904e-b15c-11e9-3269-09a3773c0cb0"
+
+[compat]
+julia = "1"
