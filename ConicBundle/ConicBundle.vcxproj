@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{469CB633-AF9D-4AED-B9EC-1F29BDAEB9E6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)Matrix;$(ProjectDir)Tools;$(ProjectDir)CBsources;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)Matrix;$(ProjectDir)Tools;$(ProjectDir)CBsources;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)Matrix;$(ProjectDir)Tools;$(ProjectDir)CBsources;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)Matrix;$(ProjectDir)Tools;$(ProjectDir)CBsources;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CONICBUNDLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CONICBUNDLE_EXPORTS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>_WINDLL;NDEBUG;_WINDOWS;_USRDLL;CONICBUNDLE_EXPORTS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>_WINDLL;_DEBUG;_WINDOWS;_USRDLL;CONICBUNDLE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="cbsources\AffineFunctionTransformation.cxx" />
+    <ClCompile Include="cbsources\AFTData.cxx" />
+    <ClCompile Include="cbsources\AFTModel.cxx" />
+    <ClCompile Include="cbsources\AFTModification.cxx" />
+    <ClCompile Include="cbsources\Bigmatrix.cxx" />
+    <ClCompile Include="cbsources\BoxData.cxx" />
+    <ClCompile Include="cbsources\BoxIPBundleBlock.cxx" />
+    <ClCompile Include="cbsources\BoxModel.cxx" />
+    <ClCompile Include="cbsources\BoxModelParameters.cxx" />
+    <ClCompile Include="cbsources\BoxOracle.cxx" />
+    <ClCompile Include="cbsources\BundleData.cxx" />
+    <ClCompile Include="cbsources\BundleDenseTrustRegionProx.cxx" />
+    <ClCompile Include="cbsources\BundleDiagonalTrustRegionProx.cxx" />
+    <ClCompile Include="cbsources\BundleDLRTrustRegionProx.cxx" />
+    <ClCompile Include="cbsources\BundleHKWeight.cxx" />
+    <ClCompile Include="cbsources\BundleIdProx.cxx" />
+    <ClCompile Include="cbsources\BundleLowRankTrustRegionProx.cxx" />
+    <ClCompile Include="cbsources\BundleModel.cxx" />
+    <ClCompile Include="cbsources\BundleProxObject.cxx" />
+    <ClCompile Include="cbsources\BundleRQBWeight.cxx" />
+    <ClCompile Include="cbsources\BundleSolver.cxx" />
+    <ClCompile Include="cbsources\BundleTerminator.cxx" />
+    <ClCompile Include="cbsources\BundleWeight.cxx" />
+    <ClCompile Include="cbsources\CBout.cxx" />
+    <ClCompile Include="cbsources\CBSolver.cxx" />
+    <ClCompile Include="cbsources\CB_CSolver.cxx" />
+    <ClCompile Include="cbsources\CFunction.cxx" />
+    <ClCompile Include="cbsources\Coeffmat.cxx" />
+    <ClCompile Include="cbsources\ConeModel.cxx" />
+    <ClCompile Include="cbsources\Groundset.cxx" />
+    <ClCompile Include="cbsources\GroundsetModification.cxx" />
+    <ClCompile Include="cbsources\InteriorPointBlock.cxx" />
+    <ClCompile Include="cbsources\InteriorPointBundleBlock.cxx" />
+    <ClCompile Include="cbsources\LanczMaxEig.cxx" />
+    <ClCompile Include="cbsources\LPGroundset.cxx" />
+    <ClCompile Include="cbsources\LPGroundsetModification.cxx" />
+    <ClCompile Include="cbsources\MatrixCBSolver.cxx" />
+    <ClCompile Include="cbsources\Minorant.cxx" />
+    <ClCompile Include="cbsources\MinorantPointer.cxx" />
+    <ClCompile Include="cbsources\MinorantUseData.cxx" />
+    <ClCompile Include="cbsources\Modification.cxx" />
+    <ClCompile Include="cbsources\ModificationBase.cxx" />
+    <ClCompile Include="cbsources\ModificationTreeData.cxx" />
+    <ClCompile Include="cbsources\NNCBoxSupportFunction.cxx" />
+    <ClCompile Include="cbsources\NNCBoxSupportModification.cxx" />
+    <ClCompile Include="cbsources\NNCData.cxx" />
+    <ClCompile Include="cbsources\NNCIPBlock.cxx" />
+    <ClCompile Include="cbsources\NNCIPBundleBlock.cxx" />
+    <ClCompile Include="cbsources\NNCModel.cxx" />
+    <ClCompile Include="cbsources\NNCModelParameters.cxx" />
+    <ClCompile Include="cbsources\PSCAffineFunction.cxx" />
+    <ClCompile Include="cbsources\PSCAffineModification.cxx" />
+    <ClCompile Include="cbsources\PSCData.cxx" />
+    <ClCompile Include="cbsources\PSCIPBlock.cxx" />
+    <ClCompile Include="cbsources\PSCIPBundleBlock.cxx" />
+    <ClCompile Include="cbsources\PSCModel.cxx" />
+    <ClCompile Include="cbsources\PSCModelParameters.cxx" />
+    <ClCompile Include="cbsources\PSCOracle.cxx" />
+    <ClCompile Include="cbsources\PSCPrimal.cxx" />
+    <ClCompile Include="cbsources\PSCVariableMetricSelection.cxx" />
+    <ClCompile Include="cbsources\QPConeModelBlock.cxx" />
+    <ClCompile Include="cbsources\QPDirectKKTSolver.cxx" />
+    <ClCompile Include="cbsources\QPIterativeKKTHAeqSolver.cxx" />
+    <ClCompile Include="cbsources\QPIterativeKKTHASolver.cxx" />
+    <ClCompile Include="cbsources\QPIterativeKKTSolver.cxx" />
+    <ClCompile Include="cbsources\QPKKTPrecondObject.cxx" />
+    <ClCompile Include="cbsources\QPKKTSolverComparison.cxx" />
+    <ClCompile Include="cbsources\QPKKTSolverObject.cxx" />
+    <ClCompile Include="cbsources\QPKKTSubspaceHPrecond.cxx" />
+    <ClCompile Include="cbsources\QPModelBlock.cxx" />
+    <ClCompile Include="cbsources\QPModelBlockObject.cxx" />
+    <ClCompile Include="cbsources\QPModelDataObject.cxx" />
+    <ClCompile Include="cbsources\QPSolver.cxx" />
+    <ClCompile Include="cbsources\QPSolverBasicStructures.cxx" />
+    <ClCompile Include="cbsources\QPSolverObject.cxx" />
+    <ClCompile Include="cbsources\QPSolverParameters.cxx" />
+    <ClCompile Include="cbsources\QPSumModelBlock.cxx" />
+    <ClCompile Include="cbsources\SOCData.cxx" />
+    <ClCompile Include="cbsources\SOCIPBlock.cxx" />
+    <ClCompile Include="cbsources\SOCIPBundleBlock.cxx" />
+    <ClCompile Include="cbsources\SOCIPProxBlock.cxx" />
+    <ClCompile Include="cbsources\SOCModel.cxx" />
+    <ClCompile Include="cbsources\SOCModelParameters.cxx" />
+    <ClCompile Include="cbsources\SOCSupportFunction.cxx" />
+    <ClCompile Include="cbsources\SOCSupportModification.cxx" />
+    <ClCompile Include="cbsources\SparseCoeffmatMatrix.cxx" />
+    <ClCompile Include="cbsources\SumBlockModel.cxx" />
+    <ClCompile Include="cbsources\SumBundle.cxx" />
+    <ClCompile Include="cbsources\SumBundleHandler.cxx" />
+    <ClCompile Include="cbsources\SumBundleParameters.cxx" />
+    <ClCompile Include="cbsources\SumBundleParametersObject.cxx" />
+    <ClCompile Include="cbsources\SumModel.cxx" />
+    <ClCompile Include="cbsources\SumModelParameters.cxx" />
+    <ClCompile Include="cbsources\UnconstrainedGroundset.cxx" />
+    <ClCompile Include="cbsources\UQPConeModelBlock.cxx" />
+    <ClCompile Include="cbsources\UQPModelBlock.cxx" />
+    <ClCompile Include="cbsources\UQPModelBlockObject.cxx" />
+    <ClCompile Include="cbsources\UQPSolver.cxx" />
+    <ClCompile Include="cbsources\UQPSumModelBlock.cxx" />
+    <ClCompile Include="cbsources\VariableMetric.cxx" />
+    <ClCompile Include="cbsources\VariableMetricSVDSelection.cxx" />
+    <ClCompile Include="cppinterface\cb_cppinterface.cpp" />
+    <ClCompile Include="matrix\aasen.cxx" />
+    <ClCompile Include="matrix\chol.cxx" />
+    <ClCompile Include="matrix\eigval.cxx" />
+    <ClCompile Include="matrix\indexmat.cxx" />
+    <ClCompile Include="matrix\IterativeSystemObject.cxx" />
+    <ClCompile Include="matrix\lanczpol.cxx" />
+    <ClCompile Include="matrix\ldl.cxx" />
+    <ClCompile Include="matrix\matrix.cxx" />
+    <ClCompile Include="matrix\memarray.cxx" />
+    <ClCompile Include="matrix\minres.cxx" />
+    <ClCompile Include="matrix\nnls.cxx" />
+    <ClCompile Include="matrix\pcg.cxx" />
+    <ClCompile Include="matrix\psqmr.cxx" />
+    <ClCompile Include="matrix\qr.cxx" />
+    <ClCompile Include="matrix\sparsmat.cxx" />
+    <ClCompile Include="matrix\sparssym.cxx" />
+    <ClCompile Include="matrix\symmat.cxx" />
+    <ClCompile Include="matrix\trisolve.cxx" />
+    <ClCompile Include="tools\BoxPlot.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cbsources\AffineFunctionTransformation.hxx" />
+    <ClInclude Include="cbsources\AFTData.hxx" />
+    <ClInclude Include="cbsources\AFTModel.hxx" />
+    <ClInclude Include="cbsources\AFTModification.hxx" />
+    <ClInclude Include="cbsources\Bigmatrix.hxx" />
+    <ClInclude Include="cbsources\BoxData.hxx" />
+    <ClInclude Include="cbsources\BoxIPBundleBlock.hxx" />
+    <ClInclude Include="cbsources\BoxModel.hxx" />
+    <ClInclude Include="cbsources\BoxModelParameters.hxx" />
+    <ClInclude Include="cbsources\BoxModelParametersObject.hxx" />
+    <ClInclude Include="cbsources\BoxOracle.hxx" />
+    <ClInclude Include="cbsources\BundleData.hxx" />
+    <ClInclude Include="cbsources\BundleDenseTrustRegionProx.hxx" />
+    <ClInclude Include="cbsources\BundleDiagonalTrustRegionProx.hxx" />
+    <ClInclude Include="cbsources\BundleDLRTrustRegionProx.hxx" />
+    <ClInclude Include="cbsources\BundleHKWeight.hxx" />
+    <ClInclude Include="cbsources\BundleIdProx.hxx" />
+    <ClInclude Include="cbsources\BundleLowRankTrustRegionProx.hxx" />
+    <ClInclude Include="cbsources\BundleModel.hxx" />
+    <ClInclude Include="cbsources\BundleProxObject.hxx" />
+    <ClInclude Include="cbsources\BundleRQBWeight.hxx" />
+    <ClInclude Include="cbsources\BundleSolver.hxx" />
+    <ClInclude Include="cbsources\BundleTerminator.hxx" />
+    <ClInclude Include="cbsources\BundleWeight.hxx" />
+    <ClInclude Include="cbsources\CBout.hxx" />
+    <ClInclude Include="cbsources\CB_CSolver.hxx" />
+    <ClInclude Include="cbsources\CFunction.hxx" />
+    <ClInclude Include="cbsources\CMgramdense.hxx" />
+    <ClInclude Include="cbsources\CMgramsparse.hxx" />
+    <ClInclude Include="cbsources\CMgramsparse_withoutdiag.hxx" />
+    <ClInclude Include="cbsources\CMlowrankdd.hxx" />
+    <ClInclude Include="cbsources\CMlowranksd.hxx" />
+    <ClInclude Include="cbsources\CMlowrankss.hxx" />
+    <ClInclude Include="cbsources\CMsingleton.hxx" />
+    <ClInclude Include="cbsources\CMsymdense.hxx" />
+    <ClInclude Include="cbsources\CMsymsparse.hxx" />
+    <ClInclude Include="cbsources\Coeffmat.hxx" />
+    <ClInclude Include="cbsources\ConeModel.hxx" />
+    <ClInclude Include="cbsources\FunctionObjectModification.hxx" />
+    <ClInclude Include="cbsources\Groundset.hxx" />
+    <ClInclude Include="cbsources\GroundsetModification.hxx" />
+    <ClInclude Include="cbsources\InteriorPointBlock.hxx" />
+    <ClInclude Include="cbsources\InteriorPointBundleBlock.hxx" />
+    <ClInclude Include="cbsources\LanczMaxEig.hxx" />
+    <ClInclude Include="cbsources\LPGroundset.hxx" />
+    <ClInclude Include="cbsources\LPGroundsetModification.hxx" />
+    <ClInclude Include="cbsources\MatrixCBSolver.hxx" />
+    <ClInclude Include="cbsources\MinorantPointer.hxx" />
+    <ClInclude Include="cbsources\MinorantUseData.hxx" />
+    <ClInclude Include="cbsources\Modification.hxx" />
+    <ClInclude Include="cbsources\ModificationBase.hxx" />
+    <ClInclude Include="cbsources\ModificationTreeData.hxx" />
+    <ClInclude Include="cbsources\NNCBoxSupportFunction.hxx" />
+    <ClInclude Include="cbsources\NNCBoxSupportModification.hxx" />
+    <ClInclude Include="cbsources\NNCData.hxx" />
+    <ClInclude Include="cbsources\NNCIPBlock.hxx" />
+    <ClInclude Include="cbsources\NNCIPBundleBlock.hxx" />
+    <ClInclude Include="cbsources\NNCModel.hxx" />
+    <ClInclude Include="cbsources\NNCModelParameters.hxx" />
+    <ClInclude Include="cbsources\NNCModelParametersObject.hxx" />
+    <ClInclude Include="cbsources\PSCAffineFunction.hxx" />
+    <ClInclude Include="cbsources\PSCAffineModification.hxx" />
+    <ClInclude Include="cbsources\PSCData.hxx" />
+    <ClInclude Include="cbsources\PSCIPBlock.hxx" />
+    <ClInclude Include="cbsources\PSCIPBundleBlock.hxx" />
+    <ClInclude Include="cbsources\PSCModel.hxx" />
+    <ClInclude Include="cbsources\PSCModelParameters.hxx" />
+    <ClInclude Include="cbsources\PSCModelParametersObject.hxx" />
+    <ClInclude Include="cbsources\PSCOracle.hxx" />
+    <ClInclude Include="cbsources\PSCPrimal.hxx" />
+    <ClInclude Include="cbsources\PSCVariableMetricSelection.hxx" />
+    <ClInclude Include="cbsources\QPConeModelBlock.hxx" />
+    <ClInclude Include="cbsources\QPDirectKKTSolver.hxx" />
+    <ClInclude Include="cbsources\QPIterativeKKTHAeqSolver.hxx" />
+    <ClInclude Include="cbsources\QPIterativeKKTHASolver.hxx" />
+    <ClInclude Include="cbsources\QPIterativeKKTSolver.hxx" />
+    <ClInclude Include="cbsources\QPKKTPrecondObject.hxx" />
+    <ClInclude Include="cbsources\QPKKTSolverComparison.hxx" />
+    <ClInclude Include="cbsources\QPKKTSolverObject.hxx" />
+    <ClInclude Include="cbsources\QPKKTSubspaceHPrecond.hxx" />
+    <ClInclude Include="cbsources\QPModelBlock.hxx" />
+    <ClInclude Include="cbsources\QPModelBlockObject.hxx" />
+    <ClInclude Include="cbsources\QPModelDataObject.hxx" />
+    <ClInclude Include="cbsources\QPSolver.hxx" />
+    <ClInclude Include="cbsources\QPSolverBasicStructures.hxx" />
+    <ClInclude Include="cbsources\QPSolverObject.hxx" />
+    <ClInclude Include="cbsources\QPSolverParameters.hxx" />
+    <ClInclude Include="cbsources\QPSumModelBlock.hxx" />
+    <ClInclude Include="cbsources\SOCData.hxx" />
+    <ClInclude Include="cbsources\SOCIPBlock.hxx" />
+    <ClInclude Include="cbsources\SOCIPBundleBlock.hxx" />
+    <ClInclude Include="cbsources\SOCIPProxBlock.hxx" />
+    <ClInclude Include="cbsources\SOCModel.hxx" />
+    <ClInclude Include="cbsources\SOCModelParameters.hxx" />
+    <ClInclude Include="cbsources\SOCModelParametersObject.hxx" />
+    <ClInclude Include="cbsources\SOCOracle.hxx" />
+    <ClInclude Include="cbsources\SOCSupportFunction.hxx" />
+    <ClInclude Include="cbsources\SOCSupportModification.hxx" />
+    <ClInclude Include="cbsources\SparseCoeffmatMatrix.hxx" />
+    <ClInclude Include="cbsources\SumBlockModel.hxx" />
+    <ClInclude Include="cbsources\SumBundle.hxx" />
+    <ClInclude Include="cbsources\SumBundleHandler.hxx" />
+    <ClInclude Include="cbsources\SumBundleParameters.hxx" />
+    <ClInclude Include="cbsources\SumBundleParametersObject.hxx" />
+    <ClInclude Include="cbsources\SumModel.hxx" />
+    <ClInclude Include="cbsources\SumModelParameters.hxx" />
+    <ClInclude Include="cbsources\SumModelParametersObject.hxx" />
+    <ClInclude Include="cbsources\UnconstrainedGroundset.hxx" />
+    <ClInclude Include="cbsources\UQPConeModelBlock.hxx" />
+    <ClInclude Include="cbsources\UQPModelBlock.hxx" />
+    <ClInclude Include="cbsources\UQPModelBlockObject.hxx" />
+    <ClInclude Include="cbsources\UQPSolver.hxx" />
+    <ClInclude Include="cbsources\UQPSumModelBlock.hxx" />
+    <ClInclude Include="cbsources\VariableMetric.hxx" />
+    <ClInclude Include="cbsources\VariableMetricSVDSelection.hxx" />
+    <ClInclude Include="include\CBSolver.hxx" />
+    <ClInclude Include="include\cb_cinterface.h" />
+    <ClInclude Include="matrix\indexmat.hxx" />
+    <ClInclude Include="matrix\IterativeSystemObject.hxx" />
+    <ClInclude Include="matrix\lanczos.hxx" />
+    <ClInclude Include="matrix\lanczpol.hxx" />
+    <ClInclude Include="matrix\matop.hxx" />
+    <ClInclude Include="matrix\matop_omp.hxx" />
+    <ClInclude Include="matrix\matrix.hxx" />
+    <ClInclude Include="matrix\memarray.hxx" />
+    <ClInclude Include="matrix\minres.hxx" />
+    <ClInclude Include="matrix\mymath.hxx" />
+    <ClInclude Include="matrix\pcg.hxx" />
+    <ClInclude Include="matrix\psqmr.hxx" />
+    <ClInclude Include="matrix\sparsmat.hxx" />
+    <ClInclude Include="matrix\sparssym.hxx" />
+    <ClInclude Include="matrix\symmat.hxx" />
+    <ClInclude Include="tools\BoxPlot.hxx" />
+    <ClInclude Include="tools\clock.hxx" />
+    <ClInclude Include="tools\gb_rand.hxx" />
+    <ClInclude Include="tools\heapsort.hxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

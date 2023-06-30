@@ -1,0 +1,792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cbsources\AffineFunctionTransformation.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\AFTData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\AFTModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\AFTModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\Bigmatrix.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BoxData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BoxIPBundleBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BoxModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BoxModelParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BoxOracle.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleDenseTrustRegionProx.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleDiagonalTrustRegionProx.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleDLRTrustRegionProx.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleHKWeight.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleIdProx.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleLowRankTrustRegionProx.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleProxObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleRQBWeight.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleTerminator.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\BundleWeight.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\CBout.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\CBSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\CB_CSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\CFunction.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\Coeffmat.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\ConeModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\Groundset.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\GroundsetModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\InteriorPointBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\InteriorPointBundleBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\LanczMaxEig.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\LPGroundset.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\LPGroundsetModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\MatrixCBSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\Minorant.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\MinorantPointer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\MinorantUseData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\Modification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\ModificationBase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\ModificationTreeData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCBoxSupportFunction.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCBoxSupportModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCIPBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCIPBundleBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\NNCModelParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCAffineFunction.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCAffineModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCIPBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCIPBundleBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCModelParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCOracle.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCPrimal.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\PSCVariableMetricSelection.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPConeModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPDirectKKTSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPIterativeKKTHAeqSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPIterativeKKTHASolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPIterativeKKTSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPKKTPrecondObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPKKTSolverComparison.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPKKTSolverObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPKKTSubspaceHPrecond.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPModelBlockObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPModelDataObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPSolverBasicStructures.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPSolverObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPSolverParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\QPSumModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCData.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCIPBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCIPBundleBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCIPProxBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCModelParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCSupportFunction.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SOCSupportModification.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SparseCoeffmatMatrix.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumBlockModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumBundle.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumBundleHandler.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumBundleParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumBundleParametersObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumModel.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\SumModelParameters.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UnconstrainedGroundset.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UQPConeModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UQPModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UQPModelBlockObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UQPSolver.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\UQPSumModelBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\VariableMetric.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cbsources\VariableMetricSVDSelection.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\aasen.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\chol.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\eigval.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\indexmat.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\IterativeSystemObject.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\lanczpol.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\ldl.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\matrix.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\memarray.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\minres.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\nnls.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\pcg.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\psqmr.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\qr.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\sparsmat.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\sparssym.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\symmat.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\trisolve.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\BoxPlot.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cppinterface\cb_cppinterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cbsources\AffineFunctionTransformation.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\AFTData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\AFTModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\AFTModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\Bigmatrix.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxIPBundleBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxModelParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxModelParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BoxOracle.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleDenseTrustRegionProx.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleDiagonalTrustRegionProx.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleDLRTrustRegionProx.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleHKWeight.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleIdProx.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleLowRankTrustRegionProx.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleProxObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleRQBWeight.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleTerminator.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\BundleWeight.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CBout.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CB_CSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CFunction.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMgramdense.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMgramsparse.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMgramsparse_withoutdiag.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMlowrankdd.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMlowranksd.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMlowrankss.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMsingleton.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMsymdense.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\CMsymsparse.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\Coeffmat.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\ConeModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\FunctionObjectModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\Groundset.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\GroundsetModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\InteriorPointBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\InteriorPointBundleBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\LanczMaxEig.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\LPGroundset.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\LPGroundsetModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\MatrixCBSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\MinorantPointer.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\MinorantUseData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\Modification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\ModificationBase.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\ModificationTreeData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCBoxSupportFunction.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCBoxSupportModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCIPBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCIPBundleBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCModelParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\NNCModelParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCAffineFunction.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCAffineModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCIPBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCIPBundleBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCModelParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCModelParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCOracle.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCPrimal.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\PSCVariableMetricSelection.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPConeModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPDirectKKTSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPIterativeKKTHAeqSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPIterativeKKTHASolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPIterativeKKTSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPKKTPrecondObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPKKTSolverComparison.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPKKTSolverObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPKKTSubspaceHPrecond.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPModelBlockObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPModelDataObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPSolverBasicStructures.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPSolverObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPSolverParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\QPSumModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCData.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCIPBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCIPBundleBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCIPProxBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCModelParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCModelParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCOracle.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCSupportFunction.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SOCSupportModification.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SparseCoeffmatMatrix.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumBlockModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumBundle.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumBundleHandler.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumBundleParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumBundleParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumModel.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumModelParameters.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\SumModelParametersObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UnconstrainedGroundset.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UQPConeModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UQPModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UQPModelBlockObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UQPSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\UQPSumModelBlock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\VariableMetric.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cbsources\VariableMetricSVDSelection.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cb_cinterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CBSolver.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\indexmat.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\IterativeSystemObject.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\lanczos.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\lanczpol.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\matop.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\matop_omp.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\matrix.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\memarray.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\minres.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\mymath.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\pcg.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\psqmr.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\sparsmat.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\sparssym.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\symmat.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\BoxPlot.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\clock.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\gb_rand.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\heapsort.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
