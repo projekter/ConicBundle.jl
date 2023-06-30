@@ -31,9 +31,9 @@ using namespace CH_Matrix_Classes;
 namespace ConicBundle {
 
 
-  GroundsetModification::~GroundsetModification()
-  {}
+  GroundsetModification::~GroundsetModification() {
+  }
 
-  
+
 }
 

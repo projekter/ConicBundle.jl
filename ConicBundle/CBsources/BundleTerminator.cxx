@@ -25,15 +25,15 @@
 
 #include "BundleTerminator.hxx"
 
- 
+
 
 namespace ConicBundle {
 
-  BundleTerminatorData::~BundleTerminatorData()
-  {}
+  BundleTerminatorData::~BundleTerminatorData() {
+  }
 
-  BundleTerminator::~BundleTerminator()
-  {}
+  BundleTerminator::~BundleTerminator() {
+  }
 
 
 }

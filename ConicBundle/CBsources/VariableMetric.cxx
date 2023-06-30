@@ -30,43 +30,46 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  VariableMetricModel::VariableMetricModel(CBout* cb,int cbinc):CBout(cb,cbinc)
-  {}
+  VariableMetricModel::VariableMetricModel(CBout* cb, int cbinc) :CBout(cb, cbinc) {
+  }
 
-  VariableMetricModel::~VariableMetricModel()
-  {}
+  VariableMetricModel::~VariableMetricModel() {
+  }
 
   int VariableMetricModel::add_variable_metric(VariableMetric& /* H */,
-				  CH_Matrix_Classes::Integer /* y_id */,
-				  const CH_Matrix_Classes::Matrix& /* y */,
-				  bool /* descent_step */,
-				  CH_Matrix_Classes::Real /* weightu */,
-					       CH_Matrix_Classes::Real /* model_maxviol */ ,
-				  const CH_Matrix_Classes::Indexmatrix* /* indices */)
-  {return 0;}
+    CH_Matrix_Classes::Integer /* y_id */,
+    const CH_Matrix_Classes::Matrix& /* y */,
+    bool /* descent_step */,
+    CH_Matrix_Classes::Real /* weightu */,
+    CH_Matrix_Classes::Real /* model_maxviol */,
+    const CH_Matrix_Classes::Indexmatrix* /* indices */) {
+    return 0;
+  }
 
-  VariableMetricBundleData::~VariableMetricBundleData()
-  {}
+  VariableMetricBundleData::~VariableMetricBundleData() {
+  }
 
-  VariableMetricSelection::VariableMetricSelection(CBout* cb,int cbincr):CBout(cb,cbincr)
-  {}
+  VariableMetricSelection::VariableMetricSelection(CBout* cb, int cbincr) :CBout(cb, cbincr) {
+  }
 
-  VariableMetricSelection::~VariableMetricSelection()
-  {}
+  VariableMetricSelection::~VariableMetricSelection() {
+  }
 
   int VariableMetricSelection::add_variable_metric(VariableMetric& /* H */,
-						   CH_Matrix_Classes::Integer /* y_id */,
-						   const CH_Matrix_Classes::Matrix& /* y */,
-						   bool /* descent_step */,
-						   CH_Matrix_Classes::Real /* weightu */,
-						   CH_Matrix_Classes::Real /* model_maxviol */ ,
-						   const CH_Matrix_Classes::Indexmatrix* /* indices */,
-						   VariableMetricBundleData& /* bundle_data */)
-  {return 0;}
+    CH_Matrix_Classes::Integer /* y_id */,
+    const CH_Matrix_Classes::Matrix& /* y */,
+    bool /* descent_step */,
+    CH_Matrix_Classes::Real /* weightu */,
+    CH_Matrix_Classes::Real /* model_maxviol */,
+    const CH_Matrix_Classes::Indexmatrix* /* indices */,
+    VariableMetricBundleData& /* bundle_data */) {
+    return 0;
+  }
 
 
-  VariableMetric::~VariableMetric()
-  {delete vm_selection;}
+  VariableMetric::~VariableMetric() {
+    delete vm_selection;
+  }
 
 
 }

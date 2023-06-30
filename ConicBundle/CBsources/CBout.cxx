@@ -25,27 +25,24 @@
 
 #include "CBout.hxx"
 
- 
+
 
 namespace ConicBundle {
 
 
-  CBout::~CBout()
-  {}
-
-  void CBout::set_out(std::ostream* o,int pl)
-  {
-    out=o;
-    print_level=pl<0?0:pl;
+  CBout::~CBout() {
   }
 
-  void CBout::set_cbout(const CBout* cb,int incr)
-  {
+  void CBout::set_out(std::ostream* o, int pl) {
+    out = o;
+    print_level = pl < 0 ? 0 : pl;
+  }
+
+  void CBout::set_cbout(const CBout* cb, int incr) {
     if (cb) {
-      out=cb->out;
-      print_level=(cb->print_level+incr)<0?0:cb->print_level+incr;
-    }
-    else
+      out = cb->out;
+      print_level = (cb->print_level + incr) < 0 ? 0 : cb->print_level + incr;
+    } else
       clear_cbout();
   }
 

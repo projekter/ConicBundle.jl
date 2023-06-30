@@ -30,17 +30,16 @@ using namespace CH_Matrix_Classes;
 namespace ConicBundle {
 
 
-  BundleProxObject::~BundleProxObject()
-  {}
+  BundleProxObject::~BundleProxObject() {
+  }
 
   BundleProxObject::BundleProxObject(VariableMetricSelection* vp,
-				     bool local_scaling,
-				     bool bounds_scaling,
-				     CBout* cb,int cbinc):
-    VariableMetric(vp,local_scaling,bounds_scaling,cb,cbinc)
-  { 
-    factor=1.;
-    short_QPsteps=0;
+    bool local_scaling,
+    bool bounds_scaling,
+    CBout* cb, int cbinc) :
+    VariableMetric(vp, local_scaling, bounds_scaling, cb, cbinc) {
+    factor = 1.;
+    short_QPsteps = 0;
   }
 
 

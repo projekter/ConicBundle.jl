@@ -34,29 +34,28 @@ using namespace CH_Matrix_Classes;
 namespace ConicBundle {
 
 
-  QPSolverParameters::QPSolverParameters(CBout* cb,int incr):CBout(cb,incr)
-{
-  min_objective_relprec=0.1;
-  objective_gap_eps=1e-8;
-  lower_bound_gap_eps=1e-8;
-  upper_bound_gap_eps=1e-8;
-  primal_infeasibility_eps=1e-8;
-  dual_infeasibility_eps=1e-8;
-  lower_bound=min_Real;
-  upper_bound=max_Real;
-  maxiter=100;
+  QPSolverParameters::QPSolverParameters(CBout* cb, int incr) :CBout(cb, incr) {
+    min_objective_relprec = 0.1;
+    objective_gap_eps = 1e-8;
+    lower_bound_gap_eps = 1e-8;
+    upper_bound_gap_eps = 1e-8;
+    primal_infeasibility_eps = 1e-8;
+    dual_infeasibility_eps = 1e-8;
+    lower_bound = min_Real;
+    upper_bound = max_Real;
+    maxiter = 100;
 
-  allow_unconstrained=true;
+    allow_unconstrained = true;
 
-  KKTsolver=new QPDirectKKTSolver(false,cb,incr);
-  use_predictor_corrector=true;
-  use_neighborhood=false;
-  //nbh_ub=.99;  
-  //nbh_lb=.9;  
-  nbh_ub=.9; 
-  nbh_lb=.6; 
-  use_socqp=false;
-}
+    KKTsolver = new QPDirectKKTSolver(false, cb, incr);
+    use_predictor_corrector = true;
+    use_neighborhood = false;
+    //nbh_ub=.99;  
+    //nbh_lb=.9;  
+    nbh_ub = .9;
+    nbh_lb = .6;
+    use_socqp = false;
+  }
 
 
 

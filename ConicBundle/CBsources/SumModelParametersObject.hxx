@@ -37,70 +37,71 @@
 #include "SumBundleParametersObject.hxx"
 
 namespace ConicBundle {
-/** @ingroup InternalBundleModel
+  /** @ingroup InternalBundleModel
 
-*/
-//@{
+  */
+  //@{
 
-/** @brief abstract interface for SumModel for the models selection routine when using SumBundle and SumBundleHandler
+  /** @brief abstract interface for SumModel for the models selection routine when using SumBundle and SumBundleHandler
 
-    Whenever a joint model should be formed dynamically for some of
-    the functions within SumModel in order to achieve a reduced model
-    size for those that do not need a detailed description, the 
-    routine select_models() provides a suggestion which models should
-    be asked to contribute to this joint model. 
+      Whenever a joint model should be formed dynamically for some of
+      the functions within SumModel in order to achieve a reduced model
+      size for those that do not need a detailed description, the
+      routine select_models() provides a suggestion which models should
+      be asked to contribute to this joint model.
 
-    The parameter @a max_local_models gives a preference on the maximum
-    number of models that may keep their own separate model, all others
-    should be asked to join.
+      The parameter @a max_local_models gives a preference on the maximum
+      number of models that may keep their own separate model, all others
+      should be asked to join.
 
-    Except for possibly @a update_rule the other parameters of
-    BundleParameters are likely not needed here, because the separate
-    SumBundleParametersObject is relevant for the SumBundleHandler,
-    but the class helps to provide a uniform interface.
-*/
+      Except for possibly @a update_rule the other parameters of
+      BundleParameters are likely not needed here, because the separate
+      SumBundleParametersObject is relevant for the SumBundleHandler,
+      but the class helps to provide a uniform interface.
+  */
 
-  class SumModelParametersObject: public virtual CBout, public BundleParameters
-{
-protected:
-  //int max_model_size;       // maximum number of minorants to be selected for the cutting model (numbers<=1 for no limit, numbers >=2 impose a strict limit)
-  //int max_bundle_size;      // suggested maximum number of latest minorants stored for use in a model, for constructing variable metric information etc. (negative numbers give no preference; the size may be increased internally in case of confliciting requirements, eg. in n_model_size or by variable metric routines) 
-  //int update_rule;      // in case several update rules are available
+  class SumModelParametersObject : public virtual CBout, public BundleParameters {
+  protected:
+    //int max_model_size;       // maximum number of minorants to be selected for the cutting model (numbers<=1 for no limit, numbers >=2 impose a strict limit)
+    //int max_bundle_size;      // suggested maximum number of latest minorants stored for use in a model, for constructing variable metric information etc. (negative numbers give no preference; the size may be increased internally in case of confliciting requirements, eg. in n_model_size or by variable metric routines) 
+    //int update_rule;      // in case several update rules are available
 
-  int max_local_models; ///< when combining models, aim for this number of local models
-    
-public:
-  /// initialize BundleParameters to the given values; if bp is a SumModelParametersObject alos set max_local_models and possibly clone sum_bundle_handler correspondigly; if bp is a SumBundleParametersObject, clone it into sum_bundle_handerl;
-  int init(const BundleParameters& bp){
-    BundleParameters::init(bp);
-    const SumModelParametersObject* smpo=dynamic_cast<const SumModelParametersObject*>(&bp);
-    if (smpo){
-      max_local_models=smpo->max_local_models;
+    int max_local_models; ///< when combining models, aim for this number of local models
+
+  public:
+    /// initialize BundleParameters to the given values; if bp is a SumModelParametersObject alos set max_local_models and possibly clone sum_bundle_handler correspondigly; if bp is a SumBundleParametersObject, clone it into sum_bundle_handerl;
+    int init(const BundleParameters& bp) {
+      BundleParameters::init(bp);
+      const SumModelParametersObject* smpo = dynamic_cast<const SumModelParametersObject*>(&bp);
+      if (smpo) {
+        max_local_models = smpo->max_local_models;
+        return 0;
+      }
       return 0;
     }
-    return 0;
-  }
 
-  /// default constructor
-  SumModelParametersObject(CBout* cb=0,int cbinc=-1):
-    CBout(cb,cbinc),BundleParameters(),max_local_models(0)
-  {}
+    /// default constructor
+    SumModelParametersObject(CBout* cb = 0, int cbinc = -1) :
+      CBout(cb, cbinc), BundleParameters(), max_local_models(0) {
+    }
 
-  ///virtual destructor, implemented in SumModelParameters.cxx
-  virtual ~SumModelParametersObject();
-  
-  /// returns the value of the variable 
-  virtual int get_max_local_models() const
-  { return max_local_models;}
- 
-  /// returns the value of the variable 
-  virtual int set_max_local_models(int mlm)
-  { max_local_models=mlm; return 0;}
- 
-  /// generate a suggestion list on which to include in the SumBundle (the othersi should keep their local models) 
-  virtual int select_models(SumModel::ModelMap& modelmap)=0;
+    ///virtual destructor, implemented in SumModelParameters.cxx
+    virtual ~SumModelParametersObject();
 
-};
+    /// returns the value of the variable 
+    virtual int get_max_local_models() const {
+      return max_local_models;
+    }
+
+    /// returns the value of the variable 
+    virtual int set_max_local_models(int mlm) {
+      max_local_models = mlm; return 0;
+    }
+
+    /// generate a suggestion list on which to include in the SumBundle (the othersi should keep their local models) 
+    virtual int select_models(SumModel::ModelMap& modelmap) = 0;
+
+  };
 
 
   //@}

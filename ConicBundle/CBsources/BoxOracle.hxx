@@ -43,81 +43,82 @@
 
 namespace ConicBundle {
 
-/**@defgroup box_oracle box oracle with special purpose cutting model  
+  /**@defgroup box_oracle box oracle with special purpose cutting model
 
-   @brief This oracle has the only purpose of passing the box description data 
-   to a specialized internal implementation of a support function over a 
-   box. The objective is supplied by a suitable AffineFunctionTransformation . 
+     @brief This oracle has the only purpose of passing the box description data
+     to a specialized internal implementation of a support function over a
+     box. The objective is supplied by a suitable AffineFunctionTransformation .
 
-    Internally, the SumBlockModel implementation of the the support
-    function and its bundle model is BoxModel.
-*/
-//@{
-
-
-  /** @brief Interface for extending PrimalData, e.g., in Lagrangian
-      relaxation of column generation approaches
-
-      This object has to be created for Modifications in BoxOracle
-      that should preserve primal information, if in the course of
-      evaluating the oracle one notices, that additional primal
-      variables are needed and the old primal variables need to be
-      updated accordingly.
-
-      The object will be deleted by ConicBundle after use.
-
+      Internally, the SumBlockModel implementation of the the support
+      function and its bundle model is BoxModel.
   */
+  //@{
 
-  class BoxPrimalExtender: public PrimalExtender
-  {
+
+    /** @brief Interface for extending PrimalData, e.g., in Lagrangian
+        relaxation of column generation approaches
+
+        This object has to be created for Modifications in BoxOracle
+        that should preserve primal information, if in the course of
+        evaluating the oracle one notices, that additional primal
+        variables are needed and the old primal variables need to be
+        updated accordingly.
+
+        The object will be deleted by ConicBundle after use.
+
+    */
+
+  class BoxPrimalExtender : public PrimalExtender {
   public:
     ///
-    virtual ~BoxPrimalExtender(){};
+    virtual ~BoxPrimalExtender() {
+    };
 
     /// like in PrimalExtender, called by ConicBundle to update internal PrimalData objects, has to return 0 on success 
-    virtual int extend(PrimalData&)=0;
+    virtual int extend(PrimalData&) = 0;
 
     /// called by ConicBundle to update internal Ritz_vectors, has to return 0 on success 
-    virtual int extend_Box(CH_Matrix_Classes::Matrix& /* Boxvecs */ )=0;
+    virtual int extend_Box(CH_Matrix_Classes::Matrix& /* Boxvecs */) = 0;
   };
 
-  
 
-  /**@brief Oracle interface providing the lower and upper bounds for 
-     the internally implemented support function over this box for an 
-     affine function given by an AffineFucntionTransfomation or, 
+
+  /**@brief Oracle interface providing the lower and upper bounds for
+     the internally implemented support function over this box for an
+     affine function given by an AffineFucntionTransfomation or,
      equivalently, Lagrangian relaxation of linear programs over box domains.
      No modifications of the box groundset are supported so far.
 
-     The support function is fully implemented in BoxModel.  
+     The support function is fully implemented in BoxModel.
   */
 
-  class BoxOracle: public ModifiableOracleObject 
-  {
+  class BoxOracle : public ModifiableOracleObject {
   private:
     CH_Matrix_Classes::Matrix lb;  ///< column vector of lower bounds, same dimension as ub
     CH_Matrix_Classes::Matrix ub;  ///< column vector of upper bounds, same dimension as lb
-    
+
   public:
 
     /// constructor initializing lower and upper bounds (must have the same dimesnion, not checked)
     BoxOracle(const CH_Matrix_Classes::Matrix& in_lb,
-	      const CH_Matrix_Classes::Matrix& in_ub):
-      lb(in_lb),ub(in_ub)
-    {}
+      const CH_Matrix_Classes::Matrix& in_ub) :
+      lb(in_lb), ub(in_ub) {
+    }
 
     /// destructor
     virtual ~BoxOracle();
-	      
-    /** @brief returns the lower bounds vector of the box 
-     */ 
-    const CH_Matrix_Classes::Matrix& get_lower_bounds()
-    {return lb;}
 
-    /** @brief returns the upper bounds vector of the box 
-     */ 
-    const CH_Matrix_Classes::Matrix& get_upper_bounds()
-    {return ub;}
+    /** @brief returns the lower bounds vector of the box
+     */
+    const CH_Matrix_Classes::Matrix& get_lower_bounds() {
+      return lb;
+    }
+
+    /** @brief returns the upper bounds vector of the box
+     */
+    const CH_Matrix_Classes::Matrix& get_upper_bounds() {
+      return ub;
+    }
 
     /**@brief This routine need not be implemented unless variables
       (constraints in Lagrangean relaxation) are added or deleted on
@@ -143,44 +144,46 @@ namespace ConicBundle {
       oracle needs to set discard_model=true; If only aggregate minorants
       cannot be preserved, the oracle needs to set discard_aggregates=true; in
       the current implementation of BoxModel this removes all minorants
-      generated by generate_minorant() because each of them is typically 
+      generated by generate_minorant() because each of them is typically
       generated by more than one Ritz vector. Whenever new variables were
       added, the model can only be preserved if the remaining minorants (maybe
       without aggregates) can be extended for these new variables. In this
       case the oracle has to supply the appropriate MinorantExtender via @a
       minorant_extender and only those minorants will be kept for which this
       operation succeeds.
-	      
+
       Return value 0 indicates that these actions allow to continue without
       errors, other return values result in an overall error on these changes.
     */
-    virtual 
-    int 
-    apply_modification
-    (
-     const OracleModification& /* oracle_modification */,
-     const CH_Matrix_Classes::Matrix* /* new_center */,
-     const CH_Matrix_Classes::Matrix* /* old_center */,
-     bool& /* discard_objective_in_center */,
-     bool& /* discard_model */, 
-     bool& /* discard_aggregates */,
-     MinorantExtender*& /* minorant_extender */
-     )
-    {return 1;}
+    virtual
+      int
+      apply_modification
+      (
+        const OracleModification& /* oracle_modification */,
+        const CH_Matrix_Classes::Matrix* /* new_center */,
+        const CH_Matrix_Classes::Matrix* /* old_center */,
+        bool& /* discard_objective_in_center */,
+        bool& /* discard_model */,
+        bool& /* discard_aggregates */,
+        MinorantExtender*& /* minorant_extender */
+      ) {
+      return 1;
+    }
 
 
 
     /**@brief switch on/off some correctnes checks on the oracle */
     virtual
-    bool
-    check_correctness() const
-    {return true;}
-      
+      bool
+      check_correctness() const {
+      return true;
+    }
+
 
   };
 
 
-//@}
+  //@}
 
 }
 #endif

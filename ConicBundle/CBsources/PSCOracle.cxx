@@ -26,26 +26,26 @@
 #include "PSCOracle.hxx"
 #include "matop.hxx"
 
-using namespace CH_Matrix_Classes; 
+using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  PSCBundleParameters::~PSCBundleParameters(){}
-  
-  int PSCBundleParameters::init(const BundleParameters& bp)
-    {
-      int err=BundleParameters::init(bp);
-      const PSCBundleParameters* p=dynamic_cast<const PSCBundleParameters*>(&bp);
-      if (p){
-	psc_model_size=(p->psc_model_size<1)?1:p->psc_model_size;
-	psc_bundle_size=(p->psc_bundle_size<psc_model_size)?psc_model_size:p->psc_bundle_size;
-	psc_new_subgradients=(p->psc_new_subgradients<1)?1:p->psc_new_subgradients;
-	psc_keep=(p->psc_keep<0)?0:p->psc_keep;
-	psc_aggregates=(p->psc_aggregates<1)?1:p->psc_aggregates;
-	psc_tolerance=(p->psc_tolerance<eps_Real)?eps_Real:p->psc_tolerance;
-	psc_update_rule=p->psc_update_rule;
-      }
-      return err;
+  PSCBundleParameters::~PSCBundleParameters() {
+  }
+
+  int PSCBundleParameters::init(const BundleParameters& bp) {
+    int err = BundleParameters::init(bp);
+    const PSCBundleParameters* p = dynamic_cast<const PSCBundleParameters*>(&bp);
+    if (p) {
+      psc_model_size = (p->psc_model_size < 1) ? 1 : p->psc_model_size;
+      psc_bundle_size = (p->psc_bundle_size < psc_model_size) ? psc_model_size : p->psc_bundle_size;
+      psc_new_subgradients = (p->psc_new_subgradients < 1) ? 1 : p->psc_new_subgradients;
+      psc_keep = (p->psc_keep < 0) ? 0 : p->psc_keep;
+      psc_aggregates = (p->psc_aggregates < 1) ? 1 : p->psc_aggregates;
+      psc_tolerance = (p->psc_tolerance < eps_Real) ? eps_Real : p->psc_tolerance;
+      psc_update_rule = p->psc_update_rule;
     }
+    return err;
+  }
 
 }

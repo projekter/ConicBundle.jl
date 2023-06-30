@@ -27,8 +27,8 @@
 
 namespace ConicBundle {
 
-  QPModelBlockObject::~QPModelBlockObject()
-  {}
+  QPModelBlockObject::~QPModelBlockObject() {
+  }
 
- 
+
 }

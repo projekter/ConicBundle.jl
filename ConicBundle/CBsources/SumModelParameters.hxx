@@ -37,53 +37,51 @@
 #include "SumBundleParametersObject.hxx"
 
 namespace ConicBundle {
-/** @ingroup InternalBundleModel
+  /** @ingroup InternalBundleModel
 
-*/
-//@{
+  */
+  //@{
 
-/** @brief specifies the suggestion procedure for including models in a joint SumBundle model of SumModel
+  /** @brief specifies the suggestion procedure for including models in a joint SumBundle model of SumModel
 
-    
-*/
 
-  class SumModelParameters: public SumModelParametersObject
-{
-private:
-public:
-  
-  /// default constructor
-  SumModelParameters(CBout* cb=0,int cbinc=-1):
-    SumModelParametersObject(cb,cbinc)
-  {}
+  */
 
-  /// constructor setting the SumBundleParameters to use for passing on; the BundleParameters also get this value
-  SumModelParameters(const SumBundleParametersObject& sbp,
-		     int in_max_local_models=0):
-    CBout(sbp),SumModelParametersObject()
-  {
-    init(sbp);
-    max_local_models=in_max_local_models;
-  }
+  class SumModelParameters : public SumModelParametersObject {
+  private:
+  public:
 
-  ///copy constructor
-  SumModelParameters(const SumModelParameters& smp):
-    CBout(smp),SumModelParametersObject()
-  {
-    init(smp);
-  }
+    /// default constructor
+    SumModelParameters(CBout* cb = 0, int cbinc = -1) :
+      SumModelParametersObject(cb, cbinc) {
+    }
 
-  ///virtual destructor
-  virtual ~SumModelParameters();
-  
-  /// return a new clone object of this on the heap (caller needs to delete the result)
-  virtual BundleParameters* clone_BundleParameters() const
-  { return new SumModelParameters(*this);  }
+    /// constructor setting the SumBundleParameters to use for passing on; the BundleParameters also get this value
+    SumModelParameters(const SumBundleParametersObject& sbp,
+      int in_max_local_models = 0) :
+      CBout(sbp), SumModelParametersObject() {
+      init(sbp);
+      max_local_models = in_max_local_models;
+    }
 
-  /// generate a suggestion list on which to include in the SumBundle (the othersi should keep their local models) and what kind of (Sum)BundleParameters to use. bp must be NULL on input; if NULL on ouput there is no preference; if not NULL the object pointed to stays property of *this
-  virtual int select_models(SumModel::ModelMap& modelmap);
+    ///copy constructor
+    SumModelParameters(const SumModelParameters& smp) :
+      CBout(smp), SumModelParametersObject() {
+      init(smp);
+    }
 
-};
+    ///virtual destructor
+    virtual ~SumModelParameters();
+
+    /// return a new clone object of this on the heap (caller needs to delete the result)
+    virtual BundleParameters* clone_BundleParameters() const {
+      return new SumModelParameters(*this);
+    }
+
+    /// generate a suggestion list on which to include in the SumBundle (the othersi should keep their local models) and what kind of (Sum)BundleParameters to use. bp must be NULL on input; if NULL on ouput there is no preference; if not NULL the object pointed to stays property of *this
+    virtual int select_models(SumModel::ModelMap& modelmap);
+
+  };
 
 
   //@}

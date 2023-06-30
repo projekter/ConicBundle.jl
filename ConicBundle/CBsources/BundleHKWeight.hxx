@@ -30,128 +30,134 @@
 
 namespace ConicBundle {
 
-/** @ingroup InternalBundleSolver 
+  /** @ingroup InternalBundleSolver
 
-*/
-//@{
+  */
+  //@{
 
 
-/** @brief Routine for selecting the weight of the quadratic/proximal term
-     withing BundleSolver implementing BundleWeight along the paper by
-     Helmberg and Kiwiel.
-*/
+  /** @brief Routine for selecting the weight of the quadratic/proximal term
+       withing BundleSolver implementing BundleWeight along the paper by
+       Helmberg and Kiwiel.
+  */
 
-class BundleHKWeight: public BundleWeight
-{
-  Groundset* groundset;  ///< the groundset, may not be zero in init and *_update
-  BundleModel* model;    ///< may be zero at any time
-  CH_Matrix_Classes::Integer iweight; ///< counting the iterations since last change
-  CH_Matrix_Classes::Real weight; ///< the current weight
-  CH_Matrix_Classes::Real epsweight; ///< value for guessing the function variation
-  CH_Matrix_Classes::Real minweight; ///< lower bound on the weight
-  CH_Matrix_Classes::Real maxweight; ///< upper bound on the weight
-  CH_Matrix_Classes::Real modelmax; ///< largest model value encountered
-  
-  bool weightchanged;    ///< true if last choose_* call modified the weight
-  bool next_weight_set;  ///< true if set_nextweight was just called, reset at *_update
-  int nullstep_updates; ///< true is weight may be changed after null steps [default: true]
+  class BundleHKWeight : public BundleWeight {
+    Groundset* groundset;  ///< the groundset, may not be zero in init and *_update
+    BundleModel* model;    ///< may be zero at any time
+    CH_Matrix_Classes::Integer iweight; ///< counting the iterations since last change
+    CH_Matrix_Classes::Real weight; ///< the current weight
+    CH_Matrix_Classes::Real epsweight; ///< value for guessing the function variation
+    CH_Matrix_Classes::Real minweight; ///< lower bound on the weight
+    CH_Matrix_Classes::Real maxweight; ///< upper bound on the weight
+    CH_Matrix_Classes::Real modelmax; ///< largest model value encountered
 
-  CH_Matrix_Classes::Matrix valuelevels; ///< for judging null step progress
-  CH_Matrix_Classes::Matrix ratiolevels; ///< for judging null step progress
-  
-  CH_Matrix_Classes::Real mR; ///< parameter for reduction criterion in descent steps
-    
-public:
-  /// the parameter mRin gets the value for accepting descent steps, bwp may be used to communicate the previous values use by another routine 
-  BundleHKWeight(CH_Matrix_Classes::Real mRin=.5,BundleWeight* bwp=0,const CBout* cbo=0,int incr=-1);
-  ///
-  ~BundleHKWeight(){}
+    bool weightchanged;    ///< true if last choose_* call modified the weight
+    bool next_weight_set;  ///< true if set_nextweight was just called, reset at *_update
+    int nullstep_updates; ///< true is weight may be changed after null steps [default: true]
 
- 
-  ///set default values for 'constant' parameters, e.g. minweight and maxweight
-  virtual void set_defaults(); 
+    CH_Matrix_Classes::Matrix valuelevels; ///< for judging null step progress
+    CH_Matrix_Classes::Matrix ratiolevels; ///< for judging null step progress
 
-  ///set nullstep update strategy (0 ... original, 1 ... none, 2 ... enlarge if subsequence of three norm increases is found 
-  virtual void set_nullstep_updates(int nu=0)
-  {nullstep_updates=nu;} 
+    CH_Matrix_Classes::Real mR; ///< parameter for reduction criterion in descent steps
 
-  ///reset all adaptive variables and parameters
-  virtual void clear();        
-  
-  ///compute first weight and set some parameters
-  int init(CH_Matrix_Classes::Real aggr_dnmormsqr,Groundset* groundset,BundleModel* model);
-  
-  /// <=0 leaves everything unchanged and does nothing
-  void set_next_weight(CH_Matrix_Classes::Real u)
-  { if (u<=0.) return; 
-  weight=CH_Matrix_Classes::max(u,1e-10); weightchanged=true;next_weight_set=true;
-  modelmax=CB_minus_infinity;iweight=0;}
-  
-  /// <=0 means no bound 
-  void set_minweight(CH_Matrix_Classes::Real mw)
-  { 
-    minweight=mw; 
-    if (minweight>0){
-      if ((weight>0)&&(weight<minweight)) 
-	weight=minweight;
-      if ((maxweight>0)&&(maxweight<minweight)) 
-	maxweight=minweight;
+  public:
+    /// the parameter mRin gets the value for accepting descent steps, bwp may be used to communicate the previous values use by another routine 
+    BundleHKWeight(CH_Matrix_Classes::Real mRin = .5, BundleWeight* bwp = 0, const CBout* cbo = 0, int incr = -1);
+    ///
+    ~BundleHKWeight() {
     }
-  }
 
-  /// true if the next weight was prespecified externally
-  bool get_next_weight_set() const {return next_weight_set;}
 
-  /// 
-  CH_Matrix_Classes::Real get_minweight() const {return minweight;}
-  
-  /// <=0 means no bound
-  virtual void set_maxweight(CH_Matrix_Classes::Real mw)
-  { 
-    maxweight=mw; 
-    if (maxweight>0){
-      if (weight>maxweight){
-	weight=maxweight;
+    ///set default values for 'constant' parameters, e.g. minweight and maxweight
+    virtual void set_defaults();
+
+    ///set nullstep update strategy (0 ... original, 1 ... none, 2 ... enlarge if subsequence of three norm increases is found 
+    virtual void set_nullstep_updates(int nu = 0) {
+      nullstep_updates = nu;
+    }
+
+    ///reset all adaptive variables and parameters
+    virtual void clear();
+
+    ///compute first weight and set some parameters
+    int init(CH_Matrix_Classes::Real aggr_dnmormsqr, Groundset* groundset, BundleModel* model);
+
+    /// <=0 leaves everything unchanged and does nothing
+    void set_next_weight(CH_Matrix_Classes::Real u) {
+      if (u <= 0.) return;
+      weight = CH_Matrix_Classes::max(u, 1e-10); weightchanged = true; next_weight_set = true;
+      modelmax = CB_minus_infinity; iweight = 0;
+    }
+
+    /// <=0 means no bound 
+    void set_minweight(CH_Matrix_Classes::Real mw) {
+      minweight = mw;
+      if (minweight > 0) {
+        if ((weight > 0) && (weight < minweight))
+          weight = minweight;
+        if ((maxweight > 0) && (maxweight < minweight))
+          maxweight = minweight;
       }
-      if ((minweight>0)&&(minweight>maxweight)) 
-	minweight=maxweight;
     }
-  }
-  
-  ///
-  CH_Matrix_Classes::Real get_maxweight() const {return maxweight;}
 
-  /// returns current value of the weight
-  CH_Matrix_Classes::Real get_weight() const;
-  
-  /// returns true if last call of *_update modified current value of tau, else 0
-  bool weight_changed() const;
-  
-  /// determine next weight after a descent step
-  int descent_update(CH_Matrix_Classes::Real newval,
-		     CH_Matrix_Classes::Real oldval,
-		     CH_Matrix_Classes::Real modelval,
-		     const CH_Matrix_Classes::Matrix& y, 
-		     const CH_Matrix_Classes::Matrix& newy,
-		     CH_Matrix_Classes::Real normsubg2,
-		     BundleProxObject* Hp);
-  
-  /// determine next weight after a null step
-  int nullstep_update(CH_Matrix_Classes::Real newval,
-		      CH_Matrix_Classes::Real oldval,
-		      CH_Matrix_Classes::Real modelval,
-		      const CH_Matrix_Classes::Matrix& y, 
-		      const CH_Matrix_Classes::Matrix& newy,
-		      MinorantPointer& new_minorant,
-		      MinorantPointer& aggregate,
-		      CH_Matrix_Classes::Real nullstep_bound,
-		      CH_Matrix_Classes::Real normsubg2,
-		      BundleProxObject* Hp);
-      
-  /// reinitialize after modifications
-  virtual int apply_modification(const GroundsetModification& gsmdf);
- 
-};
+    /// true if the next weight was prespecified externally
+    bool get_next_weight_set() const {
+      return next_weight_set;
+    }
+
+    /// 
+    CH_Matrix_Classes::Real get_minweight() const {
+      return minweight;
+    }
+
+    /// <=0 means no bound
+    virtual void set_maxweight(CH_Matrix_Classes::Real mw) {
+      maxweight = mw;
+      if (maxweight > 0) {
+        if (weight > maxweight) {
+          weight = maxweight;
+        }
+        if ((minweight > 0) && (minweight > maxweight))
+          minweight = maxweight;
+      }
+    }
+
+    ///
+    CH_Matrix_Classes::Real get_maxweight() const {
+      return maxweight;
+    }
+
+    /// returns current value of the weight
+    CH_Matrix_Classes::Real get_weight() const;
+
+    /// returns true if last call of *_update modified current value of tau, else 0
+    bool weight_changed() const;
+
+    /// determine next weight after a descent step
+    int descent_update(CH_Matrix_Classes::Real newval,
+      CH_Matrix_Classes::Real oldval,
+      CH_Matrix_Classes::Real modelval,
+      const CH_Matrix_Classes::Matrix& y,
+      const CH_Matrix_Classes::Matrix& newy,
+      CH_Matrix_Classes::Real normsubg2,
+      BundleProxObject* Hp);
+
+    /// determine next weight after a null step
+    int nullstep_update(CH_Matrix_Classes::Real newval,
+      CH_Matrix_Classes::Real oldval,
+      CH_Matrix_Classes::Real modelval,
+      const CH_Matrix_Classes::Matrix& y,
+      const CH_Matrix_Classes::Matrix& newy,
+      MinorantPointer& new_minorant,
+      MinorantPointer& aggregate,
+      CH_Matrix_Classes::Real nullstep_bound,
+      CH_Matrix_Classes::Real normsubg2,
+      BundleProxObject* Hp);
+
+    /// reinitialize after modifications
+    virtual int apply_modification(const GroundsetModification& gsmdf);
+
+  };
 
 }
 

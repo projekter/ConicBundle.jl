@@ -42,48 +42,47 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-Coeffmat* coeffmat_read(std::istream& in)
-{
- char name[80];
- in>>std::ws;
- if (!in) {
-     if (materrout) 
-       (*materrout)<<"*** ERROR: coeffmat_read(): input stream broken"<<std::endl;
-     return 0;
- }
- int cnt=0;
- while((in)&&(!isspace(in.peek()))&&(cnt<80)){
-   in.get(name[cnt++]);
- }
- if ((!in)||(cnt==80)){
-     if (materrout) 
-       (*materrout)<<"*** ERROR: coeffmat_read(): failed in reading name of constraint"<<std::endl;
-     return 0;
- }
- name[cnt]=0;
- Coeffmat* p=0;
- if (!strcmp(name,"SYMMETRIC_DENSE")) p=new CMsymdense(in);
- else if (!strcmp(name,"SYMMETRIC_SPARSE")) p=new CMsymsparse(in);
- else if (!strcmp(name,"GRAM_DENSE")) p=new CMgramdense(in);
- else if (!strcmp(name,"GRAM_SPARSE")) p=new CMgramsparse(in);
- else if (!strcmp(name,"LOWRANK_DENSE_DENSE")) p=new CMlowrankdd(in);
- else if (!strcmp(name,"LOWRANK_SPARSE_DENSE")) p=new CMlowranksd(in);
- else if (!strcmp(name,"LOWRANK_SPARSE_SPARSE")) p=new CMlowrankss(in);
- else if (!strcmp(name,"SINGLETON")) p=new CMsingleton(in);
- else if (!strcmp(name,"GRAM_SPARSE_WITHOUTDIAG")) p=new CMgramsparse_withoutdiag(in);
- else {
-     if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout)<<"*** ERROR: coeffmat_read(): unknown constraint name :"<<name<<std::endl;
-     in.clear(std::ios::failbit);
-     return 0;
- }
- if (p==0) {
-     if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout)<<"*** ERROR: coeffmat_read():";
-     if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout)<<" failed in reading a constraint of type "<<name<<std::endl;
-     in.clear(std::ios::failbit);
-     return 0;
- }
- return p;
-}
+  Coeffmat* coeffmat_read(std::istream& in) {
+    char name[80];
+    in >> std::ws;
+    if (!in) {
+      if (materrout)
+        (*materrout) << "*** ERROR: coeffmat_read(): input stream broken" << std::endl;
+      return 0;
+    }
+    int cnt = 0;
+    while ((in) && (!isspace(in.peek())) && (cnt < 80)) {
+      in.get(name[cnt++]);
+    }
+    if ((!in) || (cnt == 80)) {
+      if (materrout)
+        (*materrout) << "*** ERROR: coeffmat_read(): failed in reading name of constraint" << std::endl;
+      return 0;
+    }
+    name[cnt] = 0;
+    Coeffmat* p = 0;
+    if (!strcmp(name, "SYMMETRIC_DENSE")) p = new CMsymdense(in);
+    else if (!strcmp(name, "SYMMETRIC_SPARSE")) p = new CMsymsparse(in);
+    else if (!strcmp(name, "GRAM_DENSE")) p = new CMgramdense(in);
+    else if (!strcmp(name, "GRAM_SPARSE")) p = new CMgramsparse(in);
+    else if (!strcmp(name, "LOWRANK_DENSE_DENSE")) p = new CMlowrankdd(in);
+    else if (!strcmp(name, "LOWRANK_SPARSE_DENSE")) p = new CMlowranksd(in);
+    else if (!strcmp(name, "LOWRANK_SPARSE_SPARSE")) p = new CMlowrankss(in);
+    else if (!strcmp(name, "SINGLETON")) p = new CMsingleton(in);
+    else if (!strcmp(name, "GRAM_SPARSE_WITHOUTDIAG")) p = new CMgramsparse_withoutdiag(in);
+    else {
+      if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout) << "*** ERROR: coeffmat_read(): unknown constraint name :" << name << std::endl;
+      in.clear(std::ios::failbit);
+      return 0;
+    }
+    if (p == 0) {
+      if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout) << "*** ERROR: coeffmat_read():";
+      if (CH_Matrix_Classes::materrout) (*CH_Matrix_Classes::materrout) << " failed in reading a constraint of type " << name << std::endl;
+      in.clear(std::ios::failbit);
+      return 0;
+    }
+    return p;
+  }
 
 
 

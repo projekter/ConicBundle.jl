@@ -27,7 +27,7 @@
 
 namespace ConicBundle {
 
-  UQPModelBlockObject::~UQPModelBlockObject()
-  {}
+  UQPModelBlockObject::~UQPModelBlockObject() {
+  }
 
 }

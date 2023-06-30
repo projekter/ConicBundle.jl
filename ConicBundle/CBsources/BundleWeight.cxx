@@ -25,12 +25,12 @@
 
 #include "BundleWeight.hxx"
 
- 
+
 
 namespace ConicBundle {
 
-  BundleWeight::~BundleWeight()
-  {}
+  BundleWeight::~BundleWeight() {
+  }
 
 }
 

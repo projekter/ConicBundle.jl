@@ -28,16 +28,16 @@
 
 namespace ConicBundle {
 
-  QPSolverParametersObject::~QPSolverParametersObject()
-  {}
-  
-  QPSolverProxObject::~QPSolverProxObject()
-  {}
-  
-  
-  QPSolverObject::~QPSolverObject()
-  {}
-  
+  QPSolverParametersObject::~QPSolverParametersObject() {
+  }
 
- 
+  QPSolverProxObject::~QPSolverProxObject() {
+  }
+
+
+  QPSolverObject::~QPSolverObject() {
+  }
+
+
+
 }

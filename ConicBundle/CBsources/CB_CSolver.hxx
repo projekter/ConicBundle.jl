@@ -39,9 +39,9 @@
 #include "CFunction.hxx"
 
 /** @defgroup internal_cinterface Internal implementation of the "C" interface
- 
-   @brief Internally the "C" interface is implemented as follows. 
-   cb_construct_problem() generates a CB_CSolver that contains a 
+
+   @brief Internally the "C" interface is implemented as follows.
+   cb_construct_problem() generates a CB_CSolver that contains a
    MatrixCBSolver and feeds each c-evaluation function
    to this solver in the form of a CFunction. All calls are
    then passed on to this solver.
@@ -53,14 +53,13 @@
 
    This interface is provided to maintain compatibility with former
    versions. The option no_bundle is no longer available, because
-   it is not compatabile with the use of penalty modes. It is 
+   it is not compatabile with the use of penalty modes. It is
    now replaced by the sumbundle feature.
 
  */
 
-class CB_CSolver
-{
-private: 
+class CB_CSolver {
+private:
 public:
   bool no_bundle;  ///< if true, swith on the minimal sumbundle version
   std::map<void*, ConicBundle::CFunction*> funmap; ///< maps to the c functions
@@ -71,7 +70,7 @@ public:
 
   /// destructor
   ~CB_CSolver();
-	  
+
 };
 
 //@}

@@ -42,16 +42,15 @@
 
 
 namespace ConicBundle {
-/** @ingroup internal_cinterface
-*/
-//@{
-  
-/**@brief for the "C" interface this maps c oracles to the standard function oracle with matrix classes
-       
-*/	
+  /** @ingroup internal_cinterface
+  */
+  //@{
 
-  class CFunction: public CBout, public MatrixFunctionOracle 
-  {
+  /**@brief for the "C" interface this maps c oracles to the standard function oracle with matrix classes
+
+  */
+
+  class CFunction : public CBout, public MatrixFunctionOracle {
   private:
     void* function_key;  ///< identifier for c-code
     cb_functionp oracle; ///< c-function for evaluate
@@ -61,64 +60,67 @@ namespace ConicBundle {
 
   public:
     ///constructor
-    CFunction(void* fk,cb_functionp fp,cb_subgextp se=0,int prdim=0);
+    CFunction(void* fk, cb_functionp fp, cb_subgextp se = 0, int prdim = 0);
     ///destructor
-    ~CFunction(){};
+    ~CFunction() {
+    };
 
     ///set the maximum number of new subgardients per evaluations
-    void set_max_new(CH_Matrix_Classes::Integer mn)
-    {max_new=CH_Matrix_Classes::max(CH_Matrix_Classes::Integer(1),mn);}
+    void set_max_new(CH_Matrix_Classes::Integer mn) {
+      max_new = CH_Matrix_Classes::max(CH_Matrix_Classes::Integer(1), mn);
+    }
 
     /// see MatrixFunctionOracle::evaluate() for explanations 
     int evaluate(
-		 const  CH_Matrix_Classes::Matrix& current_point,
-		 double relprec,
-		 double&  objective_value,
-		 std::vector<Minorant*>& minorants,
-		 PrimalExtender*& 
-     );
+      const  CH_Matrix_Classes::Matrix& current_point,
+      double relprec,
+      double& objective_value,
+      std::vector<Minorant*>& minorants,
+      PrimalExtender*&
+    );
 
     /// see MatrixFunctionOracle::apply_modfication() for explanations 
     int apply_modification
     (
-     const OracleModification& oracle_modification ,
-     const CH_Matrix_Classes::Matrix* new_center ,
-     const CH_Matrix_Classes::Matrix* old_center ,
-     bool& discard_objective_in_center ,
-     bool& discard_model , 
-     bool& discard_aggregates ,
-     MinorantExtender*& minorant_extender 
-     );
+      const OracleModification& oracle_modification,
+      const CH_Matrix_Classes::Matrix* new_center,
+      const CH_Matrix_Classes::Matrix* old_center,
+      bool& discard_objective_in_center,
+      bool& discard_model,
+      bool& discard_aggregates,
+      MinorantExtender*& minorant_extender
+    );
 
-       
+
   };
 
   //@}
-  
+
 /** @ingroup internal_cinterface
 */
 //@{
-  
+
   /**@brief MinorantExtender for CFunction
 
    */
 
-  class CFunctionMinorantExtender: public CBout, public MinorantExtender
-  {
+  class CFunctionMinorantExtender : public CBout, public MinorantExtender {
   private:
     void* function_key;  ///< identifier for c-code
     cb_subgextp subgext; ///< c-function for subgradient extension
 
-    public:
+  public:
     /// constructor
-    CFunctionMinorantExtender(void* fk,cb_subgextp se):function_key(fk),subgext(se)
-    { assert(se); }
+    CFunctionMinorantExtender(void* fk, cb_subgextp se) :function_key(fk), subgext(se) {
+      assert(se);
+    }
 
     /// destructor
-    ~CFunctionMinorantExtender(){}
+    ~CFunctionMinorantExtender() {
+    }
 
     /// see MinorantExtender::extend() for explanations
-    int extend(Minorant& minorant,int n_coords,const int* indices);
+    int extend(Minorant& minorant, int n_coords, const int* indices);
   };
 
   //@}

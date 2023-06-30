@@ -27,7 +27,7 @@
 #define CH_MATRIX_CLASSES__PSQMR_HXX
 
 /**  @file psqmr.hxx
-    @brief Header declaring CH_Matrix_Classes::Psqmr for preconditioned symmetric QMR with symmetric preconditioner M=M1*M2 (M symmetric, M1, M2 regular) 
+    @brief Header declaring CH_Matrix_Classes::Psqmr for preconditioned symmetric QMR with symmetric preconditioner M=M1*M2 (M symmetric, M1, M2 regular)
     @version 1.0
     @date 2011-12-29
     @author Christoph Helmberg
@@ -38,8 +38,8 @@
 
 namespace CH_Matrix_Classes {
 
-/**@ingroup IterativeSolverInterfaces 
-*/
+  /**@ingroup IterativeSolverInterfaces
+  */
   //@{
 
   /** @brief PSQMR method for solving Ax=b with symmetric matrix A and
@@ -50,9 +50,8 @@ namespace CH_Matrix_Classes {
 
   */
 
-  class Psqmr: public IterativeSolverObject
-  {
-  private: 
+  class Psqmr : public IterativeSolverObject {
+  private:
     Integer maxit; ///< maximum number of matrix vector multiplications 
     Real resnorm;   ///< residual norm
     Real old_resnorm; ///< residual norm in the previous step
@@ -66,57 +65,73 @@ namespace CH_Matrix_Classes {
 
   public:
     /// default constructor
-    Psqmr(std::ostream* out=0,int pril=-1); 
+    Psqmr(std::ostream* out = 0, int pril = -1);
     ///
-    virtual ~Psqmr(){}
-    
-   /** @name Set and Get Parameters
-       
-       There should be no need to set any parameters, default values should be
-       available and reasonable.
-   */
+    virtual ~Psqmr() {
+    }
+
+    /** @name Set and Get Parameters
+
+        There should be no need to set any parameters, default values should be
+        available and reasonable.
+    */
     //@{
-  
+
     /// set maximum number of iterations 
-    void set_maxit(Integer in_maxit) {maxit=in_maxit;}
+    void set_maxit(Integer in_maxit) {
+      maxit = in_maxit;
+    }
     /// get maximum number of iterations 
-    Integer get_maxit() const {return maxit;}
+    Integer get_maxit() const {
+      return maxit;
+    }
 
     /// returns the error code of the last call
-    int get_err() const {return err;}
+    int get_err() const {
+      return err;
+    }
     /// returns the number of matrix-vector multiplications of the last call
-    Integer get_nmult() const {return nmult;}
+    Integer get_nmult() const {
+      return nmult;
+    }
     /// returns the residual norm of last call
-    Real get_residual_norm() const {return resnorm;}
+    Real get_residual_norm() const {
+      return resnorm;
+    }
     /// returns the average of the achieved reduction factor per iteration 
-    virtual Real get_avg_reduction() const {return avg_reduction;}
+    virtual Real get_avg_reduction() const {
+      return avg_reduction;
+    }
     /// return the (absolute) precision requirement for termination used in the last call 
-    virtual Real get_termprec() const {return termprec;}
+    virtual Real get_termprec() const {
+      return termprec;
+    }
 
     //@}
-    
+
     /// compute the solution for system into x with (absolute) residual precision termprec
     int compute(IterativeSystemObject& system, ///< the system informatin with precond
-		Matrix& x,        ///< on input: starting point (x.dim()==0 uses 0-vector), on output: approx. sol.,
-		Real termprec,  ///< !absolute! termination precission, stop if residual norm<= termprec,
-		Matrix* storex=0, ///< if not null, store initial x and the x of i*recordstep 
-		Integer storestep=0 ///< if 0 and xrecord!=0 store only the initial x
-		);
+      Matrix& x,        ///< on input: starting point (x.dim()==0 uses 0-vector), on output: approx. sol.,
+      Real termprec,  ///< !absolute! termination precission, stop if residual norm<= termprec,
+      Matrix* storex = 0, ///< if not null, store initial x and the x of i*recordstep 
+      Integer storestep = 0 ///< if 0 and xrecord!=0 store only the initial x
+    );
 
-   /** @name Input/Output
-       
-   */
+    /** @name Input/Output
+
+    */
     //@{
-  
+
     /// set output stream and level of detail of log output (for debugging) 
-    virtual void set_out(std::ostream* in_out=0,int in_print_level=1)
-    {myout=in_out;print_level=in_print_level;}
+    virtual void set_out(std::ostream* in_out = 0, int in_print_level = 1) {
+      myout = in_out; print_level = in_print_level;
+    }
 
     //@}
   };
 
   //@}
-  
+
 }
 
 #endif

@@ -29,114 +29,112 @@
 
 namespace ConicBundle {
 
-  UQPModelBlock::~UQPModelBlock()
-  {}
+  UQPModelBlock::~UQPModelBlock() {
+  }
 
   // *****************************************************************************
 //                                push_aft
 // *****************************************************************************
 
   int UQPModelBlock::push_aft(const AffineFunctionTransformation* aft,
-			      const CH_Matrix_Classes::Indexmatrix* global_indices,
-			      const CH_Matrix_Classes::Indexmatrix* local_indices,
-			      std::map<MinorantPointer,MinorantPointer>* precomputed)
-  {
-    assert(constant_minorant.size()>0);
-    assert(bundle.size()>0);
+    const CH_Matrix_Classes::Indexmatrix* global_indices,
+    const CH_Matrix_Classes::Indexmatrix* local_indices,
+    std::map<MinorantPointer, MinorantPointer>* precomputed) {
+    assert(constant_minorant.size() > 0);
+    assert(bundle.size() > 0);
     constant_minorant.push_back(constant_minorant.back());
     bundle.push_back(bundle.back());
-    if (aft==0)
+    if (aft == 0)
       return 0;
-    
-    MinorantPointer& cm=get_constant_minorant();
-    MinorantBundle& bun=get_bundle();
+
+    MinorantPointer& cm = get_constant_minorant();
+    MinorantBundle& bun = get_bundle();
 
     MinorantPointer tmpm;
-    int err=0;
-    if (precomputed==0){
-      if (!cm.empty()){
-	if (aft->transform_minorant(tmpm,cm,1.,true,local_indices,global_indices)){
-	  err++;
-	  if (cb_out(0)){
-	    get_out()<<"\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for constant_minorant"<<std::endl;
-	  }
-	}
-	cm=tmpm;
+    int err = 0;
+    if (precomputed == 0) {
+      if (!cm.empty()) {
+        if (aft->transform_minorant(tmpm, cm, 1., true, local_indices, global_indices)) {
+          err++;
+          if (cb_out(0)) {
+            get_out() << "\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for constant_minorant" << std::endl;
+          }
+        }
+        cm = tmpm;
       }
-      for(unsigned int i=0;i<bun.size();i++){
-	tmpm.clear();
-	if (aft->transform_minorant(tmpm,bun[i],1.,false,local_indices,global_indices)){
-	  err++;
-	  if (cb_out(0)){
-	    get_out()<<"\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for minorant "<<i<<std::endl;
-	  }
-	}
-	bun[i]=tmpm;
+      for (unsigned int i = 0; i < bun.size(); i++) {
+        tmpm.clear();
+        if (aft->transform_minorant(tmpm, bun[i], 1., false, local_indices, global_indices)) {
+          err++;
+          if (cb_out(0)) {
+            get_out() << "\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for minorant " << i << std::endl;
+          }
+        }
+        bun[i] = tmpm;
       }
       return err;
     }
 
     // precomputed is available, deal with it
-    std::map<MinorantPointer,MinorantPointer>::iterator mapit;
-    if (!cm.empty()){
-      mapit=precomputed->find(cm);
-      if ((mapit==precomputed->end())||(! mapit->second.valid())){
-	if (aft->transform_minorant(tmpm,cm,1.,false,local_indices,global_indices)){
-	  if (cb_out(0)){
-	    get_out()<<"\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for constant_minorant"<<std::endl;
-	  }
-	  err++;
-	}
-	(*precomputed)[cm]=tmpm;
-	cm=tmpm;
-      }
-      else {
-	cm=mapit->second;
+    std::map<MinorantPointer, MinorantPointer>::iterator mapit;
+    if (!cm.empty()) {
+      mapit = precomputed->find(cm);
+      if ((mapit == precomputed->end()) || (!mapit->second.valid())) {
+        if (aft->transform_minorant(tmpm, cm, 1., false, local_indices, global_indices)) {
+          if (cb_out(0)) {
+            get_out() << "\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for constant_minorant" << std::endl;
+          }
+          err++;
+        }
+        (*precomputed)[cm] = tmpm;
+        cm = tmpm;
+      } else {
+        cm = mapit->second;
       }
     }
-    for(unsigned int i=0;i<bun.size();i++){
-      mapit=precomputed->find(bun[i]);
-      if ((mapit==precomputed->end())||(!mapit->second.valid())){
-	tmpm.clear();
-	if (aft->transform_minorant(tmpm,bun[i],1.,false,local_indices,global_indices)){
-	  if (cb_out(0)){
-	    get_out()<<"\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for minorant "<<i<<std::endl;
-	  }
-	  err++;
-	}
-	(*precomputed)[bun[i]]=tmpm;
-	bun[i]=tmpm;
-      }
-      else {
-	bun[i]=mapit->second;
+    for (unsigned int i = 0; i < bun.size(); i++) {
+      mapit = precomputed->find(bun[i]);
+      if ((mapit == precomputed->end()) || (!mapit->second.valid())) {
+        tmpm.clear();
+        if (aft->transform_minorant(tmpm, bun[i], 1., false, local_indices, global_indices)) {
+          if (cb_out(0)) {
+            get_out() << "\n**** ERROR: QPModelBlock::apply_aft(..): transform_minorant failed for minorant " << i << std::endl;
+          }
+          err++;
+        }
+        (*precomputed)[bun[i]] = tmpm;
+        bun[i] = tmpm;
+      } else {
+        bun[i] = mapit->second;
       }
     }
 
     return err;
-    
+
   }
 
   // *****************************************************************************
 //                                pop_aft
 // *****************************************************************************
 
-  int UQPModelBlock::pop_aft()
-  {
-    assert(constant_minorant.size()==bundle.size());
-    if (bundle.size()<=1)
+  int UQPModelBlock::pop_aft() {
+    assert(constant_minorant.size() == bundle.size());
+    if (bundle.size() <= 1)
       return 1;
     bundle.pop_back();
     constant_minorant.pop_back();
     return 0;
   }
-    
-UQPModelPointer::~UQPModelPointer()
-  {}
 
-  QPSumModelDataObject* UQPModelPointer::generate_summodel_data(BundleModel* )
-  { return new UQPSumModelBlock(this); }
-  
-  QPConeModelDataObject*  UQPModelPointer::generate_conemodel_data(BundleModel*)
-  { return new UQPConeModelBlock(this); }
- 
+  UQPModelPointer::~UQPModelPointer() {
+  }
+
+  QPSumModelDataObject* UQPModelPointer::generate_summodel_data(BundleModel*) {
+    return new UQPSumModelBlock(this);
+  }
+
+  QPConeModelDataObject* UQPModelPointer::generate_conemodel_data(BundleModel*) {
+    return new UQPConeModelBlock(this);
+  }
+
 }

@@ -30,9 +30,9 @@ using namespace CH_Matrix_Classes;
 namespace ConicBundle {
 
 
-  NNCBoxSupportModification::~NNCBoxSupportModification()
-  {}
+  NNCBoxSupportModification::~NNCBoxSupportModification() {
+  }
 
-  
+
 }
 

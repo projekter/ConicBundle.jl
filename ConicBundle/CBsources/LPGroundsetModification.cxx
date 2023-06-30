@@ -30,8 +30,8 @@ using namespace CH_Matrix_Classes;
 namespace ConicBundle {
 
 
-  LPGroundsetModification::~LPGroundsetModification()
-  {}
+  LPGroundsetModification::~LPGroundsetModification() {
+  }
 
 
 }

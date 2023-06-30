@@ -27,7 +27,8 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  BoxOracle::~BoxOracle(){}
-  
+  BoxOracle::~BoxOracle() {
+  }
+
 
 }

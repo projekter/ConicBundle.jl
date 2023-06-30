@@ -40,125 +40,140 @@
 
 namespace ConicBundle {
 
-class QPSolverParameters;
+  class QPSolverParameters;
 
-  
-/** @ingroup ConstrainedQPSolver
- */
-  //@{
 
-  /** @brief Abstract Interface for preconditioners to be used with a
-      QPIterativeKKTSolver and a CH_Matrix_Classes::IterativeSolverObject,
-      see \ref IterativeSolverInterfaces.  It will depend on the
-      system setup and the solver method which preconditioning
-      routines are called and what requirements the preconditioners
-      have to fulfill. Feasible combinations lie in the responsibility
-      of the caller and are not checked for correctness.
+  /** @ingroup ConstrainedQPSolver
+   */
+   //@{
 
-      As describe for QPIterativeKKTSolver the main structure is
-      as follows:
- 
-      - init_data() is called from QPIterativeKKTSolver::QPinit_KKTdata()
-        once at the beginning of a new QP problem to communicate the
-	basic problem data
+   /** @brief Abstract Interface for preconditioners to be used with a
+       QPIterativeKKTSolver and a CH_Matrix_Classes::IterativeSolverObject,
+       see \ref IterativeSolverInterfaces.  It will depend on the
+       system setup and the solver method which preconditioning
+       routines are called and what requirements the preconditioners
+       have to fulfill. Feasible combinations lie in the responsibility
+       of the caller and are not checked for correctness.
 
-      - init_system() is called from QPIterativeKKTSolver::QPinit_KKTsystem()
-        once at each iteration of the interior point solver when setting
-        when setting up the system before solving. Here the preconditioners
-	are precomputed so that their use in precondM1() and precondM2() is
-	efficient
+       As describe for QPIterativeKKTSolver the main structure is
+       as follows:
 
-      - precondM1() and precondM2() are called by the actual iterative solver
-        CH_Matrix_Classes::IterativeSolverObject 
-  */
-  
-class QPKKTPrecondObject: public virtual CBout
-{
-protected:
+       - init_data() is called from QPIterativeKKTSolver::QPinit_KKTdata()
+         once at the beginning of a new QP problem to communicate the
+   basic problem data
 
-  //--- data describing the KKT system
-  QPSolverProxObject* Hp;  ///< points to the quadratic cost representation, may NOT be NULL afer init
-  QPModelBlockObject* model; ///< points to the cutting model information, may be NULL
-  const CH_Matrix_Classes::Sparsemat* A;  ///< points to a possibly present constraint matrix, may be NULL
-  const CH_Matrix_Classes::Indexmatrix* eq_indices; ///< if not NULL, these rows of A correspond to equations; needed for checking applicability of this Object
-  bool SchurComplAineq; ///< if true, the inequalities of A are Schur complemented into the H block
+       - init_system() is called from QPIterativeKKTSolver::QPinit_KKTsystem()
+         once at each iteration of the interior point solver when setting
+         when setting up the system before solving. Here the preconditioners
+   are precomputed so that their use in precondM1() and precondM2() is
+   efficient
 
-  CH_Matrix_Classes::Real Hfactor; ///< the prox term of Hp is multiplied by this
-  
-public:
-  /// reset data to empty
-  virtual void clear()
-  {Hp=0;model=0;A=0;eq_indices=0;}
-  
-  /// default constructor
-  QPKKTPrecondObject(CBout* cb=0,int cbinc=-1):
-    CBout(cb,cbinc),Hp(0),model(0),A(0),eq_indices(0),SchurComplAineq(false)
-    {}
+       - precondM1() and precondM2() are called by the actual iterative solver
+         CH_Matrix_Classes::IterativeSolverObject
+   */
 
-  /// virtual destructor
-  virtual ~QPKKTPrecondObject();
-  
-  /// returns 1 if this class is not applicable in the current data situation, otherwise it stores the data pointers and these need to stay valid throught the use of the other routines but are not deleted here
-  virtual int init_data(QPSolverProxObject* Hp, ///< may not be be NULL 
-			QPModelBlockObject* model, ///< may be NULL
-			const CH_Matrix_Classes::Sparsemat* A, ///< may be NULL
-			const CH_Matrix_Classes::Indexmatrix* eq_indices, ///< if not NULL these rows of A correspond to equations
-			bool SchurComplAineq ///< if true, the inequalities of A are Schur complemented into the H block
-			)=0;
-  
-  /// set up the primal dual KKT system for being solved for predictor and corrector rhs; the input objects KKTdiagx, KKTdiagy and Hfactor will not change during use of the preconditioner, so it suffices to store the address if they are need during application of the preconditioner 
-  virtual int init_system(const CH_Matrix_Classes::Matrix& KKTdiagx,
-			  const CH_Matrix_Classes::Matrix& KKTdiagy,
-			  CH_Matrix_Classes::Real Hfactor,
-			  CH_Matrix_Classes::Real prec,
-			  QPSolverParameters* params) =0;
+  class QPKKTPrecondObject : public virtual CBout {
+  protected:
 
-  ///return (an estimate of) the minimum eigenvalue of the preconditioner M1^{-1}; this is used, e.g., to correct the precission in MINRES
-  virtual CH_Matrix_Classes::Real get_lmin_invM1() {return 1.;}
-  
-  ///returns M1^{-1}*vec; default: M1=I
-  virtual int precondM1(CH_Matrix_Classes::Matrix& /* vec */) {return 0;}
-  
-  ///returns M2^{-1}vec; default: M2=I
-  virtual int precondM2(CH_Matrix_Classes::Matrix& /* vec */) {return 0;}
+    //--- data describing the KKT system
+    QPSolverProxObject* Hp;  ///< points to the quadratic cost representation, may NOT be NULL afer init
+    QPModelBlockObject* model; ///< points to the cutting model information, may be NULL
+    const CH_Matrix_Classes::Sparsemat* A;  ///< points to a possibly present constraint matrix, may be NULL
+    const CH_Matrix_Classes::Indexmatrix* eq_indices; ///< if not NULL, these rows of A correspond to equations; needed for checking applicability of this Object
+    bool SchurComplAineq; ///< if true, the inequalities of A are Schur complemented into the H block
 
-  ///for estimating the condition number with M1=G*G^T this returns G^{-1}*vec; default: G=I
-  virtual int precond_invG1(CH_Matrix_Classes::Matrix& /* vec */) {return 0;}
+    CH_Matrix_Classes::Real Hfactor; ///< the prox term of Hp is multiplied by this
 
-  ///for estimating the condition number with M1=G*G^T this returns G^{-T}*vec; default: G=I
-  virtual int precond_invG1tran(CH_Matrix_Classes::Matrix& /* vec */) {return 0;}
+  public:
+    /// reset data to empty
+    virtual void clear() {
+      Hp = 0; model = 0; A = 0; eq_indices = 0;
+    }
 
-  ///for estimating the condition number directly for the preconditioned part only; negative numbers indicate that the routine is not implemented
-  virtual CH_Matrix_Classes::Integer precond_size() {return -1;}
-  
-  ///for estimating the condition number directly for the preconditioned part only
-  virtual int cond_number_mult(CH_Matrix_Classes::Matrix& /* vec */,
-			       const CH_Matrix_Classes::Matrix& /* KKTdiagx */,
-			       const CH_Matrix_Classes::Matrix& /* KKTdiagy */)
-  {return 1;}
+    /// default constructor
+    QPKKTPrecondObject(CBout* cb = 0, int cbinc = -1) :
+      CBout(cb, cbinc), Hp(0), model(0), A(0), eq_indices(0), SchurComplAineq(false) {
+    }
 
-  ///for estimating the condition number directly for the preconditioned part only
-  virtual  CH_Matrix_Classes::Real get_condition_number(const CH_Matrix_Classes::Matrix& KKTdiagx,
-							const CH_Matrix_Classes::Matrix& KKTdiagy);
-  
-  /// for evaluation purposes with iterative solvers, return the rank of the precondiontioner used (or the number of n-vector multiplications per call)
-  virtual CH_Matrix_Classes::Integer get_precond_rank()
-  {return -1;}
+    /// virtual destructor
+    virtual ~QPKKTPrecondObject();
 
-  /// for evaluation purposes with iterative solvers, return the time spent in the multiplication with the preconditioner
-  virtual CH_Tools::Microseconds get_t_precond_mult()
-  {return 0;}
+    /// returns 1 if this class is not applicable in the current data situation, otherwise it stores the data pointers and these need to stay valid throught the use of the other routines but are not deleted here
+    virtual int init_data(QPSolverProxObject* Hp, ///< may not be be NULL 
+      QPModelBlockObject* model, ///< may be NULL
+      const CH_Matrix_Classes::Sparsemat* A, ///< may be NULL
+      const CH_Matrix_Classes::Indexmatrix* eq_indices, ///< if not NULL these rows of A correspond to equations
+      bool SchurComplAineq ///< if true, the inequalities of A are Schur complemented into the H block
+    ) = 0;
 
-  /// for evaluation purposes with iterative solvers, reset the time spent in the multiplication with the preconditioner to zero
-  virtual void reset_t_precond_mult()
-  {}
-};
+    /// set up the primal dual KKT system for being solved for predictor and corrector rhs; the input objects KKTdiagx, KKTdiagy and Hfactor will not change during use of the preconditioner, so it suffices to store the address if they are need during application of the preconditioner 
+    virtual int init_system(const CH_Matrix_Classes::Matrix& KKTdiagx,
+      const CH_Matrix_Classes::Matrix& KKTdiagy,
+      CH_Matrix_Classes::Real Hfactor,
+      CH_Matrix_Classes::Real prec,
+      QPSolverParameters* params) = 0;
+
+    ///return (an estimate of) the minimum eigenvalue of the preconditioner M1^{-1}; this is used, e.g., to correct the precission in MINRES
+    virtual CH_Matrix_Classes::Real get_lmin_invM1() {
+      return 1.;
+    }
+
+    ///returns M1^{-1}*vec; default: M1=I
+    virtual int precondM1(CH_Matrix_Classes::Matrix& /* vec */) {
+      return 0;
+    }
+
+    ///returns M2^{-1}vec; default: M2=I
+    virtual int precondM2(CH_Matrix_Classes::Matrix& /* vec */) {
+      return 0;
+    }
+
+    ///for estimating the condition number with M1=G*G^T this returns G^{-1}*vec; default: G=I
+    virtual int precond_invG1(CH_Matrix_Classes::Matrix& /* vec */) {
+      return 0;
+    }
+
+    ///for estimating the condition number with M1=G*G^T this returns G^{-T}*vec; default: G=I
+    virtual int precond_invG1tran(CH_Matrix_Classes::Matrix& /* vec */) {
+      return 0;
+    }
+
+    ///for estimating the condition number directly for the preconditioned part only; negative numbers indicate that the routine is not implemented
+    virtual CH_Matrix_Classes::Integer precond_size() {
+      return -1;
+    }
+
+    ///for estimating the condition number directly for the preconditioned part only
+    virtual int cond_number_mult(CH_Matrix_Classes::Matrix& /* vec */,
+      const CH_Matrix_Classes::Matrix& /* KKTdiagx */,
+      const CH_Matrix_Classes::Matrix& /* KKTdiagy */) {
+      return 1;
+    }
+
+    ///for estimating the condition number directly for the preconditioned part only
+    virtual  CH_Matrix_Classes::Real get_condition_number(const CH_Matrix_Classes::Matrix& KKTdiagx,
+      const CH_Matrix_Classes::Matrix& KKTdiagy);
+
+    /// for evaluation purposes with iterative solvers, return the rank of the precondiontioner used (or the number of n-vector multiplications per call)
+    virtual CH_Matrix_Classes::Integer get_precond_rank() {
+      return -1;
+    }
+
+    /// for evaluation purposes with iterative solvers, return the time spent in the multiplication with the preconditioner
+    virtual CH_Tools::Microseconds get_t_precond_mult() {
+      return 0;
+    }
+
+    /// for evaluation purposes with iterative solvers, reset the time spent in the multiplication with the preconditioner to zero
+    virtual void reset_t_precond_mult() {
+    }
+  };
 
 
 
 
   //@}
-  
+
 }
 
 #endif

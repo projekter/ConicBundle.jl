@@ -27,6 +27,7 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  InteriorPointBundleBlock::~InteriorPointBundleBlock(){}
+  InteriorPointBundleBlock::~InteriorPointBundleBlock() {
+  }
 
 }

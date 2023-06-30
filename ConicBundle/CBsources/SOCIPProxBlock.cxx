@@ -27,117 +27,113 @@
 using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
-  
-  int SOCIPProxBlock::clear_prox(const QPSolverProxObject* po)
-  {
-    Hp=po;
-    
-    rho=-1;
-    drho=0.;
-    rho_rhs=0.;
-    rhoconst=1.;
 
-    sqrtHy_rhs.init(0,0,0.);
-    
-    ydim=0;
-    lrdim=0;
+  int SOCIPProxBlock::clear_prox(const QPSolverProxObject* po) {
+    Hp = po;
 
-    if (Hp){
-      Hp->get_precond(sqrtD,Vp);
-      ydim=sqrtD.rowdim();
+    rho = -1;
+    drho = 0.;
+    rho_rhs = 0.;
+    rhoconst = 1.;
+
+    sqrtHy_rhs.init(0, 0, 0.);
+
+    ydim = 0;
+    lrdim = 0;
+
+    if (Hp) {
+      Hp->get_precond(sqrtD, Vp);
+      ydim = sqrtD.rowdim();
       sqrtD.sqrt();
-      lrdim=(Vp?Vp->coldim():0);
-      SOCIPBlock::clear(2+ydim+lrdim);
-      if (! Hp->is_DLR()){
-	if (cb_out()){
-	  get_out()<<"**** WARNING SOCIPProxBlock::clear(.): proximal term is not of the form diagonal+low rank, not supported"<<std::endl;
-	}
-	return 1;
+      lrdim = (Vp ? Vp->coldim() : 0);
+      SOCIPBlock::clear(2 + ydim + lrdim);
+      if (!Hp->is_DLR()) {
+        if (cb_out()) {
+          get_out() << "**** WARNING SOCIPProxBlock::clear(.): proximal term is not of the form diagonal+low rank, not supported" << std::endl;
+        }
+        return 1;
       }
-    }
-    else {
+    } else {
       SOCIPBlock::clear();
     }
-    
+
     return 0;
   }
 
 
-  SOCIPProxBlock::SOCIPProxBlock(const QPSolverProxObject* po, CBout* cb,int cbinc):
-    CBout(cb,cbinc),SOCIPBlock(0,cb,cbinc)
-  {
+  SOCIPProxBlock::SOCIPProxBlock(const QPSolverProxObject* po, CBout* cb, int cbinc) :
+    CBout(cb, cbinc), SOCIPBlock(0, cb, cbinc) {
     clear_prox(po);
   }
 
-  SOCIPProxBlock::~SOCIPProxBlock()
-  {}
+  SOCIPProxBlock::~SOCIPProxBlock() {
+  }
 
   int SOCIPProxBlock::reset_starting_point(const Matrix& y,
-				   const Matrix& sys_lhs,
-					   Real& mu )
-  {
+    const Matrix& sys_lhs,
+    Real& mu) {
     assert(Hp);
-    assert(y.rowdim()==ydim);
-    assert(sys_lhs.rowdim()==ydim);
-    assert(vecdim==ydim+lrdim+2);
+    assert(y.rowdim() == ydim);
+    assert(sys_lhs.rowdim() == ydim);
+    assert(vecdim == ydim + lrdim + 2);
 
     //--- set x body
-    x.newsize(vecdim,1); chk_set_init(x,1);
-    Real sum_xsqrs=0.;
-    Real* xp=x.get_store()+2;
-    const Real* sp=sys_lhs.get_store();
-    const Real* dp=sqrtD.get_store();
-    for(Integer i=0;i<ydim;i++){
-      Real d=(*sp++)/(*dp++);
-      sum_xsqrs+=sqr(d);
-      *xp++ =d;
+    x.newsize(vecdim, 1); chk_set_init(x, 1);
+    Real sum_xsqrs = 0.;
+    Real* xp = x.get_store() + 2;
+    const Real* sp = sys_lhs.get_store();
+    const Real* dp = sqrtD.get_store();
+    for (Integer i = 0; i < ydim; i++) {
+      Real d = (*sp++) / (*dp++);
+      sum_xsqrs += sqr(d);
+      *xp++ = d;
     }
-    for(Integer i=0;i<lrdim;i++){
-      *xp++=0.;
+    for (Integer i = 0; i < lrdim; i++) {
+      *xp++ = 0.;
     }
 
     //--- compute sqrtHy_rhs withou rho
-    sqrtHy_rhs.newsize(vecdim,1); chk_set_init(sqrtHy_rhs,1);
-    Real* Hyp=sqrtHy_rhs.get_store();
-    (*Hyp++)=0.;
-    (*Hyp++)=1.;
-    Real sum_zsqrs=0.;
-    const Real* yp=y.get_store();
-    dp=sqrtD.get_store();
-    for(Integer i=0;i<ydim;i++){
-      Real d=(*yp++)*(*dp++);
-      sum_zsqrs+=sqr(d);
+    sqrtHy_rhs.newsize(vecdim, 1); chk_set_init(sqrtHy_rhs, 1);
+    Real* Hyp = sqrtHy_rhs.get_store();
+    (*Hyp++) = 0.;
+    (*Hyp++) = 1.;
+    Real sum_zsqrs = 0.;
+    const Real* yp = y.get_store();
+    dp = sqrtD.get_store();
+    for (Integer i = 0; i < ydim; i++) {
+      Real d = (*yp++) * (*dp++);
+      sum_zsqrs += sqr(d);
       *Hyp++ = d;
     }
-    if (lrdim>0){
-      genmult(*Vp,y,tmpvec,1.,0.,1);
-      dp=tmpvec.get_store();
-      for(Integer i=0;i<lrdim;i++){
-	Real d=(*dp++);
-	*Hyp++ = d;
-	sum_zsqrs+=sqr(d);
+    if (lrdim > 0) {
+      genmult(*Vp, y, tmpvec, 1., 0., 1);
+      dp = tmpvec.get_store();
+      for (Integer i = 0; i < lrdim; i++) {
+        Real d = (*dp++);
+        *Hyp++ = d;
+        sum_zsqrs += sqr(d);
       }
     }
 
     //--- set z body
-    z.newsize(vecdim,1); chk_set_init(z,1);
-    mat_xey(vecdim-2,z.get_store()+2,sqrtHy_rhs.get_store()+2);
+    z.newsize(vecdim, 1); chk_set_init(z, 1);
+    mat_xey(vecdim - 2, z.get_store() + 2, sqrtHy_rhs.get_store() + 2);
 
     //--- set rho, x0, x1, z0, z1
-    rhoconst=max(1.,max(std::sqrt(sum_xsqrs),std::sqrt(sum_zsqrs))/100.);
-    x(0)=1.001*(sum_xsqrs/rhoconst+rhoconst+2.)/2.;
-    rho=1.001*(sum_zsqrs/rhoconst+rhoconst+2.)/2.;
-    Real d=(x(0)-rhoconst)*(rhoconst-rho)+mat_ip(ydim+lrdim,x.get_store()+2,z.get_store()+2);
-    Real gmu=max(mu,x(0)*rho+d);
-    d=std::fabs(gmu-d);
-    x(0)=max(x(0),d);
-    x(1)=x(0)-rhoconst;
-    rho=max(rho,d/x(0));
-    z(0)=rho;
-    z(1)=rhoconst-rho;
-    sqrtHy_rhs(0)=rho;
-    sqrtHy_rhs(1)=rhoconst-rho;
-    
+    rhoconst = max(1., max(std::sqrt(sum_xsqrs), std::sqrt(sum_zsqrs)) / 100.);
+    x(0) = 1.001 * (sum_xsqrs / rhoconst + rhoconst + 2.) / 2.;
+    rho = 1.001 * (sum_zsqrs / rhoconst + rhoconst + 2.) / 2.;
+    Real d = (x(0) - rhoconst) * (rhoconst - rho) + mat_ip(ydim + lrdim, x.get_store() + 2, z.get_store() + 2);
+    Real gmu = max(mu, x(0) * rho + d);
+    d = std::fabs(gmu - d);
+    x(0) = max(x(0), d);
+    x(1) = x(0) - rhoconst;
+    rho = max(rho, d / x(0));
+    z(0) = rho;
+    z(1) = rhoconst - rho;
+    sqrtHy_rhs(0) = rho;
+    sqrtHy_rhs(1) = rhoconst - rho;
+
     //--- set rho, x0, x1, z0, z1  //only care about centrality and not feasibility of x
     /*
     rhoconst=max(1.,std::sqrt(sum_zsqrs)/1000.);
@@ -145,7 +141,7 @@ namespace ConicBundle {
     z(0)=rho;
     z(1)=rhoconst-rho;
     sqrtHy_rhs(0)=rho;
-    sqrtHy_rhs(1)=rhoconst-rho;    
+    sqrtHy_rhs(1)=rhoconst-rho;
     x.init(z,-1.);
     x(0)=rho;
     */
@@ -154,29 +150,28 @@ namespace ConicBundle {
 
 
   int SOCIPProxBlock::add_prox_contrib(Real& min_objective,
-			       Real& max_objective,
-			       Matrix& sys_lhs) 
-  {
-    assert(sys_lhs.rowdim()==ydim);
+    Real& max_objective,
+    Matrix& sys_lhs) {
+    assert(sys_lhs.rowdim() == ydim);
     //std::cout<<"socsys_lhsin="<<sys_lhs;
     //std::cout<<" minin="<<min_objective<<std::endl;
     //std::cout<<" maxin="<<max_objective<<std::endl;
-    
-    min_objective+=rhoconst*(rho-.5*rhoconst);
-    max_objective+=rhoconst*(-x(1)-.5*rhoconst);
+
+    min_objective += rhoconst * (rho - .5 * rhoconst);
+    max_objective += rhoconst * (-x(1) - .5 * rhoconst);
 
     //-- add diagonal part to sys_lhs
-    Real *sysp=sys_lhs.get_store();
-    const Real* dp=sqrtD.get_store();
-    const Real* xp=x.get_store()+2;
-    for(Integer i=0;i<ydim;i++){ 
-      *sysp++ -= (*dp++)*(*xp++);
+    Real* sysp = sys_lhs.get_store();
+    const Real* dp = sqrtD.get_store();
+    const Real* xp = x.get_store() + 2;
+    for (Integer i = 0; i < ydim; i++) {
+      *sysp++ -= (*dp++) * (*xp++);
     }
 
     //-- add low rank part to sys_lhs
-    if (Vp){
-      tmpvec.init(lrdim,1,x.get_store()+ydim+2);
-      genmult(*Vp,tmpvec,sys_lhs,-1.,1.);
+    if (Vp) {
+      tmpvec.init(lrdim, 1, x.get_store() + ydim + 2);
+      genmult(*Vp, tmpvec, sys_lhs, -1., 1.);
     }
 
     // std::cout.precision(12);
@@ -189,42 +184,39 @@ namespace ConicBundle {
     return 0;
   }
 
-  Real SOCIPProxBlock::primalviol_2normsqr()
-  {
-    tmpvec=sqrtHy_rhs;
-    tmpvec-=z;
-    return ip(tmpvec,tmpvec);
+  Real SOCIPProxBlock::primalviol_2normsqr() {
+    tmpvec = sqrtHy_rhs;
+    tmpvec -= z;
+    return ip(tmpvec, tmpvec);
   }
 
-  int SOCIPProxBlock::add_prox_sysrhs(Matrix& rhs, 
-				      Real& Hfactor,
-				      Real rhsmu,
-				      Real rhscorr)
-  {
+  int SOCIPProxBlock::add_prox_sysrhs(Matrix& rhs,
+    Real& Hfactor,
+    Real rhsmu,
+    Real rhscorr) {
 
-    if (f.dim()!=vecdim){
+    if (f.dim() != vecdim) {
       compute_NTscaling();
     }
-    
-    last_rhs_mu=rhsmu;    
-    
-    if (rhscorr>0.){
-      assert((dx.dim()==vecdim)&&(dx.coldim()==1));
-      
+
+    last_rhs_mu = rhsmu;
+
+    if (rhscorr > 0.) {
+      assert((dx.dim() == vecdim) && (dx.coldim() == 1));
+
       tmpvec.init(dx);
       apply_F(tmpvec);
-      compl_rhs.init(dz,-rhscorr);
-      apply_Arw(tmpvec,apply_Finv(compl_rhs)); 
-    }
-    else 
-      compl_rhs.init(vecdim,1,0.);
+      compl_rhs.init(dz, -rhscorr);
+      apply_Arw(tmpvec, apply_Finv(compl_rhs));
+    } else
+      compl_rhs.init(vecdim, 1, 0.);
 
-    if (rhsmu>0.){
-      compl_rhs(0)+=rhsmu;
+    if (rhsmu > 0.) {
+      compl_rhs(0) += rhsmu;
     }
-    
-    if ((rhsmu>0)||(rhscorr>0)){
-      apply_Arwinv(scaled_point,compl_rhs);
+
+    if ((rhsmu > 0) || (rhscorr > 0)) {
+      apply_Arwinv(scaled_point, compl_rhs);
       apply_Finv(compl_rhs);
     }
 
@@ -232,7 +224,7 @@ namespace ConicBundle {
       apply_Arwinv(scaled_point,compl_rhs);
       apply_Finv(compl_rhs);
     }
-    else 
+    else
       compl_rhs.init(vecdim,1,0.);
 
     if (rhsmu>0.){
@@ -240,76 +232,75 @@ namespace ConicBundle {
       mat_xpeya(vecdim-1,compl_rhs.get_store()+1,z.get_store()+1,-mu/gammazsqr);
     }
     */
-    
+
     //tmpvec.init(sHrhsmcompl);
     //Real testrho_rhs=(tmpvec(0)+tmpvec(1)-2*(f(0)+f(1))*(2*f(0)*tmpvec(0)-ip(tmpvec,f)))/sqr(omega)-1.+x(0)-x(1);
-    
+
     //std::cout<<"sqrtHy_rhs= "<<sqrtHy_rhs<<" tmpvec="<<tmpvec;
     //apply_Finvsqr(tmpvec);
 
-    compl_rhs-=x;
-    tmpvec.init(compl_rhs,-1.);
-    
-    rho_rhs=-rhoconst+x(0)-x(1)-tmpvec(0)+tmpvec(1);
+    compl_rhs -= x;
+    tmpvec.init(compl_rhs, -1.);
+
+    rho_rhs = -rhoconst + x(0) - x(1) - tmpvec(0) + tmpvec(1);
     //std::cout<<" errrho_rhs= "<<rho_rhs-testrho_rhs;
     //std::cout<<"rho_rhs="<<rho_rhs<<" x0="<<x(0)<<" x1="<<x(1)<<" Finvsqr(sqrtHy)="<<tmpvec<<std::endl;
-    tmpvec(0)+=rho_rhs*f(0)/(f(0)+f(1));
-    mat_xpeya(vecdim-1,tmpvec.get_store()+1,f.get_store()+1,-rho_rhs/(f(0)+f(1)));
+    tmpvec(0) += rho_rhs * f(0) / (f(0) + f(1));
+    mat_xpeya(vecdim - 1, tmpvec.get_store() + 1, f.get_store() + 1, -rho_rhs / (f(0) + f(1)));
 
-    Real* rhsp=rhs.get_store();
-    const Real* vp=tmpvec.get_store()+2;
-    const Real* dp=sqrtD.get_store();
-    for(Integer i=0;i<ydim;i++){
-      *rhsp++ -= (*dp++)*(*vp++);
+    Real* rhsp = rhs.get_store();
+    const Real* vp = tmpvec.get_store() + 2;
+    const Real* dp = sqrtD.get_store();
+    for (Integer i = 0; i < ydim; i++) {
+      *rhsp++ -= (*dp++) * (*vp++);
     }
 
-    if (Vp){
-      mat_xey(lrdim,tmpvec.get_store(),tmpvec.get_store()+2+ydim);
+    if (Vp) {
+      mat_xey(lrdim, tmpvec.get_store(), tmpvec.get_store() + 2 + ydim);
       tmpvec.reduce_length(lrdim);
-      genmult(*Vp,tmpvec,rhs,-1.,1.);
+      genmult(*Vp, tmpvec, rhs, -1., 1.);
     }
 
-    Hfactor=1./sqr(omega);
+    Hfactor = 1. / sqr(omega);
 
     return 0;
   }
 
-  int SOCIPProxBlock::compute_step(const Matrix& step)
-  {
-    dz=sqrtHy_rhs;
-    dz-=z;
-    assert(norm2(dz)<1e-10*z(0));
-    const Real f0pf1=f(0)+f(1);
-    drho=rho_rhs*omega*omega/f0pf1/2.;
+  int SOCIPProxBlock::compute_step(const Matrix& step) {
+    dz = sqrtHy_rhs;
+    dz -= z;
+    assert(norm2(dz) < 1e-10 * z(0));
+    const Real f0pf1 = f(0) + f(1);
+    drho = rho_rhs * omega * omega / f0pf1 / 2.;
 
-    const Real* sp=step.get_store();
-    const Real* dp=sqrtD.get_store();
-    const Real* fp=f.get_store()+2;
-    Real *dzp=dz.get_store()+2;
-    for(Integer i=0;i<ydim;i++){
-      Real d=(*dp++)*(*sp++);
-      (*dzp++)+=d;
-      drho+=d*(*fp++);
+    const Real* sp = step.get_store();
+    const Real* dp = sqrtD.get_store();
+    const Real* fp = f.get_store() + 2;
+    Real* dzp = dz.get_store() + 2;
+    for (Integer i = 0; i < ydim; i++) {
+      Real d = (*dp++) * (*sp++);
+      (*dzp++) += d;
+      drho += d * (*fp++);
     }
 
-    if (Vp){
-      genmult(*Vp,step,tmpvec,1.,0.,1);
-      sp=tmpvec.get_store();
-      for(Integer i=0;i<lrdim;i++){
-	Real d=(*sp++);
-	(*dzp++)+=d;
-	drho+=d*(*fp++);
+    if (Vp) {
+      genmult(*Vp, step, tmpvec, 1., 0., 1);
+      sp = tmpvec.get_store();
+      for (Integer i = 0; i < lrdim; i++) {
+        Real d = (*sp++);
+        (*dzp++) += d;
+        drho += d * (*fp++);
       }
     }
-    drho/=f0pf1;
+    drho /= f0pf1;
 
-    dz(0)+=drho;
-    dz(1)-=drho;
+    dz(0) += drho;
+    dz(1) -= drho;
 
-    dx.init(dz,-1.);
+    dx.init(dz, -1.);
     apply_Finvsqr(dx);
-    dx+=compl_rhs;
-      
+    dx += compl_rhs;
+
     // dx.init(dz,-1);
     // apply_Finvsqr(dx);
     // tmpvec.init(compl_rhs);
@@ -317,7 +308,7 @@ namespace ConicBundle {
 
 
 
-    
+
     // //-- BEGIN Testing
     // Real n2compl=norm2(apply_F(tmpmat.init(dx-compl_rhs))+apply_Finv(tmpvec.init(dz)));
     // if (n2compl>1e-8*(z(0)+x(0))){
@@ -369,31 +360,30 @@ namespace ConicBundle {
   }
 
   int SOCIPProxBlock::do_step(Real alpha,
-			      const Matrix& y)
-  {
-    rho+=alpha*drho;
-    drho=0.;
-    rho_rhs=0.;
+    const Matrix& y) {
+    rho += alpha * drho;
+    drho = 0.;
+    rho_rhs = 0.;
 
-    int err=SOCIPBlock::do_step(alpha);
+    int err = SOCIPBlock::do_step(alpha);
 
     //--- compute sqrtHy_rhs
-    sqrtHy_rhs.newsize(vecdim,1); chk_set_init(sqrtHy_rhs,1);
-    Real* Hyp=sqrtHy_rhs.get_store();
-    (*Hyp++)=rho;
-    (*Hyp++)=rhoconst-rho;
-    const Real* yp=y.get_store();
-    const Real* dp=sqrtD.get_store();
-    for(Integer i=0;i<ydim;i++){
-      Real d=(*yp++)*(*dp++);
+    sqrtHy_rhs.newsize(vecdim, 1); chk_set_init(sqrtHy_rhs, 1);
+    Real* Hyp = sqrtHy_rhs.get_store();
+    (*Hyp++) = rho;
+    (*Hyp++) = rhoconst - rho;
+    const Real* yp = y.get_store();
+    const Real* dp = sqrtD.get_store();
+    for (Integer i = 0; i < ydim; i++) {
+      Real d = (*yp++) * (*dp++);
       *Hyp++ = d;
     }
-    if (lrdim>0){
-      genmult(*Vp,y,tmpvec,1.,0.,1);
-      dp=tmpvec.get_store();
-      for(Integer i=0;i<lrdim;i++){
-	Real d=(*dp++);
-	*Hyp++ = d;
+    if (lrdim > 0) {
+      genmult(*Vp, y, tmpvec, 1., 0., 1);
+      dp = tmpvec.get_store();
+      for (Integer i = 0; i < lrdim; i++) {
+        Real d = (*dp++);
+        *Hyp++ = d;
       }
     }
 
@@ -403,51 +393,50 @@ namespace ConicBundle {
     return err;
   }
 
-  int SOCIPProxBlock::test_sysviol(Matrix& sys_lhs,const Matrix& step) 
-  {
-    assert(sys_lhs.rowdim()==ydim);
+  int SOCIPProxBlock::test_sysviol(Matrix& sys_lhs, const Matrix& step) {
+    assert(sys_lhs.rowdim() == ydim);
     //std::cout<<"socsys_lhsin="<<sys_lhs;
-    
+
     //-- add diagonal part to sys_lhs
-    Real *sysp=sys_lhs.get_store();
-    const Real* dp=sqrtD.get_store();
-    const Real* xp=x.get_store()+2;
-    const Real* dxp=dx.get_store()+2;
-    for(Integer i=0;i<ydim;i++){ 
-      *sysp++ -= (*dp++)*((*xp++)+(*dxp++));
+    Real* sysp = sys_lhs.get_store();
+    const Real* dp = sqrtD.get_store();
+    const Real* xp = x.get_store() + 2;
+    const Real* dxp = dx.get_store() + 2;
+    for (Integer i = 0; i < ydim; i++) {
+      *sysp++ -= (*dp++) * ((*xp++) + (*dxp++));
     }
 
     //-- add low rank part to sys_lhs
-    if (Vp){
-      tmpvec.init(lrdim,1,x.get_store()+ydim+2);
-      mat_xpey(lrdim,tmpvec.get_store(),dx.get_store()+ydim+2);
-      genmult(*Vp,tmpvec,sys_lhs,-1.,1.);
+    if (Vp) {
+      tmpvec.init(lrdim, 1, x.get_store() + ydim + 2);
+      mat_xpey(lrdim, tmpvec.get_store(), dx.get_store() + ydim + 2);
+      genmult(*Vp, tmpvec, sys_lhs, -1., 1.);
     }
-    
+
     //output the system violation
     //std::cout<<"socsys_lhs="<<sys_lhs;
-    std::cout<<" [-1 1 0_m](x+dx)+1= "<<rhoconst+x(1)+dx(1)-x(0)-dx(0)<<std::endl;
-    std::cout<<" rho0-infeas= "<<-rho-drho+z(0)+dz(0)<<std::endl;
-    std::cout<<" rho1-infeas= "<<rho+drho+z(1)+dz(1)-rhoconst<<std::endl;
+    std::cout << " [-1 1 0_m](x+dx)+1= " << rhoconst + x(1) + dx(1) - x(0) - dx(0) << std::endl;
+    std::cout << " rho0-infeas= " << -rho - drho + z(0) + dz(0) << std::endl;
+    std::cout << " rho1-infeas= " << rho + drho + z(1) + dz(1) - rhoconst << std::endl;
 
-    tmpvec=sqrtHy_rhs;
-    tmpvec-=z;
-    tmpvec-=dz;
-    tmpvec(0)+=drho;
-    tmpvec(1)-=drho;
-    Real* vp=tmpvec.get_store()+2;
-    const Real* sp=step.get_store();
-    dp=sqrtD.get_store();
-    for(Integer i=0;i<ydim;i++){ 
-      *vp++ += (*dp++)*(*sp++);
+    tmpvec = sqrtHy_rhs;
+    tmpvec -= z;
+    tmpvec -= dz;
+    tmpvec(0) += drho;
+    tmpvec(1) -= drho;
+    Real* vp = tmpvec.get_store() + 2;
+    const Real* sp = step.get_store();
+    dp = sqrtD.get_store();
+    for (Integer i = 0; i < ydim; i++) {
+      *vp++ += (*dp++) * (*sp++);
     }
-    if (Vp){
-      genmult(*Vp,step,tmpmat,1.,0.,1);
-      mat_xpey(lrdim,vp,tmpmat.get_store());
+    if (Vp) {
+      genmult(*Vp, step, tmpmat, 1., 0., 1);
+      mat_xpey(lrdim, vp, tmpmat.get_store());
     }
-    std::cout<<" sqrtHinfeas= "<<norm2(tmpvec)<<std::endl;
-    std::cout<<" socqpcompl= "<<norm2(apply_F(tmpmat.init(dx-compl_rhs))+apply_Finv(tmpvec.init(dz)))<<std::endl;
-    
+    std::cout << " sqrtHinfeas= " << norm2(tmpvec) << std::endl;
+    std::cout << " socqpcompl= " << norm2(apply_F(tmpmat.init(dx - compl_rhs)) + apply_Finv(tmpvec.init(dz))) << std::endl;
+
     return 0;
   }
 

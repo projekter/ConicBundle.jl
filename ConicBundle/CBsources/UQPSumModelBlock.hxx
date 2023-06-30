@@ -38,146 +38,148 @@
 
 namespace ConicBundle {
 
-/** @ingroup UnconstrainedQPSolver
-*/
+  /** @ingroup UnconstrainedQPSolver
+  */
 
-//@{
-  
-/** @brief  implements a (virtual) cutting model being built of a (possibly recursive) sum of UQPModelBlock cutting model instances for UQPSolver 
+  //@{
 
-   Note, the bundle at the final level might not be the same as the
-   one in the recursive calls, because it might have undergone an
-   AffineFunctionTransformation.
+  /** @brief  implements a (virtual) cutting model being built of a (possibly recursive) sum of UQPModelBlock cutting model instances for UQPSolver
 
-   Not much is happening here besides passing on the calls
-   to the various submodels with information on where to find
-   its own (possibly transformed) bundle information and where
-   to store the requested information in respective global objects
-*/
+     Note, the bundle at the final level might not be the same as the
+     one in the recursive calls, because it might have undergone an
+     AffineFunctionTransformation.
 
-
-  class UQPSumModelBlock: public QPSumModelDataObject, public UQPModelBlock 
-{
-private:
-  /// the container pointing to the UQPModelBlock instances comprised in the sum 
-  std::vector<UQPModelBlock*> blocks;
-
-  CH_Matrix_Classes::Integer xstart; ///< starting index of the x variables subsumed here within the globale vector x
-  CH_Matrix_Classes::Integer xend;  ///< ending index of local x
-  CH_Matrix_Classes::Integer ystart; ///< starting index of the y variables subsumed here within the globale vector y
-  CH_Matrix_Classes::Integer yend; ///< ending index of local y
+     Not much is happening here besides passing on the calls
+     to the various submodels with information on where to find
+     its own (possibly transformed) bundle information and where
+     to store the requested information in respective global objects
+  */
 
 
-public:
-  /// reset to "empty/no" model 
-  void clear()
-  {blocks.clear();xstart=0;xend=0;ystart=0;yend=0;UQPModelBlock::clear();}
+  class UQPSumModelBlock : public QPSumModelDataObject, public UQPModelBlock {
+  private:
+    /// the container pointing to the UQPModelBlock instances comprised in the sum 
+    std::vector<UQPModelBlock*> blocks;
 
-  /// default constructor
-  UQPSumModelBlock(CBout* cb=0,int incr=-1):QPSumModelDataObject(cb,incr),UQPModelBlock(cb,incr){clear();}
-  
-  /// virtual destructor
-  ~UQPSumModelBlock();
+    CH_Matrix_Classes::Integer xstart; ///< starting index of the x variables subsumed here within the globale vector x
+    CH_Matrix_Classes::Integer xend;  ///< ending index of local x
+    CH_Matrix_Classes::Integer ystart; ///< starting index of the y variables subsumed here within the globale vector y
+    CH_Matrix_Classes::Integer yend; ///< ending index of local y
 
-  /// add another model at the end of the list
-  int append(QPModelDataObject* inblock);
-  
-  //-----------  UQPModelBlock routines
 
-  /// sum of all xdim of the sublocks
-  CH_Matrix_Classes::Integer xdim() const;
+  public:
+    /// reset to "empty/no" model 
+    void clear() {
+      blocks.clear(); xstart = 0; xend = 0; ystart = 0; yend = 0; UQPModelBlock::clear();
+    }
 
-  /// sum of all ydim of the sublocks
-  CH_Matrix_Classes::Integer ydim() const;
+    /// default constructor
+    UQPSumModelBlock(CBout* cb = 0, int incr = -1) :QPSumModelDataObject(cb, incr), UQPModelBlock(cb, incr) {
+      clear();
+    }
 
-  /// set the starting index of x also for all subblocks
-  int set_qp_xstart(CH_Matrix_Classes::Integer x_start_index);
-  
-  /// set the starting index of y also for all subblocks
-  int set_qp_ystart(CH_Matrix_Classes::Integer y_start_index);
+    /// virtual destructor
+    ~UQPSumModelBlock();
 
-  /// get the starting x of all subblocks
-  int starting_x(CH_Matrix_Classes::Matrix& qp_x);
+    /// add another model at the end of the list
+    int append(QPModelDataObject* inblock);
 
-  /// get the starting y information of all subblocks
-  int starting_y(CH_Matrix_Classes::Matrix& qp_y,
-		 const CH_Matrix_Classes::Matrix& qp_Qx,
-		 const CH_Matrix_Classes::Matrix& qp_c);
+    //-----------  UQPModelBlock routines
 
-  /// get joint primalcost of all subblocks
-  CH_Matrix_Classes::Real get_local_primalcost() const; 
+    /// sum of all xdim of the sublocks
+    CH_Matrix_Classes::Integer xdim() const;
 
-  /// get joint dualcost of all subblocks
-  CH_Matrix_Classes::Real get_local_dualcost() const; 
+    /// sum of all ydim of the sublocks
+    CH_Matrix_Classes::Integer ydim() const;
 
-  /// get the A matrix of all subblocks and store it consistently
-  int get_Ab(CH_Matrix_Classes::Matrix& qp_A,CH_Matrix_Classes::Matrix &qp_b) const;
-      
-  /// get a good restarting x of all subblocks for this change in costs
-  int restart_x(CH_Matrix_Classes::Matrix& qp_x,const CH_Matrix_Classes::Matrix& qp_c,const CH_Matrix_Classes::Matrix& qp_dc);
-    
+    /// set the starting index of x also for all subblocks
+    int set_qp_xstart(CH_Matrix_Classes::Integer x_start_index);
 
-  /// get a good restarting y  of all subblocks for this change in costs
-  int restart_y(CH_Matrix_Classes::Matrix& qp_y,
-		const CH_Matrix_Classes::Matrix& qp_Qx,
-		const CH_Matrix_Classes::Matrix& qp_c,
-		const CH_Matrix_Classes::Matrix& qp_dc);
+    /// set the starting index of y also for all subblocks
+    int set_qp_ystart(CH_Matrix_Classes::Integer y_start_index);
 
-  /// add this for all subblocks
-  int add_xinv_kron_z(CH_Matrix_Classes::Symmatrix& barQ);
-    
+    /// get the starting x of all subblocks
+    int starting_x(CH_Matrix_Classes::Matrix& qp_x);
 
-  /// add this for all subblocks
-  int add_local_sys(CH_Matrix_Classes::Symmatrix& sysdy,CH_Matrix_Classes::Matrix& rhs);
+    /// get the starting y information of all subblocks
+    int starting_y(CH_Matrix_Classes::Matrix& qp_y,
+      const CH_Matrix_Classes::Matrix& qp_Qx,
+      const CH_Matrix_Classes::Matrix& qp_c);
 
-  /// get this from all subblocks
-  int suggest_mu(CH_Matrix_Classes::Real& ip_xz,
-		 CH_Matrix_Classes::Integer& mu_dim,
-		 CH_Matrix_Classes::Real& sigma,
-                 const CH_Matrix_Classes::Matrix& qp_dx,
-		 const CH_Matrix_Classes::Matrix& qp_dy,
-		 const CH_Matrix_Classes::Matrix& rhs_residual);
-    
+    /// get joint primalcost of all subblocks
+    CH_Matrix_Classes::Real get_local_primalcost() const;
 
-  /// get this from all subblocks
-  int get_corr(CH_Matrix_Classes::Matrix& xcorr,
-	       CH_Matrix_Classes::Matrix& rhs,
-	       CH_Matrix_Classes::Real mu);
-       
+    /// get joint dualcost of all subblocks
+    CH_Matrix_Classes::Real get_local_dualcost() const;
 
-  /// get/do this from/for all subblocks
-  int line_search(CH_Matrix_Classes::Real& alpha,
-		  const CH_Matrix_Classes::Matrix& qp_dx,
-		  const CH_Matrix_Classes::Matrix& qp_dy,
-		  const CH_Matrix_Classes::Matrix& rhs_residual);
-  
+    /// get the A matrix of all subblocks and store it consistently
+    int get_Ab(CH_Matrix_Classes::Matrix& qp_A, CH_Matrix_Classes::Matrix& qp_b) const;
 
-  /// do this for all subblocks
-  int set_point(const CH_Matrix_Classes::Matrix& qp_x,
-		const CH_Matrix_Classes::Matrix& qp_y,
-		CH_Matrix_Classes::Real alpha);
+    /// get a good restarting x of all subblocks for this change in costs
+    int restart_x(CH_Matrix_Classes::Matrix& qp_x, const CH_Matrix_Classes::Matrix& qp_c, const CH_Matrix_Classes::Matrix& qp_dc);
 
-  /// do this for all subblocks
-   int add_modelx_aggregate(CH_Matrix_Classes::Real& offset,
-			    CH_Matrix_Classes::Matrix& gradient);
 
-  /// do this for all subblocks
-  void set_out(std::ostream* o=0,int pril=1);
+    /// get a good restarting y  of all subblocks for this change in costs
+    int restart_y(CH_Matrix_Classes::Matrix& qp_y,
+      const CH_Matrix_Classes::Matrix& qp_Qx,
+      const CH_Matrix_Classes::Matrix& qp_c,
+      const CH_Matrix_Classes::Matrix& qp_dc);
 
-  /// do this for all subblocks
-  void set_cbout(const CBout* cb,int incr=-1);
-  
-  //---------------- for debugging purposes
+    /// add this for all subblocks
+    int add_xinv_kron_z(CH_Matrix_Classes::Symmatrix& barQ);
 
-  /// do this for all subblocks
-  CH_Matrix_Classes::Matrix& add_Bs(CH_Matrix_Classes::Matrix& qp_vec) const;
 
-  /// do this for all subblocks
-  CH_Matrix_Classes::Matrix& subtract_z(CH_Matrix_Classes::Matrix& dual_residual,bool with_step=false) const;
+    /// add this for all subblocks
+    int add_local_sys(CH_Matrix_Classes::Symmatrix& sysdy, CH_Matrix_Classes::Matrix& rhs);
 
-};
+    /// get this from all subblocks
+    int suggest_mu(CH_Matrix_Classes::Real& ip_xz,
+      CH_Matrix_Classes::Integer& mu_dim,
+      CH_Matrix_Classes::Real& sigma,
+      const CH_Matrix_Classes::Matrix& qp_dx,
+      const CH_Matrix_Classes::Matrix& qp_dy,
+      const CH_Matrix_Classes::Matrix& rhs_residual);
 
-//@}
+
+    /// get this from all subblocks
+    int get_corr(CH_Matrix_Classes::Matrix& xcorr,
+      CH_Matrix_Classes::Matrix& rhs,
+      CH_Matrix_Classes::Real mu);
+
+
+    /// get/do this from/for all subblocks
+    int line_search(CH_Matrix_Classes::Real& alpha,
+      const CH_Matrix_Classes::Matrix& qp_dx,
+      const CH_Matrix_Classes::Matrix& qp_dy,
+      const CH_Matrix_Classes::Matrix& rhs_residual);
+
+
+    /// do this for all subblocks
+    int set_point(const CH_Matrix_Classes::Matrix& qp_x,
+      const CH_Matrix_Classes::Matrix& qp_y,
+      CH_Matrix_Classes::Real alpha);
+
+    /// do this for all subblocks
+    int add_modelx_aggregate(CH_Matrix_Classes::Real& offset,
+      CH_Matrix_Classes::Matrix& gradient);
+
+    /// do this for all subblocks
+    void set_out(std::ostream* o = 0, int pril = 1);
+
+    /// do this for all subblocks
+    void set_cbout(const CBout* cb, int incr = -1);
+
+    //---------------- for debugging purposes
+
+    /// do this for all subblocks
+    CH_Matrix_Classes::Matrix& add_Bs(CH_Matrix_Classes::Matrix& qp_vec) const;
+
+    /// do this for all subblocks
+    CH_Matrix_Classes::Matrix& subtract_z(CH_Matrix_Classes::Matrix& dual_residual, bool with_step = false) const;
+
+  };
+
+  //@}
 
 }
 

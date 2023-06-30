@@ -30,22 +30,22 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  QPModelDataObject::~QPModelDataObject()
-  {}
+  QPModelDataObject::~QPModelDataObject() {
+  }
 
-  QPSumModelDataObject::~QPSumModelDataObject()
-  {}
+  QPSumModelDataObject::~QPSumModelDataObject() {
+  }
 
-  
-  QPModelOracleDataObject::~QPModelOracleDataObject()
-  {}
-  
-  
-  QPConeModelDataObject::~QPConeModelDataObject()
-  {}
 
-  QPModelDataPointer::~QPModelDataPointer()
-  {}
+  QPModelOracleDataObject::~QPModelOracleDataObject() {
+  }
+
+
+  QPConeModelDataObject::~QPConeModelDataObject() {
+  }
+
+  QPModelDataPointer::~QPModelDataPointer() {
+  }
 
 
 }

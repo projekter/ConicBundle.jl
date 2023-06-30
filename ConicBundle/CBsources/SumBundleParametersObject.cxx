@@ -29,25 +29,25 @@ using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
 
-  int SumBundleParametersObject::init(const BundleParameters& bp)
-  {
-    int err=BundleParameters::init(bp);
-    const SumBundleParametersObject* p=dynamic_cast<const SumBundleParametersObject*>(&bp);
-    if (p){
-      acceptable_mode=p->acceptable_mode;
+  int SumBundleParametersObject::init(const BundleParameters& bp) {
+    int err = BundleParameters::init(bp);
+    const SumBundleParametersObject* p = dynamic_cast<const SumBundleParametersObject*>(&bp);
+    if (p) {
+      acceptable_mode = p->acceptable_mode;
       delete vm_selection;
-      vm_selection=0;
+      vm_selection = 0;
       if (p->vm_selection)
-	vm_selection=p->vm_selection->clone_VariableMetricSelection();
+        vm_selection = p->vm_selection->clone_VariableMetricSelection();
       else
-	vm_selection=0;
+        vm_selection = 0;
     }
     return err;
   }
 
 
-  SumBundleParametersObject::~SumBundleParametersObject()
-  {delete vm_selection;}
+  SumBundleParametersObject::~SumBundleParametersObject() {
+    delete vm_selection;
+  }
 
 
 } // end namespace ConicBundle

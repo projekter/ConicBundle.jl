@@ -34,112 +34,109 @@
     @date 2005-03-01
     @author Christoph Helmberg
 
-    The code is extracted/translated/adapted from an indirect 
+    The code is extracted/translated/adapted from an indirect
     copy of a socalled Stanford graph-base library
 */
 
 namespace CH_Tools {
 
-/**@defgroup GB_rand Random Number Generator
-*/
+  /**@defgroup GB_rand Random Number Generator
+  */
   //@{
 
   /** @brief device independent random number generator based on long int with seed
 
   */
 
-class GB_rand
-{
-private:
-  long A[56];   ///< storage for the next few precomputed random numbers 
-  int ind;      ///< index of the next number to return
+  class GB_rand {
+  private:
+    long A[56];   ///< storage for the next few precomputed random numbers 
+    int ind;      ///< index of the next number to return
 
-  /// compute (x-y) & 0x7fffffff
-  long mod_diff(long x,long y){return ((x-y)&0x7fffffff);}
-
-  /// compute next set of numbers
-  long flip_cycle ()
-  {
-    long *ii, *jj;
-    for (ii = &A[1], jj = &A[32]; jj <= &A[55]; ii++, jj++)
-      *ii = ((*ii-*jj) & 0x7fffffff);
-    for (jj = &A[1]; ii <= &A[55]; ii++, jj++)
-      *ii = ((*ii-*jj) & 0x7fffffff);
-    ind = 54;
-    return A[55];
-  }
-    
-public:
-  /// restart generator with seed
-  void init(long seed=1)
-  {
-    long i;
-    long prev = seed, next = 1;
-    seed = prev = (prev & 0x7fffffff);
-    A[55] = prev;
-    for (i = 21; i; i = (i + 21) % 55) {
-      A[i] = next;
-      
-      next = ((prev-next) & 0x7fffffff);
-      if (seed & 1)
-	seed = 0x40000000 + (seed >> 1);
-      else
-	seed >>= 1;
-      next = ((next- seed) & 0x7fffffff);
-      
-      prev = A[i];
+    /// compute (x-y) & 0x7fffffff
+    long mod_diff(long x, long y) {
+      return ((x - y) & 0x7fffffff);
     }
-    
-    (void) flip_cycle ();
-    (void) flip_cycle ();
-    (void) flip_cycle ();
-    (void) flip_cycle ();
-    (void) flip_cycle ();
-    
-  }
-  
-  /// calls  init(seed)
-  GB_rand(long seed=1)
-  {ind=0;A[0]=-1;init(seed);}
 
-  ///
-  ~GB_rand(){}
-    
-  /// returns a random integer number "uniformly distributed" in {0,..,m-1} 
-  long unif_long(long m)
-  {
-    const unsigned long two_to_the_31 = (unsigned long)0x80000000;
-    unsigned long t = two_to_the_31 - (two_to_the_31 % (unsigned long)(m));
-    long r;
-    do {
-      r = (A[ind]>=0?(A[ind--]):flip_cycle());
-    } while (t <= (unsigned long) r);
-    return r % m;
-  }
+    /// compute next set of numbers
+    long flip_cycle() {
+      long* ii, * jj;
+      for (ii = &A[1], jj = &A[32]; jj <= &A[55]; ii++, jj++)
+        *ii = ((*ii - *jj) & 0x7fffffff);
+      for (jj = &A[1]; ii <= &A[55]; ii++, jj++)
+        *ii = ((*ii - *jj) & 0x7fffffff);
+      ind = 54;
+      return A[55];
+    }
 
-  /// returns a random double number "uniformly distributed" in (0,1)
-  double next()
-  {
-    long r=unif_long(0x40000000);
-    return (double(r)+.5)/double(0x40000000);
-  }
-  
-  /// save current configuration to out so as to continue identically after restore
-  std::ostream& save(std::ostream& out) const
-  {
-    for(int i=0;i<56;i++) out<<A[i]<<"\n";
-    out<<ind<<"\n"; return out;
-  }
+  public:
+    /// restart generator with seed
+    void init(long seed = 1) {
+      long i;
+      long prev = seed, next = 1;
+      seed = prev = (prev & 0x7fffffff);
+      A[55] = prev;
+      for (i = 21; i; i = (i + 21) % 55) {
+        A[i] = next;
 
-  /// restore settings as stored in save 
-  std::istream& restore(std::istream& in)
-  {
-    for(int i=0;i<56;i++)
-      in>>A[i];
-    in>>ind; return in;
-  }
+        next = ((prev - next) & 0x7fffffff);
+        if (seed & 1)
+          seed = 0x40000000 + (seed >> 1);
+        else
+          seed >>= 1;
+        next = ((next - seed) & 0x7fffffff);
 
-};
+        prev = A[i];
+      }
+
+      (void)flip_cycle();
+      (void)flip_cycle();
+      (void)flip_cycle();
+      (void)flip_cycle();
+      (void)flip_cycle();
+
+    }
+
+    /// calls  init(seed)
+    GB_rand(long seed = 1) {
+      ind = 0; A[0] = -1; init(seed);
+    }
+
+    ///
+    ~GB_rand() {
+    }
+
+    /// returns a random integer number "uniformly distributed" in {0,..,m-1} 
+    long unif_long(long m) {
+      const unsigned long two_to_the_31 = (unsigned long)0x80000000;
+      unsigned long t = two_to_the_31 - (two_to_the_31 % (unsigned long)(m));
+      long r;
+      do {
+        r = (A[ind] >= 0 ? (A[ind--]) : flip_cycle());
+      } while (t <= (unsigned long)r);
+      return r % m;
+    }
+
+    /// returns a random double number "uniformly distributed" in (0,1)
+    double next() {
+      long r = unif_long(0x40000000);
+      return (double(r) + .5) / double(0x40000000);
+    }
+
+    /// save current configuration to out so as to continue identically after restore
+    std::ostream& save(std::ostream& out) const {
+      for (int i = 0; i < 56; i++) out << A[i] << "\n";
+      out << ind << "\n"; return out;
+    }
+
+    /// restore settings as stored in save 
+    std::istream& restore(std::istream& in) {
+      for (int i = 0; i < 56; i++)
+        in >> A[i];
+      in >> ind; return in;
+    }
+
+  };
 
   //@}
 

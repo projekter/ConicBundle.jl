@@ -25,14 +25,15 @@
 
 #include "BundleModel.hxx"
 
- 
+
 
 namespace ConicBundle {
 
-  BundleModel::BundleModel(CBout* cb,int cbinc):VariableMetricModel(cb,cbinc){}
+  BundleModel::BundleModel(CBout* cb, int cbinc) :VariableMetricModel(cb, cbinc) {
+  }
 
-  BundleModel::~BundleModel()
-  {}
+  BundleModel::~BundleModel() {
+  }
 
 
 }

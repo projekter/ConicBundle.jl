@@ -31,8 +31,9 @@
 using namespace CH_Matrix_Classes;
 
 namespace ConicBundle {
-  
- QPKKTSolverObject::~QPKKTSolverObject(){}
+
+  QPKKTSolverObject::~QPKKTSolverObject() {
+  }
 
 
 }

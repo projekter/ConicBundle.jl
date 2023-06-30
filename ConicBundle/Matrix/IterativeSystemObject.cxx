@@ -25,13 +25,15 @@
 
 #include "IterativeSystemObject.hxx"
 
- 
+
 using namespace CH_Tools;
 
 namespace CH_Matrix_Classes {
 
-  IterativeSystemObject::~IterativeSystemObject(){}
+  IterativeSystemObject::~IterativeSystemObject() {
+  }
 
-  IterativeSolverObject::~IterativeSolverObject(){}
+  IterativeSolverObject::~IterativeSolverObject() {
+  }
 
 }
