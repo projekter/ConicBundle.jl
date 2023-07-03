@@ -95,7 +95,7 @@ extern "C" {
 
   int cb_add_function(cb_problemp p, void* function_key, cb_functionp f,
     cb_subgextp se, int primaldim, double fun_factor, int fun_task,
-    AffineFunctionTransformation* aft) {
+    cb_affinefunctiontransformationp aft) {
     assert(p);
     if (p->funmap.find(function_key) != p->funmap.end()) return 1;
     CFunction* cf = new CFunction(function_key, f, se, primaldim);

@@ -33,8 +33,8 @@ int eval_fun0( /* input: */
 	      double *dual, /* argument/Lagrange multipliers */
 	      double relprec,
 	      int max_new_subg,
-	      
-	      /* output: */ 
+
+	      /* output: */
 	      double *objective_value,
 	      int* new_subg,
 	      double *subgval,
@@ -48,8 +48,8 @@ int eval_fun1( /* input: */
 	      double *dual, /* argument/Lagrange multipliers */
 	      double relprec,
 	      int max_new_subg,
-	      
-	      /* output: */ 
+
+	      /* output: */
 	      double *objective_value,
 	      int* new_subg,
 	      double *subgval,
@@ -65,8 +65,8 @@ int eval_fun0( /* input: */
 	      double *dual, /* argument/Lagrange multipliers */
 	      __attribute__((unused)) double relprec,
 	      int max_new_subg,
-	      
-	      /* output: */ 
+
+	      /* output: */
 	      double *objective_value,
 	      int* new_subg,
 	      double *subgval,
@@ -99,14 +99,14 @@ int eval_fun0( /* input: */
   }
   return 0;
 }
-  
+
 int eval_fun1( /* input: */
 	      __attribute__((unused)) void* function_key ,
 	      double *dual, /* argument/Lagrange multipliers */
 	      __attribute__((unused)) double relprec ,
 	      int max_new_subg,
-	      
-	      /* output: */ 
+
+	      /* output: */
 	      double *objective_value,
 	      int* new_subg,
 	      double *subgval,
@@ -172,7 +172,7 @@ int eval_fun1( /* input: */
   }
   return 0;
 }
-  
+
 
 
 
@@ -193,46 +193,46 @@ int main(void)
     printf("construct_problem failed\n");
     return 1;
   }
-  if (cb_init_problem(p,2,0,0)){
+  if (cb_init_problem(p,2,0,0,0.)){
     printf("init_problem failed\n");
     return 1;
   }
-  if (cb_add_function(p,(void *)&f0,eval_fun0,0,2)){
+  if (cb_add_function(p,(void *)&f0,eval_fun0,0,2,1.,0,0)){
     printf("add eval_fun0 failed\n");
     return 1;
   }
-  if (cb_add_function(p,(void *)&f1,eval_fun1,0,2)){
+  if (cb_add_function(p,(void *)&f1,eval_fun1,0,2,1.,0,0)){
     printf("add eval_fun1 failed\n");
     return 1;
   }
-    
+
   cb_set_print_level(p,1);         /* output level */
-   
+
   cb_set_term_relprec(p,1e-9);     /* relatvie precision for termination */
-  
+
   cb_set_max_modelsize(p,(void *)&f0,3);
   cb_set_max_modelsize(p,(void *)&f1,5);
   cb_set_max_bundlesize(p,(void *)&f0,10);
   cb_set_max_bundlesize(p,(void *)&f1,10);
   cb_set_max_new_subgradients(p,(void *)&f0,5);
   cb_set_max_new_subgradients(p,(void *)&f1,5);
-  
+
   /* cb_set_next_weight(p,5.); */  /* set the initial weight */
-  
+
   cnt=1;
 
   do {
 
     int retval;
 
-    
+
     /* call solve with option to stop after the next descent step */
     if ((retval=cb_solve(p,0,1))){
       printf("cb_solve() returned %d\n",retval);
       return 1;
     }
 
-    
+
     /* get solution information */
     obj=cb_get_objval(p);
     if ((retval=cb_get_center(p,y))){
@@ -254,12 +254,12 @@ int main(void)
     if ((retval=cb_get_approximate_primal(p,(void*)&f1,x1))){
       printf("cb_get_approximate_primal() returned %d for function 1\n",retval);
       return 1;
-    }      
+    }
     printf("\n xf1: [%f,%f]",x1[0],x1[1]);
 
     /* set some paramters */
     cb_set_min_weight(p,0.01);
-    cb_set_max_weight(p,100.); 
+    cb_set_max_weight(p,100.);
 
     printf("\n");
     cnt++;

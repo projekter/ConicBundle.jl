@@ -119,10 +119,12 @@ class CB_CSolver;
 /** @brief pointer to a ConicBundle problem
  */
 typedef CB_CSolver* cb_problemp;
+typedef ConicBundle::AffineFunctionTransformation* cb_affinefunctiontransformationp;
 #else
 /** @brief pointer to a ConicBundle problem
  */
 typedef struct CB_CSolver* cb_problemp;
+typedef struct CB_AffineFunctionTransformation* cb_affinefunctiontransformationp;
 #endif
 
 #ifdef _WINDOWS
@@ -473,7 +475,7 @@ extern "C" {
     int m, /* dimension of argument/number Lag mult */
     double* lowerb, /* pointer to array, may be NULL */
     double* upperb, /* point to array, may be NULL */
-    double offset = 0.
+    double offset
   );
 
   /* *****************************************************************
@@ -528,9 +530,9 @@ extern "C" {
     cb_functionp f,
     cb_subgextp se,
     int primaldim,
-    double fun_factor = 1.,
-    int fun_task = 0,
-    ConicBundle::AffineFunctionTransformation* aft = 0);
+    double fun_factor,
+    int fun_task,
+    cb_affinefunctiontransformationp aft);
 
 
   /* *****************************************************************
