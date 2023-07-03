@@ -15,16 +15,16 @@ OSTYPE		:=	$(shell uname -s | tr A-Z a-z)
 CXX		=	g++
 CC		=	gcc
 
-MODE		=       DEBU
-#MODE		=       OPTI
+#MODE		=       DEBU
+MODE		=       OPTI
 
 CONICBUNDLE	=	.
 CPPFLAGS	=	-I$(CONICBUNDLE)/include -I$(CONICBUNDLE)/CBsources \
-			-I$(CONICBUNDLE)/Matrix -I$(CONICBUNDLE)/Tools
+			-I$(CONICBUNDLE)/Matrix -I$(CONICBUNDLE)/Tools -I$(CONICBUNDLE)/cppinterface
 
 CBLIBOBJECT	=	memarray.o CBout.o \
                         MatrixCBSolver.o CBSolver.o \
-			CB_CSolver.o CFunction.o \
+			CB_CSolver.o CFunction.o cb_cppinterface.o \
                         BundleSolver.o BundleModel.o \
                         BundleWeight.o BundleHKWeight.o BundleRQBWeight.o \
 			BundleTerminator.o \
@@ -58,7 +58,7 @@ CBLIBOBJECT	=	memarray.o CBout.o \
                         BundleLowRankTrustRegionProx.o \
                         BundleDenseTrustRegionProx.o \
 			UQPModelBlockObject.o UQPModelBlock.o \
-			UQPSumModelBlock.o UQPConeModelBlock.o UQPSolver.o\
+			UQPSumModelBlock.o UQPConeModelBlock.o UQPSolver.o \
 			QPModelDataObject.o QPModelBlockObject.o \
 			QPSolverObject.o QPSolver.o \
 			QPModelBlock.o QPSumModelBlock.o QPConeModelBlock.o \
@@ -73,7 +73,7 @@ CBLIBOBJECT	=	memarray.o CBout.o \
 			QPIterativeKKTHAeqSolver.o QPKKTSolverComparison.o \
                         indexmat.o matrix.o symmat.o  eigval.o ldl.o chol.o aasen.o \
                         qr.o trisolve.o nnls.o sparssym.o sparsmat.o lanczpol.o \
-			IterativeSystemObject.o psqmr.o pcg.o minres.o \
+			IterativeSystemObject.o psqmr.o pcg.o minres.o
 
 CTESTOBJECT	=	c_main.o
 
@@ -83,40 +83,41 @@ MATTESTOBJECT	=	mat_main.o
 
 MCTOBJECT	=	mc_triangle.o
 
-TARGET		=	lib/libcb.a  t_c t_cxx t_mat mc_triangle 
+TARGET		=	lib/libcb.a  t_c t_cxx t_mat mc_triangle
 
 #-----------------------------------------------------------------------------
 
 GCCWARN		=	-W -Wall -pedantic -Wcast-qual -Wwrite-strings \
 			-Wnon-virtual-dtor -Wcast-align -Wconversion \
-			-Wno-char-subscripts -Wpointer-arith -Wundef
+			-Wno-char-subscripts -Wpointer-arith -Wundef \
+			-Wno-misleading-indentation -Wno-deprecated-declarations
 
 #--- linux.x86_64.g++ settings ---------------------------------------------------
-DEBU.linux.x86_64.g++ =  -g -fPIC 
-OPTI.linux.x86_64.g++ =  -fPIC -DNDEBUG -O3 -march=native -funroll-loops 
+DEBU.linux.x86_64.g++ =  -g -fPIC
+OPTI.linux.x86_64.g++ =  -fPIC -DNDEBUG -O3 -march=native -funroll-loops
 WARN.linux.x86_64.g++ =	$(GCCWARN)
 DEPD.linux.x86_64.g++ =	-MM
-LINK.linux.x86_64.g++ =	-lm 
+LINK.linux.x86_64.g++ =	-lm
 AR.linux.x86_64.g++   =	ar
 ARFLAGS.linux.x86_64.g++ =	cr
 RANLIB.linux.x86_64.g++ =	ranlib
 OPTI.linux.x86_64.gcc =	-DNDEBUG -O3
 WARN.linux.x86_64.gcc =	$(GCCWARN)
-DEBU.linux.x86_64.gcc = 	-g 
+DEBU.linux.x86_64.gcc = 	-g
 DEPD.linux.x86_64.gcc =	-MM
 LINK.linux.x86_64.gcc =	-lm
 #--- linux.x86_64.clang++ settings ---------------------------------------------------
 DEBU.linux.x86_64.clang++ =  -g -std=c++11
-OPTI.linux.x86_64.clang++ =  -DNDEBUG  -O3 -march=native -funroll-loops 
+OPTI.linux.x86_64.clang++ =  -DNDEBUG  -O3 -march=native -funroll-loops
 WARN.linux.x86_64.clang++ =	$(GCCWARN)
 DEPD.linux.x86_64.clang++ =	-MM
-LINK.linux.x86_64.clang++ =	-lm 
+LINK.linux.x86_64.clang++ =	-lm
 AR.linux.x86_64.clang++   =	ar
 ARFLAGS.linux.x86_64.clang++ =	cr
 RANLIB.linux.x86_64.clang++ =	ranlib
 OPTI.linux.x86_64.clang =	-DNDEBUG -O3
 WARN.linux.x86_64.clang =	$(GCCWARN)
-DEBU.linux.x86_64.clang = 	-g 
+DEBU.linux.x86_64.clang = 	-g
 DEPD.linux.x86_64.clang =	-MM
 LINK.linux.x86_64.clang =	-lm
 #-----------------------------------------------------------------------------
@@ -128,7 +129,7 @@ CCFLAGS		= 	$($(MODE).$(OSTYPE).$(ARCH).$(CC))\
 			$(WARN.$(OSTYPE).$(ARCH).$(CC))
 
 LDFLAGS		=	$(LINK.$(OSTYPE).$(ARCH).$(CXX))
-DFLAGS		=	$(DEPD.$(OSTYPE).$(ARCH).$(CXX)) 
+DFLAGS		=	$(DEPD.$(OSTYPE).$(ARCH).$(CXX))
 
 AR		=       $(AR.$(OSTYPE).$(ARCH).$(CXX))
 ARFLAGS		=	$(ARFLAGS.$(OSTYPE).$(ARCH).$(CXX))
@@ -141,7 +142,7 @@ OBJMATTEST	=	$(addprefix $(OBJDIR)/,$(MATTESTOBJECT))
 OBJMCT		=	$(addprefix $(OBJDIR)/,$(MCTOBJECT))
 OBJCBLIB	=	$(addprefix $(OBJDIR)/,$(CBLIBOBJECT))
 
-VPATH	        =       . $(CONICBUNDLE)/Matrix $(CONICBUNDLE)/CBsources $(CONICBUNDLE)/CBtestsources 
+VPATH	        =       . $(CONICBUNDLE)/Matrix $(CONICBUNDLE)/CBsources $(CONICBUNDLE)/CBtestsources $(CONICBUNDLE)/cppinterface
 
 all:		$(TARGET)
 
@@ -159,8 +160,9 @@ mc_triangle:	$(OBJMCT) lib/libcb.a
 
 lib/libcb.a:   	include/CBconfig.hxx $(OBJCBLIB)
 		@if [ ! -d lib ]; then mkdir lib; fi
-	        $(AR) $(ARFLAGS) lib/libcb.a $(OBJCBLIB) 
+	        $(AR) $(ARFLAGS) lib/libcb.a $(OBJCBLIB)
 		$(RANLIB) lib/libcb.a
+		$(CXX) -shared -o ../bin/ConicBundle.so $(OBJCBLIB)
 
 clean:
 		-rm -rf OPTI.* DEBU.* $(TARGET)

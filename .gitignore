@@ -2,3 +2,7 @@
 .vs
 x64
 Manifest.toml
+t_*
+OPTI.*
+mc_triangle
+libcb.a

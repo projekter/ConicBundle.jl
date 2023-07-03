@@ -235,7 +235,7 @@
     <ClCompile Include="cbsources\UQPSumModelBlock.cxx" />
     <ClCompile Include="cbsources\VariableMetric.cxx" />
     <ClCompile Include="cbsources\VariableMetricSVDSelection.cxx" />
-    <ClCompile Include="cppinterface\cb_cppinterface.cpp" />
+    <ClCompile Include="cppinterface\cb_cppinterface.cxx" />
     <ClCompile Include="matrix\aasen.cxx" />
     <ClCompile Include="matrix\chol.cxx" />
     <ClCompile Include="matrix\eigval.cxx" />

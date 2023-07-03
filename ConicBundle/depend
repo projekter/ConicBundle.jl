@@ -390,6 +390,33 @@ $(OBJDIR)/CFunction.o $(OBJDIR)/CFunction.d : CBsources/CFunction.cxx CBsources/
  CBsources/SumBundle.hxx CBsources/BundleWeight.hxx \
  CBsources/BundleModel.hxx CBsources/FunctionObjectModification.hxx \
  CBsources/SumBundleParametersObject.hxx include/cb_cinterface.h
+$(OBJDIR)/CB_CPPinterface.o $(OBJDIR)/CB_CPPinterface.d : cppinterface/cb_cppinterface.cxx \
+ include/cb_cinterface.h \
+ Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/sparsmat.hxx Matrix/symmat.hxx Matrix/sparssym.hxx \
+ CBsources/CMgramdense.hxx CBsources/CMgramsparse.hxx CBsources/CMgramsparse_withoutdiag.hxx \
+ CBsources/CMlowrankdd.hxx CBsources/CMlowranksd.hxx CBsources/CMlowrankss.hxx CBsources/CMsingleton.hxx \
+ CBsources/CMsymdense.hxx CBsources/CMsymsparse.hxx CBsources/SparseCoeffmatMatrix.hxx \
+ Tools/gb_rand.hxx CBsources/Coeffmat.hxx CBsources/MatrixCBSolver.hxx CBsources/PSCPrimal.hxx \
+ CBsources/AFTModification.hxx CBsources/GroundsetModification.hxx CBsources/NNCBoxSupportModification.hxx \
+ CBsources/PSCAffineModification.hxx CBsources/SOCSupportModification.hxx \
+ CBsources/AffineFunctionTransformation.hxx CBsources/MinorantPointer.hxx CBsources/MinorantUseData.hxx \
+ include/CBSolver.hxx CBsources/BoxOracle.hxx CBsources/PSCOracle.hxx CBsources/SOCOracle.hxx \
+ CBsources/CFunction.hxx CBsources/NNCBoxSupportFunction.hxx CBsources/PSCAffineFunction.hxx \
+ CBsources/SOCSupportFunction.hxx CBsources/BoxModelParameters.hxx CBsources/NNCModelParameters.hxx \
+ CBsources/PSCModelParameters.hxx CBsources/SOCModelParameters.hxx CBsources/SumBundleParameters.hxx \
+ CBsources/AFTData.hxx CBsources/BoxData.hxx CBsources/NNCData.hxx CBsources/PSCData.hxx CBsources/SOCData.hxx \
+ CBsources/BundleHKWeight.hxx CBsources/BundleRQBWeight.hxx CBsources/BundleDenseTrustRegionProx.hxx \
+ CBsources/BundleDiagonalTrustRegionProx.hxx CBsources/BundleDLRTrustRegionProx.hxx \
+ CBsources/BundleIdProx.hxx CBsources/BundleLowRankTrustRegionProx.hxx CBsources/QPSolverParameters.hxx \
+ CBsources/QPSolver.hxx CBsources/UQPSolver.hxx CBsources/LPGroundset.hxx CBsources/UnconstrainedGroundset.hxx \
+ CBsources/AFTModel.hxx CBsources/BoxModel.hxx CBsources/NNCModel.hxx CBsources/PSCModel.hxx \
+ CBsources/SOCModel.hxx CBsources/SumModel.hxx CBsources/PSCVariableMetricSelection.hxx \
+ CBsources/VariableMetricSVDSelection.hxx CBsources/QPDirectKKTSolver.hxx CBsources/QPIterativeKKTHAeqSolver.hxx \
+ CBsources/QPIterativeKKTHASolver.hxx CBsources/QPKKTSolverComparison.hxx CBsources/SumBundleHandler.hxx \
+ CBsources/QPConeModelBlock.hxx CBsources/QPSumModelBlock.hxx CBsources/UQPConeModelBlock.hxx \
+ CBsources/UQPSumModelBlock.hxx Matrix/minres.hxx Matrix/pcg.hxx Matrix/psqmr.hxx \
+ CBsources/QPKKTSubspaceHPrecond.hxx CBsources/SumBundle.hxx CBsources/BundleSolver.hxx \
+ CBsources/BundleTerminator.hxx Tools/clock.hxx
 $(OBJDIR)/chol.o $(OBJDIR)/chol.d : Matrix/chol.cxx Matrix/mymath.hxx Matrix/symmat.hxx \
  Matrix/matrix.hxx Matrix/indexmat.hxx Matrix/memarray.hxx \
  Matrix/matop.hxx Tools/gb_rand.hxx include/CBconfig.hxx \

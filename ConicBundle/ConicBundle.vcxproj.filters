@@ -375,7 +375,7 @@
     <ClCompile Include="tools\BoxPlot.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cppinterface\cb_cppinterface.cpp">
+    <ClCompile Include="cppinterface\cb_cppinterface.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

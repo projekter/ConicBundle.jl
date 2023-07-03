@@ -11,9 +11,13 @@ A project file for Visual Studio 2022 was added and the binary for Windows x64 a
 the project on Linux, this should be very doable, as this was ConicBundle's original platform.
 
 # Compilation
-For the compilation of ConicBundle under Linux, see the instructions in [the ConicBundle readme](ConicBundle/README).
+ConicBundle itself with some modifications is found in the `ConicBundle` subdirectory.
+For the compilation of ConicBundle under Linux, just run `make` in this directory, which will create both a static library
+`libcb.a` in `ConicBundle/lib` as well as the shared object file `ConicBundle.so` that the Julia interface uses in `bin`.
+For more options, see the [the ConicBundle readme](ConicBundle/README).
 For Windows, the repository comes with a Visual Studio 2022 project file which you can just open and compile. The output DLL
-(in Release mode) should go to the `bin` directory automatically. It is prepackaged with the Julia package.
+(in Release mode) should go to the `bin` directory automatically.
+Both shared files are prepackaged.
 If you want to regenerate the automatically created C++ interface, move your working directory to `src/cppinterface` and run
 the `adapter.py` script (requires the `regex` package, which can be easily installed using pip). This will recreate all Julia
 files in the `src/cppinterface` directory as well as the corresponding C++ files in `ConicBundle/cppinterface`.
