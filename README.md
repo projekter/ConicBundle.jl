@@ -1,4 +1,7 @@
 # ConicBundle for Julia
+
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://projekter.github.io/ConicBundle.jl/stable)
+
 This repository contains Julia bindings of Christoph Helmberg's
 [ConicBundle](https://www-user.tu-chemnitz.de/~helmberg/ConicBundle/Manual/index.html), version 1.a.2.
 The source code itself is almost unchanged, but an additional set of export functions have been provided for a lot of the C++
