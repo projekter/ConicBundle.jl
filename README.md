@@ -3,7 +3,7 @@ This repository contains Julia bindings of Christoph Helmberg's
 [ConicBundle](https://www-user.tu-chemnitz.de/~helmberg/ConicBundle/Manual/index.html), version 1.a.2.
 The source code itself is almost unchanged, but an additional set of export functions have been provided for a lot of the C++
 interface.
-Note that this extension was generated automatically; a manual cleanup would certainly be desirable.
+Note that the C++ part was generated automatically; a manual cleanup would certainly be desirable.
 A project file for Visual Studio 2022 was added and the binary for Windows x64 are provided. While it was not tried to compile
 the project on Linux, this should be very doable, as this was ConicBundle's original platform.
 
