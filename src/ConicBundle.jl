@@ -51,6 +51,7 @@ module ConicBundle
 
 import LinearAlgebra
 import MutableArithmetics as MA
+using Pkg.Artifacts
 
 export CBProblem, cb_clear!, cb_set_default!, cb_init_problem!, cb_add_function!, cb_set_lower_bound!, cb_set_upper_bound!,
     cb_append_variables!, cb_delete_variables!, cb_reassign_variables!, cb_solve!, cb_termination_code,
@@ -67,7 +68,7 @@ export CBProblem, cb_clear!, cb_set_default!, cb_init_problem!, cb_add_function!
     cbt_incfailure_limit, cbt_ocall_limit, cbt_ofailure_limit,
     cbvm_no_scaling, cbvm_diagonal_scaling, cbvm_diagonal_scaling_with_bounds
 
-const libcb = joinpath(@__DIR__, "..", "bin", Sys.iswindows() ? "ConicBundle.dll" : "ConicBundle.so")
+const libcb = joinpath(artifact"ConicBundle", Sys.iswindows() ? "ConicBundle.dll" : "ConicBundle.so")
 
 mutable struct CBCSolver end;
 

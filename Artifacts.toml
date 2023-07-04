@@ -1,0 +1,17 @@
+[[ConicBundle]]
+arch = "x86_64"
+git-tree-sha1 = "a460babe906180773972e2aa853ec6ca9d848c1e"
+os = "windows"
+
+    [[ConicBundle.download]]
+    url = "https://github.com/projekter/ConicBundle/releases/download/v1.0.0-a2/x86_64-w64-msvc.tar.gz"
+    sha256 = "158adb90fde7abbc341371526ac7f5b9cf6713267346cc760511f976ae5742b1"
+
+[[ConicBundle]]
+arch = "x86_64"
+git-tree-sha1 = "d4d68a1ed73357b81e7d4505789f8367b8fefd7b"
+os = "linux"
+
+    [[ConicBundle.download]]
+    url = "https://github.com/projekter/ConicBundle/releases/download/v1.0.0-a2/x86_64-linux-gnu.tar.gz"
+    sha256 = "5a2d8d0017d17780e1133aa8d11d47eab723c30300c69cdd168fb28309af2ff3"
