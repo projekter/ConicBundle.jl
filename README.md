@@ -1,6 +1,7 @@
 # ConicBundle for Julia
 
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://projekter.github.io/ConicBundle.jl/dev)
+[![CI](https://github.com/projekter/ConicBundle.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/projekter/ConicBundle.jl/actions/workflows/ci.yml)
 
 This repository contains Julia bindings of Christoph Helmberg's
 [ConicBundle](https://www-user.tu-chemnitz.de/~helmberg/ConicBundle/Manual/index.html), version 1.a.2.
